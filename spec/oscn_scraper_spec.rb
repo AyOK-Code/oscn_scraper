@@ -4,6 +4,6 @@ RSpec.describe OscnScraper do
   end
 
   it "does something useful" do
-    expect(false).to eq(true)
+      skip
   end
 end
