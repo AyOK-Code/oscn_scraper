@@ -9,7 +9,6 @@ on:
   pull_request:
     branches: [ $default-branch ]
 
-
 jobs:
   build:
     name: Run rubocop and Rspec
