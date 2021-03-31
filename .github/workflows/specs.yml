@@ -4,8 +4,10 @@ env:
   RUBY_VERSION: 2.6
 
 on:
+  push:
+    branches: [ $default-branch ]
   pull_request:
-   - master
+    branches: [ $default-branch ]
 
 jobs:
   build:
@@ -20,14 +22,8 @@ jobs:
         with:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
-
-      # Run rubocop
-      - name: Run rubocop for linting
-        run: rubocop
-
-      # Run rspec
-      - name: Run rspec for testing
-        run: rspec
+      - name: Run tests
+      run: bundle exec rake
 
       # Upload coverage results
       - name: Upload coverage results
