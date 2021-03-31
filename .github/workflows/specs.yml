@@ -1,0 +1,38 @@
+name: CI Rubocop and Rspec check
+
+env:
+  RUBY_VERSION: 2.6
+
+on:
+  pull_request:
+   - master
+
+jobs:
+  build:
+    name: Run rubocop and Rspec
+    runs-on: ubuntu-latest
+
+    steps:
+      # Ruby setup
+      - uses: actions/checkout@v2
+      - name: Set up Ruby Version
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: ${{ env.RUBY_VERSION }}
+          bundler-cache: true
+
+      # Run rubocop
+      - name: Run rubocop for linting
+        run: rubocop
+
+      # Run rspec
+      - name: Run rspec for testing
+        run: rspec
+
+      # Upload coverage results
+      - name: Upload coverage results
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
