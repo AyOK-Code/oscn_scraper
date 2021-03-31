@@ -1,0 +1,12 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  NewCops: enable
+  Include:
+    - '**/*.rb'
+  Exclude:
+    - '.git/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false

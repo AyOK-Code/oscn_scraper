@@ -1,8 +1,8 @@
-# OscnScraper
+# Oscn Scraper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/oscn_scraper`. To experiment with that code, run `bin/console` for an interactive prompt.
+oscn_scraper is a ruby library for scraping the [Oklahoma State Court Network website](https://www.oscn.net/v4/)
 
-TODO: Delete this and the text above, and describe your gem
+If you want to set-up your own backend, see [oscn](Link to oscn rails project)
 
 ## Installation
 
@@ -12,17 +12,11 @@ Add this line to your application's Gemfile:
 gem 'oscn_scraper'
 ```
 
-And then execute:
+And then run `bundle install` from your shell
 
-    $ bundle
-
-Or install it yourself as:
+To install the gem manually from your shell, run:
 
     $ gem install oscn_scraper
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Development
 
@@ -32,7 +26,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/oscn_scraper.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AyOK-Code/oscn_scraper.
 
 ## License
 
