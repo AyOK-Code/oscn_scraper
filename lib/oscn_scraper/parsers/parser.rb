@@ -7,11 +7,6 @@ module OscnScraper
     class Parser < BaseParser
       attr_reader :parsed_html
 
-      def initialize(html)
-        super
-        @parsed_html = Nokogiri::HTML(html)
-      end
-
       def build_object
         # TODO: loop through each parser to build the object
         parsed_html
