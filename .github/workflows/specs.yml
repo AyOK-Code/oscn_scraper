@@ -23,7 +23,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
       - name: Run tests
-      run: bundle exec rake
+        run: bundle exec rake
 
       # Upload coverage results
       - name: Upload coverage results
