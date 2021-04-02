@@ -38,8 +38,12 @@ module OscnScraper
       request(base_url)
     end
 
-    def fetch_case_by_number(case_number)
-      # TODO: Hit endpoint
+    def fetch_case_by_number(_case_number)
+      url = "#{base_url}dockets/GetCaseInformation.aspx"
+      params = {
+        db: 'oklahoma',
+        number: 'CF-2020-6140'
+      }
       # request(base_url)
     end
 
@@ -48,7 +52,14 @@ module OscnScraper
       # request(base_url)
     end
 
-    def fetch_cases_by_type_for_year(year)
+    def fetch_cases_by_type_for_year(_year)
+      url = "#{base_url}applications/oscn/report.asp"
+      params = {
+        report: 'DailyFilings',
+        errorcheck: true,
+        db: 'Oklahoma',
+        StartDate: '12/31/2020'
+      }
       # TODO: this could use the ending date to figure out how many cases there are
       # request(base_url)
     end
@@ -63,6 +74,10 @@ module OscnScraper
 
     def params
       # TODO: Leverage Active support Object.to_query
+    end
+
+    def base_url
+      'https://www.oscn.net/'
     end
   end
 end
