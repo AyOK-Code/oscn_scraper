@@ -1,7 +1,13 @@
 name: CI Rubocop and Rspec check
 
-on: [push, pull_request]
-
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+      
 jobs:
   build:
     name: Run rubocop and Rspec
