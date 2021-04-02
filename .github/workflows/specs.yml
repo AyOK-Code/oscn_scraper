@@ -1,4 +1,4 @@
-name: CI Rubocop and Rspec check
+name: rubocop-rspec
 
 on:
   push:
