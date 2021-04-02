@@ -39,8 +39,8 @@ module OscnScraper
     end
 
     def fetch_case_by_number(_case_number)
-      url = "#{base_url}dockets/GetCaseInformation.aspx"
-      params = {
+      _url = "#{base_url}dockets/GetCaseInformation.aspx"
+      _params = {
         db: 'oklahoma',
         number: 'CF-2020-6140'
       }
@@ -53,8 +53,8 @@ module OscnScraper
     end
 
     def fetch_cases_by_type_for_year(_year)
-      url = "#{base_url}applications/oscn/report.asp"
-      params = {
+      _url = "#{base_url}applications/oscn/report.asp"
+      _params = {
         report: 'DailyFilings',
         errorcheck: true,
         db: 'Oklahoma',
