@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Run rubocop and Rspec
+    name: Run rubocop and rspec
     runs-on: ubuntu-latest
 
     steps:
