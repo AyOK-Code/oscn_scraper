@@ -1,5 +1,7 @@
 # Oscn Scraper
 
+[![CI Rubocop and Rspec check Actions Status](https://github.com/holdenmitchell/oscn_scraper/workflows/CI Rubocop and Rspec check/badge.svg)](https://github.com/holdenmitchell/oscn_scraper/CI Rubocop and Rspec check)
+
 oscn_scraper is a ruby library for scraping the [Oklahoma State Court Network website](https://www.oscn.net/v4/)
 
 If you want to set-up your own backend, see [oscn](Link to oscn rails project)
