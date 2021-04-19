@@ -24,7 +24,6 @@ jobs:
         run: rubocop
       - name: Run tests
         run: rspec
-
       - name: Simplecov Report
         uses: aki77/simplecov-report-action@v1
         with:
