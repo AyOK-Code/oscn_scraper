@@ -4,7 +4,7 @@ RSpec.describe OscnScraper::Parsers::Judge do
     parsed_html = Nokogiri::HTML.parse(html)
     data = described_class.new(parsed_html).parse
 
-    expect(data).to eq 'CF Docket E'
+    expect(data[:judge]).to eq 'CF Docket E'
   end
 
   it 'distiguishes between a Docket and a Judge' do

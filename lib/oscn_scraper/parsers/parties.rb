@@ -21,7 +21,7 @@ module OscnScraper
           parties_html.first.css('a').each do |link|
             parties[:parties] << {
               name: link.text.strip,
-              link: link.attributes["name = 'href'"].value,
+              link: link.attributes['href'].value,
               party_type: link.xpath('following-sibling::node()').first.text.gsub(',', '').squish
             }
           end

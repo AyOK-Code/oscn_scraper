@@ -2,6 +2,7 @@ module OscnScraper
   require 'ruby-limiter'
   require 'active_support'
   require 'active_support/core_ext/object'
+  require 'active_support/core_ext/string'
 
   require 'oscn_scraper/parsers/case'
   require 'oscn_scraper/parsers/judge'

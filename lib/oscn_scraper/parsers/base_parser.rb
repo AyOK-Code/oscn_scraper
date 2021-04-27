@@ -17,9 +17,9 @@ module OscnScraper
           OscnScraper::Parsers::Case.new(parsed_html),
           OscnScraper::Parsers::Judge.new(parsed_html),
           OscnScraper::Parsers::Parties.new(parsed_html),
-          OscnScraper::Parsers::Events.new(parsed_html),
-          OscnScraper::Parsers::Counts.new(parsed_html),
-          OscnScraper::Parsers::DocketEvents.new(parsed_html)
+          OscnScraper::Parsers::Events.new(parsed_html)
+          # OscnScraper::Parsers::Counts.new(parsed_html),
+          # OscnScraper::Parsers::DocketEvents.new(parsed_html)
         ].each do |p|
           data = p.parse
           case_object.merge!(data)
