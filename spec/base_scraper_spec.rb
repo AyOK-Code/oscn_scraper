@@ -2,16 +2,16 @@ RSpec.describe OscnScraper::BaseScraper do
   describe '#fetch_cases_for_day' do
   end
 
-  describe '#fetch_case_by_number(case_number)' do
+  describe '#fetch_cases_for_day(case_number)' do
     it 'returns data for a case' do
-      data = described_class.new.fetch_cases_by_type_for_year(2020)
-      byebug
+      skip
+      # data = described_class.new.fetch_cases_for_day(2020)
     end
   end
 
-  describe '#fetch_cases_by_type_for_year(year, type)' do
+  describe '#fetch_daily_filings(year, type)' do
     it 'does great things' do
-
+      skip
     end
   end
 end

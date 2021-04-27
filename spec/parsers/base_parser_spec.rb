@@ -1,4 +1,4 @@
-RSpec.describe OscnScraper::Parsers::Parser do
+RSpec.describe OscnScraper::Parsers::BaseParser do
   describe '#build_object' do
     it 'parses html' do
       # load fixture

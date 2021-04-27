@@ -10,7 +10,7 @@ module OscnScraper
     extend Limiter::Mixin
     attr_accessor :logger, :queue
 
-    def initialize(**kwargs)
+    def initialize(kwargs = {})
       @queue = Limiter::RateQueue.new(120, interval: 60) # Limits requests to 120 per 60 seconds change to config
       @logger = Logger.new(STDOUT)
     end
@@ -37,7 +37,7 @@ module OscnScraper
 
     def request(url)
       # @queue.shift
-      sleep rand(5)
+      sleep rand(2)
       HTTParty.get(url)
     end
 

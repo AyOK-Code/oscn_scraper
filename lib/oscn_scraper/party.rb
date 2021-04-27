@@ -1,5 +1,5 @@
 module OscnScraper
-  class Party < BaseScraper
+  class Party < OscnScraper::BaseScraper
     attr_accessor :county, :oscn_id
 
     def initialize()
