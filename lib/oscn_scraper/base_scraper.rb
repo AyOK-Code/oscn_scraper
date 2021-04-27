@@ -1,68 +1,77 @@
 require 'httparty'
 require 'byebug'
+require 'ruby-limiter'
+require 'active_support/core_ext/object'
+require 'logger'
 
 module OscnScraper
   # Description/Explanation of BaseScraper class
   class BaseScraper
     extend Limiter::Mixin
-    attr_accessor :queue
+    attr_accessor :logger, :queue
 
-    def initialize(county: 'Oklahoma')
-      @county = county
-      # db= County or Court
-      # number= Case Number
-      # lname= Last Name
-      # fname= First Name
-      # mname= Middle Name
-      # DoBMin= Born On or After
-      # DoBMax= Born Before Date
-      # partytype= Part Type
-      # apct= Appellate Court Case Type
-      # dcct= District Court Case Type
-      # FiledDateL= Filed After
-      # FiledDateH= Filed Before
-      # ClosedDateL= Closed After
-      # ClosedDateH= Closed Before
-      # iLC= Appellate Only Court
-      # iLCType= Appellate Only Case Type
-      # iYear= Appellate Only Filing Year
-      # iNumber= Appellate Only Number
-      # citation= Traffic Citation
-      # Limits requests to 100 per minute change to config
-      @queue = Limiter::RateQueue.new(100, interval: 60)
+    def initialize(_kwargs = {})
+      @queue = Limiter::RateQueue.new(120, interval: 60) # Limits requests to 120 per 60 seconds change to config
+      @logger = Logger.new($stdout)
     end
 
-    def fetch_cases_for_day(date)
-      county = 'Oklahoma'
-      base_url = "https://www.oscn.net/applications/oscn/report.asp?report=DailyFilings&errorcheck=true&database=&db=#{county}&StartDate=#{date}"
-      request(base_url)
+    def fetch_cases_for_day(_date)
+      endpoint = '/applications/oscn/report.asp?report=DailyFilings&errorcheck=true&'
+      url = "#{base_url}#{endpoint}#{params.to_query}"
+      request(url)
     end
 
-    def fetch_case_by_number(case_number)
-      # TODO: Hit endpoint
-      # request(base_url)
-    end
-
-    def fetch_case_by_id(case_number)
-      # TODO: Hit endpoint
-      # request(base_url)
-    end
-
-    def fetch_cases_by_type_for_year(year)
-      # TODO: this could use the ending date to figure out how many cases there are
-      # request(base_url)
+    def fetch_daily_filings(date)
+      endpoint = 'applications/oscn/report.asp?'
+      params = {
+        report: 'DailyFilings',
+        errorcheck: true,
+        db: 'Oklahoma',
+        StartDate: date
+      }
+      url = "#{base_url}#{endpoint}#{params.to_query}"
+      request(url)
     end
 
     private
 
     def request(url)
-      queue.shift # Blocks if limit met
-
+      # @queue.shift
+      sleep rand(2)
       HTTParty.get(url)
     end
 
     def params
-      # TODO: Leverage Active support Object.to_query
+      {
+        db: county,
+        number: number,
+        lname: last_name,
+        fname: first_name,
+        mname: middle_name,
+        DoBMin: dob_min,
+        DoBMax: dob_max,
+        partytype: party_type,
+        apct: appellate_case_type,
+        dcct: district_case_type,
+        FiledDateL: filed_after,
+        FiledDateH: filed_before,
+        ClosedDateL: closed_after,
+        ClosedDateH: closed_before,
+        iLC: app_only_court,
+        iLCType: app_only_case_type,
+        iYear: app_only_filing_year,
+        iNumber: app_only_number,
+        citation: citation
+      }
+    end
+
+    def valid_param?
+      # TODO: Finish method
+      params.keys
+    end
+
+    def base_url
+      'https://www.oscn.net/'
     end
   end
 end

@@ -1,0 +1,30 @@
+name: rubocop-rspec
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Run rubocop and rspec
+    runs-on: ubuntu-latest
+
+    steps:
+      # Ruby setup
+      - uses: actions/checkout@v2
+      - name: Set up Ruby Version
+        uses: actions/setup-ruby@v1
+      - name: Run bundle install
+        run: bundle install
+      - name: Run rubocop
+        run: rubocop
+      - name: Run tests
+        run: rspec
+      - name: Simplecov Report
+        uses: aki77/simplecov-report-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
