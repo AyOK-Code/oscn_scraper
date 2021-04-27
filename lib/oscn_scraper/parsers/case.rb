@@ -14,28 +14,22 @@ module OscnScraper
 
       private
 
-      attr_reader :parsed_html
-
       def parse_closed_date
         parent = parsed_html.at('td:contains("Closed:")')
         if parent.nil?
-          {closed_on: nil}
+          { closed_on: nil }
           # put in logs that case is active
         else
-          element = parent.children.find { |d| d.text.include? "Closed:" }
+          element = parent.children.find { |d| d.text.include? 'Closed:' }
           date = element.text.gsub('Closed: ', '')
           closed_on = Date.strptime(date, '%m/%d/%Y')
-          {closed_on: closed_on}
+          { closed_on: closed_on }
         end
       end
 
-      def parse_case_number
+      def parse_case_number; end
 
-      end
-
-      def parse_oscn_id
-
-      end
+      def parse_oscn_id; end
     end
   end
 end

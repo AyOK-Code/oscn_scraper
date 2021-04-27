@@ -8,6 +8,7 @@ module OscnScraper
   require 'oscn_scraper/parsers/parties'
   require 'oscn_scraper/parsers/events'
   require 'oscn_scraper/parsers/counts'
+  require 'oscn_scraper/parsers/docket_events'
   require 'oscn_scraper/parsers/base_parser'
   require 'oscn_scraper/base_scraper'
   require 'oscn_scraper/errors'

@@ -1,12 +1,14 @@
 module OscnScraper
+  # Uses parameters to search OSCN
   class Search < BaseScraper
     attr_accessor :county, :number, :last_name, :first_name,
-    :middle_name, :dob_min, :dob_max, :party_type, :appellate_case_type,
-    :district_case_type, :filed_after, :filed_before, :closed_after,
-    :closed_before, :app_only_court, :app_only_case_type, :app_only_filing_year,
-    :app_only_number, :citation,
+                  :middle_name, :dob_min, :dob_max, :party_type, :appellate_case_type,
+                  :district_case_type, :filed_after, :filed_before, :closed_after,
+                  :closed_before, :app_only_court, :app_only_case_type, :app_only_filing_year,
+                  :app_only_number, :citation
 
     def initialize(kwargs = {})
+      super
       @county = kwargs[:county] # County or Court
       @number = kwargs[:number] # Case Number
       @last_name = kwargs[:last_name] # Last Name
@@ -52,12 +54,10 @@ module OscnScraper
 
     private
 
-    attr_reader :county, :case_number
-
     # TODO: move to base class and make dynamic
     def raise_if_missing_params!
-      raise OscnScraper::MissingParamsError, "missing required param: county" if county.blank?
-      raise OscnScraper::MissingParamsError, "missing required param: case_number" if number.blank?
+      raise OscnScraper::MissingParamsError, 'missing required param: county' if county.blank?
+      raise OscnScraper::MissingParamsError, 'missing required param: case_number' if number.blank?
     end
   end
 end

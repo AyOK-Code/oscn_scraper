@@ -10,12 +10,12 @@ module OscnScraper
     extend Limiter::Mixin
     attr_accessor :logger, :queue
 
-    def initialize(kwargs = {})
+    def initialize(_kwargs = {})
       @queue = Limiter::RateQueue.new(120, interval: 60) # Limits requests to 120 per 60 seconds change to config
-      @logger = Logger.new(STDOUT)
+      @logger = Logger.new($stdout)
     end
 
-    def fetch_cases_for_day(date)
+    def fetch_cases_for_day(_date)
       endpoint = '/applications/oscn/report.asp?report=DailyFilings&errorcheck=true&'
       url = "#{base_url}#{endpoint}#{params.to_query}"
       request(url)
@@ -30,7 +30,7 @@ module OscnScraper
         StartDate: date
       }
       url = "#{base_url}#{endpoint}#{params.to_query}"
-      data = request(url)
+      request(url)
     end
 
     private

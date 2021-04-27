@@ -14,14 +14,12 @@ module OscnScraper
 
       private
 
-      attr_reader :parsed_html
-
       def parse_judge
         parent = parsed_html.at('td:contains("Judge:")')
         if parent.nil?
           { judge: nil }
         else
-          element = parent.children.find { |d| d.text.include? "Judge:" }
+          element = parent.children.find { |d| d.text.include? 'Judge:' }
           judge = element.text.gsub('Judge: ', '').strip
           { judge: judge }
         end

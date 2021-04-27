@@ -4,6 +4,6 @@ RSpec.describe OscnScraper::Parsers::Case do
     parsed_html = Nokogiri::HTML.parse(html)
     data = described_class.new(parsed_html).parse
 
-    expect(data).to eq Date.new(2020,06,16)
+    expect(data).to eq Date.new(2020, 0o6, 16)
   end
 end

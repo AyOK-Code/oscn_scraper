@@ -14,17 +14,15 @@ module OscnScraper
 
       private
 
-      attr_reader :parsed_html
-
       def parse_counts
         counts_html = parsed_html.css('div.CountsContainer')
         counts = { counts: [] }
         if counts_html.present?
-          counts_html.each do |event|
-            filed_html = counts_html.at('td:contains("Count as Filed:")')
-            as_filed = filed_html.children[0].text.squish.split(',')[1]
-            filed_statute = filed_html.children[1].text
-            filed_link = filed_html.children[1].attribute('href').value
+          counts_html.each do |_event|
+            counts_html.at('td:contains("Count as Filed:")')
+            filed_html.children[0].text.squish.split(',')[1]
+            filed_html.children[1].text
+            filed_html.children[1].attribute('href').value
 
             counts[:counts] << {
               party_name: 'Name',
@@ -36,7 +34,7 @@ module OscnScraper
               diposed_statute_violation: 'string',
               plea: 'string?',
               verdict: 'string?'
-              }
+            }
           end
         end
         counts
