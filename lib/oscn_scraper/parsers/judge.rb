@@ -6,6 +6,7 @@ module OscnScraper
 
       def initialize(parsed_html)
         @parsed_html = parsed_html
+        @judge = { judge: nil }
       end
 
       def parse
@@ -14,15 +15,15 @@ module OscnScraper
 
       private
 
+      attr_accessor :judge
+
       def parse_judge
         parent = parsed_html.at('td:contains("Judge:")')
-        if parent.nil?
-          { judge: nil }
-        else
-          element = parent.children.find { |d| d.text.include? 'Judge:' }
-          judge = element.text.gsub('Judge: ', '').strip
-          { judge: judge }
-        end
+        return judge if parent.nil?
+
+        element = parent.children.find { |d| d.text.include? 'Judge:' }
+        judge[:judge] = element.text.gsub('Judge: ', '').strip
+        judge
       end
     end
   end

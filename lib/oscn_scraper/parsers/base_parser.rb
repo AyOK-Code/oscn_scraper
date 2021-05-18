@@ -11,19 +11,20 @@ module OscnScraper
         @parsed_html = parsed_html
       end
 
+      # TODO: Lift up the selector logic and only pass relevant html?
       def build_object
         case_object = {}
         [
           OscnScraper::Parsers::Case.new(parsed_html),
           OscnScraper::Parsers::Judge.new(parsed_html),
+          OscnScraper::Parsers::Attorney.new(parsed_html),
           OscnScraper::Parsers::Parties.new(parsed_html),
           OscnScraper::Parsers::Events.new(parsed_html),
-          OscnScraper::Parsers::Counts.new(parsed_html)
-          # OscnScraper::Parsers::DocketEvents.new(parsed_html)
+          OscnScraper::Parsers::Counts.new(parsed_html),
+          OscnScraper::Parsers::DocketEvents.new(parsed_html)
         ].each do |p|
           data = p.parse
           case_object.merge!(data)
-          puts data
         end
         case_object
       end

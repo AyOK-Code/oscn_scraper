@@ -8,6 +8,8 @@ AllCops:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/RegexpLiteral:
+  Enabled: false
 Style/MutableConstant:
   Enabled: false
 Metrics/MethodLength:
