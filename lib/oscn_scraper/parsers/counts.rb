@@ -75,10 +75,10 @@ module OscnScraper
         return if counts_html.blank?
 
         counts_html.each do |row|
-          parties_html.each do |p|
+          parties_html(row).each do |p|
             counts[:counts] << {
               party_name: party_name(p),
-              offense_on: parse_date(offense_on),
+              offense_on: parse_date(offense_on(row)),
               as_filed: as_filed(row),
               filed_statute_violation: statute(row),
               filed_statute_violation_link: statute_link(row),
@@ -91,8 +91,8 @@ module OscnScraper
             }
           end
         end
+        counts
       end
-      counts
     end
   end
 end
