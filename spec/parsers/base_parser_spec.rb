@@ -7,7 +7,7 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
       parsed_html = Nokogiri::HTML.parse(html)
 
       described_class.new(parsed_html).build_object
-      skip
+      expect(true).to eq false
     end
   end
 end

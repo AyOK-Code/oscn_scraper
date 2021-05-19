@@ -3,11 +3,10 @@ module OscnScraper
     # Description/Explanation of Case class
     class Case
       include OscnScraper::Parsers::Helpers
-      attr_reader :parsed_html, :case_html
+      attr_reader :case_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @case_html = parsed_html.at('td:contains("Closed:")')
+      def initialize(case_html)
+        @case_html = case_html
         @case_data = { closed_on: nil }
       end
 

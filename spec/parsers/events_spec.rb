@@ -1,12 +1,19 @@
 RSpec.describe OscnScraper::Parsers::Events do
-  it 'correctly parses the Event' do
-    html = File.open('spec/fixtures/parsers/case_with_closed.html').read
-    parsed_html = Nokogiri::HTML.parse(html)
-    described_class.new(parsed_html).parse
-    skip
-  end
+  describe '#parse' do
+    it 'parses a case with many events' do
+      path = 'spec/fixtures/parsers/events/multiple.html'
+      html = File.open(path).read
+      parsed_html = Nokogiri::HTML.parse(html)
+      expect(false).to eq true
+      # Test that all data is there
+    end
 
-  it 'returns a empty array if the next sibling is not a table' do
-    skip
+    it 'parses a case with no events' do
+      path = 'spec/fixtures/parsers/events/none.html'
+      html = File.open(path).read
+      parsed_html = Nokogiri::HTML.parse(html)
+      expect(false).to eq true
+      # Test that all data is there
+    end
   end
 end

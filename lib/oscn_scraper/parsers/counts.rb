@@ -3,11 +3,10 @@ module OscnScraper
     # Description/Explanation of Case class
     class Counts
       include OscnScraper::Parsers::Helpers
-      attr_reader :parsed_html, :counts_html
+      attr_reader :counts_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @counts_html = parsed_html.css('div.CountsContainer')
+      def initialize(counts_html)
+        @counts_html = counts_html
         @counts = { counts: [] }
       end
 
@@ -19,6 +18,29 @@ module OscnScraper
 
       attr_accessor :counts
 
+      def parse_counts
+        return if counts_html.blank?
+
+        counts_html.each do |row|
+          parties_html(row).each do |p|
+            counts[:counts] << {
+              party_name: party_name(p),
+              offense_on: parse_date(offense_on(row)),
+              as_filed: as_filed(row),
+              filed_statute_violation: statute(row),
+              filed_statute_violation_link: statute_link(row),
+              disposition: disposition(p),
+              disposition_on: parse_date(disposition_on(p)),
+              disposed_statute_violation: disposition_statute(p),
+              disposed_statute_violation_link: disposition_link(p),
+              plea: disposition_plea(p),
+              verdict: disposition_verdict(p)
+            }
+          end
+        end
+        counts
+      end
+
       def disposition(party_html)
         party_html.css('td font[color="red"]').text.squish.gsub('Disposed: ', '')
       end
@@ -28,7 +50,7 @@ module OscnScraper
       end
 
       def disposition_link(party_html)
-        party_html.css('td a').attribute('href')&.text
+        party_html.css('td a').attribute('href')&.text&.squish
       end
 
       def disposition_statute(party_html)
@@ -69,29 +91,6 @@ module OscnScraper
 
       def parties_html(row)
         row.at('table:contains("Party Name")').css('tbody tr')
-      end
-
-      def parse_counts
-        return if counts_html.blank?
-
-        counts_html.each do |row|
-          parties_html(row).each do |p|
-            counts[:counts] << {
-              party_name: party_name(p),
-              offense_on: parse_date(offense_on(row)),
-              as_filed: as_filed(row),
-              filed_statute_violation: statute(row),
-              filed_statute_violation_link: statute_link(row),
-              disposition: disposition(p),
-              disposition_on: parse_date(disposition_on(p)),
-              disposed_statute_violation: disposition_statute(p),
-              disposed_statute_violation_link: disposition_link(p),
-              plea: disposition_plea(p),
-              verdict: disposition_verdict(p)
-            }
-          end
-        end
-        counts
       end
     end
   end

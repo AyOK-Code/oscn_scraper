@@ -2,11 +2,10 @@ module OscnScraper
   module Parsers
     # Description/Explanation of Case class
     class Events
-      attr_reader :parsed_html, :events_html
+      attr_reader :events_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @events_html = parsed_html.xpath('//h2[contains(@class, "events")]/following-sibling::*[1]')
+      def initialize(events_html)
+        @events_html = events_html
         @events = { events: [] }
       end
 
@@ -43,6 +42,7 @@ module OscnScraper
         }
       end
 
+      # TODO: move to helpers
       def parsed_date(date_string)
         DateTime.parse("#{date_string} -06:00", '%A, %B %-d, %Y at %l:%m %p %z')
       end

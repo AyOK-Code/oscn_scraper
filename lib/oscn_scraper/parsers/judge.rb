@@ -2,10 +2,10 @@ module OscnScraper
   module Parsers
     # Description/Explanation of Case class
     class Judge
-      attr_reader :parsed_html
+      attr_reader :judge_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
+      def initialize(judge_html)
+        @judge_html = judge_html
         @judge = { judge: nil }
       end
 
@@ -18,10 +18,9 @@ module OscnScraper
       attr_accessor :judge
 
       def parse_judge
-        parent = parsed_html.at('td:contains("Judge:")')
-        return judge if parent.nil?
+        return judge if judge_html.nil?
 
-        element = parent.children.find { |d| d.text.include? 'Judge:' }
+        element = judge_html.children.find { |d| d.text.include? 'Judge:' }
         judge[:judge] = element.text.gsub('Judge: ', '').strip
         judge
       end

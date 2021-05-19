@@ -4,11 +4,10 @@ module OscnScraper
     class DocketEvents
       include Helpers
 
-      attr_reader :parsed_html, :docket_events_html
+      attr_reader :docket_events_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @docket_events_html = parsed_html.xpath('//h2[contains(@class, "docket")]/following-sibling::*[1]')
+      def initialize(docket_events_html)
+        @docket_events_html = docket_events_html
         @docket_events = { docket_events: [] }
       end
 

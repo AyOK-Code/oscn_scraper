@@ -2,11 +2,10 @@ module OscnScraper
   module Parsers
     # Description/Explanation of Case class
     class Attorney
-      attr_reader :parsed_html, :attorney_html
+      attr_reader :attorney_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @attorney_html = parsed_html.xpath('//h2[contains(@class, "attorneys")]/following-sibling::*[1]')
+      def initialize(attorney_html)
+        @attorney_html = attorney_html
         @attorneys = { attorneys: [] }
       end
 
