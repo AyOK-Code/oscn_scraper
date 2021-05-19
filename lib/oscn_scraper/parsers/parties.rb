@@ -18,9 +18,10 @@ module OscnScraper
       attr_accessor :parties
 
       def parse_parties
+        byebug
         return parties if parties_html.blank?
 
-        parties_html.first.css('a').each do |link|
+        parties_html.css('a').each do |link|
           build_parties(link)
         end
         parties
