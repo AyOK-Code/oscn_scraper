@@ -19,7 +19,7 @@ module OscnScraper
       attr_accessor :counts
 
       def parse_counts
-        return if counts_html.blank?
+        return counts if counts_html.count < 1
 
         counts_html.each do |row|
           parties_html(row).each do |p|
@@ -82,7 +82,7 @@ module OscnScraper
       end
 
       def statute_link(row)
-        filed_html(row).children[1].attribute('href').value&.squish
+        filed_html(row).children[1].attribute('href')&.value&.squish
       end
 
       def offense_on(row)

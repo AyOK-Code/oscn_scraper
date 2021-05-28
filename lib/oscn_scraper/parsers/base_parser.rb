@@ -23,7 +23,11 @@ module OscnScraper
           OscnScraper::Parsers::DocketEvents.new(docket_events_html)
         ].each do |p|
           data = p.parse
-          case_object.merge!(data)
+          begin
+            case_object.merge!(data)
+          rescue
+            byebug
+          end
         end
         case_object
       end

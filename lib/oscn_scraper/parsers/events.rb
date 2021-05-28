@@ -18,7 +18,7 @@ module OscnScraper
       attr_accessor :events
 
       def parse_events
-        return if events_html.blank? || events_html.first.name != 'table'
+        return events if events_html.blank? || events_html.first.name != 'table'
 
         events_html.css('tbody tr').each do |event|
           build_event(event)

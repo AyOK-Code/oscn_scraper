@@ -20,6 +20,8 @@ module OscnScraper
       attr_accessor :docket_events
 
       def parse_docket_events
+        return docket_events if docket_events_html.blank?
+
         docket_events_html.css('tbody tr').each do |row|
           date = sanitize_data(row.css('td')[0])
           code = sanitize_data(row.css('td')[1])
