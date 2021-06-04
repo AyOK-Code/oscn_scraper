@@ -33,6 +33,21 @@ module OscnScraper
       request(url)
     end
 
+    def events_scheduled(county, case_type_id, date)
+      endpoint = 'applications/oscn/report.asp?'
+      params = {
+          errorcheck: true,
+          db: county,
+          CaseTypeID: case_type_id.to_s,
+          StartDate: date,
+          GeneralNumber: 1,
+          generalnumber1: 1,
+          report: 'WebJudicialDocketCaseTypeAll'
+        }
+      url = "#{base_url}#{endpoint}#{params.to_query}"
+      request(url)
+    end
+
     private
 
     def request(url)
