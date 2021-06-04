@@ -9,6 +9,10 @@ module OscnScraper
         @attorneys = { attorneys: [] }
       end
 
+      def self.parse(attorney_html)
+        self.new(attorney_html).parse
+      end
+
       def parse
         parse_attorney
       end

@@ -10,6 +10,10 @@ module OscnScraper
         @case_data = { closed_on: nil }
       end
 
+      def self.parse(case_html)
+        self.new(case_html).parse
+      end
+
       def parse
         parse_closed_date
       end

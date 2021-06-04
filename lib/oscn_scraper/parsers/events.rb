@@ -9,6 +9,10 @@ module OscnScraper
         @events = { events: [] }
       end
 
+      def self.parse(events_html)
+        self.new(events_html).parse
+      end
+
       def parse
         parse_events
       end

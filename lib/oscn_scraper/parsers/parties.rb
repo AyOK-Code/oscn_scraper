@@ -9,6 +9,10 @@ module OscnScraper
         @parties = { parties: [] }
       end
 
+      def self.parse(parties_html)
+        self.new(parties_html).parse
+      end
+
       def parse
         parse_parties
       end

@@ -10,6 +10,10 @@ module OscnScraper
         @counts = { counts: [] }
       end
 
+      def self.parse(counts_html)
+        self.new(counts_html).parse
+      end
+
       def parse
         parse_counts
       end

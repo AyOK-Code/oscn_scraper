@@ -1,35 +1,48 @@
 require 'nokogiri'
 require 'byebug'
+require 'active_support/core_ext/string'
 
 module OscnScraper
   module Parsers
     # Builds the objects by parsing the page
+    # OscnScraper::Search.fetch_case_by_number('Oklahoma', 'CF-2020-12')
+    #
+    # OscnScraper::Parsers::BaseParser.new(parsed_html).build_object
     class BaseParser
       attr_reader :parsed_html
+      attr_accessor :case_object
 
       def initialize(parsed_html)
         @parsed_html = parsed_html
+        @case_object = {}
       end
 
       def build_object
-        case_object = {}
         [
-          OscnScraper::Parsers::Case.new(case_html),
-          OscnScraper::Parsers::Judge.new(judge_html),
-          OscnScraper::Parsers::Attorney.new(attorney_html),
-          OscnScraper::Parsers::Parties.new(parties_html),
-          OscnScraper::Parsers::Events.new(events_html),
-          OscnScraper::Parsers::Counts.new(counts_html),
-          OscnScraper::Parsers::DocketEvents.new(docket_events_html)
-        ].each do |p|
-          data = p.parse
-          begin
-            case_object.merge!(data)
-          rescue
-            byebug
-          end
+          OscnScraper::Parsers::Case,
+          OscnScraper::Parsers::Judge,
+          OscnScraper::Parsers::Attorney,
+          OscnScraper::Parsers::Parties,
+          OscnScraper::Parsers::Events,
+          OscnScraper::Parsers::Counts,
+          OscnScraper::Parsers::DocketEvents
+        ].each do |parser|
+          parse_object(parser)
         end
         case_object
+      end
+
+      def parse_object(parser)
+        name = parser.name.split('::').last
+        html_method = "#{name.underscore}_html"
+        html = self.send(html_method)
+        data = parser.parse(html)
+
+        begin
+          case_object.merge!(data)
+        rescue
+          byebug
+        end
       end
 
       private

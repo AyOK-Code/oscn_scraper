@@ -11,6 +11,10 @@ module OscnScraper
         @docket_events = { docket_events: [] }
       end
 
+      def self.parse(docket_events_html)
+        self.new(docket_events_html).parse
+      end
+
       def parse
         parse_docket_events
       end
