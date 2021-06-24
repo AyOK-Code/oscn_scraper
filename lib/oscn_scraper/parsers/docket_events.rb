@@ -26,7 +26,7 @@ module OscnScraper
       def parse_docket_events
         return docket_events if docket_events_html.blank?
 
-        docket_events_html.css('tbody tr').each do |row|
+        docket_events_html.css('tbody tr').each_with_index do |row, i|
           date = sanitize_data(row.css('td')[0])
           code = sanitize_data(row.css('td')[1])
           description = sanitize_data(row.css('td')[2])
@@ -35,6 +35,7 @@ module OscnScraper
           amount = sanitize_data(row.css('td')[5])
 
           docket_events[:docket_events] << {
+            event_number: i,
             date: Date.strptime(date, '%m-%d-%Y'),
             code: code,
             description: description,

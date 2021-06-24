@@ -34,6 +34,7 @@ module OscnScraper
               filed_statute_violation: statute(row),
               filed_statute_violation_link: statute_link(row),
               disposition: disposition(p),
+              charge: charge(p),
               disposition_on: parse_date(disposition_on(p)),
               disposed_statute_violation: disposition_statute(p),
               disposed_statute_violation_link: disposition_link(p),
@@ -47,6 +48,10 @@ module OscnScraper
 
       def disposition(party_html)
         party_html.css('td font[color="red"]').text.squish.gsub('Disposed: ', '')
+      end
+
+      def charge(party_html)
+        party_html.css('td')[2]&.children[3]&.text&.gsub('Count as Disposed:', '')&.squish
       end
 
       def disposition_on(party_html)

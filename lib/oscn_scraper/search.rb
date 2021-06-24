@@ -48,7 +48,6 @@ module OscnScraper
         number: case_number
       }
       url = "#{base_url}#{endpoint}#{params.to_query}"
-      puts url
       request(url)
     end
 

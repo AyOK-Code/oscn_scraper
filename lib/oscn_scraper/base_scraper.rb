@@ -15,12 +15,6 @@ module OscnScraper
       @logger = Logger.new($stdout)
     end
 
-    def fetch_cases_for_day(_date)
-      endpoint = '/applications/oscn/report.asp?report=DailyFilings&errorcheck=true&'
-      url = "#{base_url}#{endpoint}#{params.to_query}"
-      request(url)
-    end
-
     def fetch_daily_filings(date)
       endpoint = 'applications/oscn/report.asp?'
       params = {
