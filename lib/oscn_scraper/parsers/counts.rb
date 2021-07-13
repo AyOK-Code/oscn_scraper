@@ -11,7 +11,7 @@ module OscnScraper
       end
 
       def self.parse(counts_html)
-        self.new(counts_html).parse
+        new(counts_html).parse
       end
 
       def parse
@@ -23,6 +23,7 @@ module OscnScraper
       attr_accessor :counts
 
       def parse_counts
+        byebug
         return counts if counts_html.count < 1
 
         counts_html.each do |row|

@@ -63,6 +63,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.4.1)
       parser (>= 2.7.1.5)
+    rubocop-rspec (2.4.0)
+      rubocop (~> 1.0)
+      rubocop-ast (>= 1.1.0)
     ruby-limiter (1.0.2)
     ruby-progressbar (1.11.0)
     simplecov (0.21.2)
@@ -89,8 +92,9 @@ DEPENDENCIES
   rake (~> 10.0)
   rspec (~> 3.0)
   rubocop (~> 1.12)
+  rubocop-rspec (~> 2.4)
   ruby-limiter (~> 1.0.1)
   simplecov (~> 0.21.2)
 
 BUNDLED WITH
-   2.0.2
+   2.2.15

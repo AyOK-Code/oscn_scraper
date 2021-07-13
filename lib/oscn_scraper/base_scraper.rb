@@ -8,11 +8,12 @@ module OscnScraper
   # Description/Explanation of BaseScraper class
   class BaseScraper
     extend Limiter::Mixin
-    attr_accessor :logger, :queue
+    attr_accessor :logger, :queue, :kwargs
 
-    def initialize(_kwargs = {})
+    def initialize(**kwargs)
       @queue = Limiter::RateQueue.new(120, interval: 60) # Limits requests to 120 per 60 seconds change to config
       @logger = Logger.new($stdout)
+      @kwargs = kwargs
     end
 
     def fetch_daily_filings(date)
@@ -30,14 +31,14 @@ module OscnScraper
     def events_scheduled(county, case_type_id, date)
       endpoint = 'applications/oscn/report.asp?'
       params = {
-          errorcheck: true,
-          db: county,
-          CaseTypeID: case_type_id.to_s,
-          StartDate: date,
-          GeneralNumber: 1,
-          generalnumber1: 1,
-          report: 'WebJudicialDocketCaseTypeAll'
-        }
+        errorcheck: true,
+        db: county,
+        CaseTypeID: case_type_id.to_s,
+        StartDate: date,
+        GeneralNumber: 1,
+        generalnumber1: 1,
+        report: 'WebJudicialDocketCaseTypeAll'
+      }
       url = "#{base_url}#{endpoint}#{params.to_query}"
       request(url)
     end
@@ -46,7 +47,6 @@ module OscnScraper
 
     def request(url)
       # @queue.shift
-      sleep rand(2)
       HTTParty.get(url)
     end
 

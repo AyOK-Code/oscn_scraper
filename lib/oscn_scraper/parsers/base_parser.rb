@@ -35,13 +35,13 @@ module OscnScraper
       def parse_object(parser)
         name = parser.name.split('::').last
         html_method = "#{name.underscore}_html"
-        html = self.send(html_method)
+        html = send(html_method)
         data = parser.parse(html)
 
         begin
           case_object.merge!(data)
-        rescue
-          byebug
+        rescue InvalidParseError => e
+          puts "#{e}: Something went wrong parsing #{name}"
         end
       end
 

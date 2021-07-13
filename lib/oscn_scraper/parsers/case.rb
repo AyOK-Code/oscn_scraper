@@ -11,7 +11,7 @@ module OscnScraper
       end
 
       def self.parse(case_html)
-        self.new(case_html).parse
+        new(case_html).parse
       end
 
       def parse
