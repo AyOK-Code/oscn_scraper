@@ -10,7 +10,7 @@ module OscnScraper
       end
 
       def self.parse(judge_html)
-        self.new(judge_html).parse
+        new(judge_html).parse
       end
 
       def parse

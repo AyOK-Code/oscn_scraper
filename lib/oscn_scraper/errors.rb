@@ -9,5 +9,8 @@ module OscnScraper
   class CaseNotFoundError < RuntimeError; end
 
   # Missing required params
-  class MissingParamsError < RuntimeError; end
+  class MissingParamError < RuntimeError; end
+
+  # Invalid param
+  class InvalidParamError < RuntimeError; end
 end

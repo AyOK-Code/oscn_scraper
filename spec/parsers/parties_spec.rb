@@ -13,4 +13,11 @@ RSpec.describe OscnScraper::Parsers::Parties do
       }
     )
   end
+
+  it 'splits out first, middle and last' do
+    fixture_path = 'spec/fixtures/parsers/parties/multiple.html'
+    parsed_html = load_and_parse_fixture(fixture_path)
+    data = described_class.parse(parsed_html)
+
+  end
 end

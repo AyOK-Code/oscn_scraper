@@ -10,7 +10,7 @@ module OscnScraper
       end
 
       def self.parse(parties_html)
-        self.new(parties_html).parse
+        new(parties_html).parse
       end
 
       def parse
@@ -25,6 +25,7 @@ module OscnScraper
         return parties if parties_html.blank?
 
         parties_html.css('a').each do |link|
+          byebug
           build_parties(link)
         end
         parties

@@ -10,7 +10,7 @@ module OscnScraper
       end
 
       def self.parse(events_html)
-        self.new(events_html).parse
+        new(events_html).parse
       end
 
       def parse
