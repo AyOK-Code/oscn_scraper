@@ -5,13 +5,14 @@ require 'active_support/core_ext/string'
 module OscnScraper
   module Parsers
     # Builds the objects by parsing the page
-    # OscnScraper::Search.fetch_case_by_number('Oklahoma', 'CF-2020-12')
-    #
-    # OscnScraper::Parsers::BaseParser.new(parsed_html).build_object
     class BaseParser
       attr_reader :parsed_html
       attr_accessor :case_object
 
+      # Initializes the object
+      #
+      # @param parsed_html [Html] Parsed Html from CaseInformation endpoint
+      # @return case_object [Array] Full case 
       def initialize(parsed_html)
         @parsed_html = parsed_html
         @case_object = {}

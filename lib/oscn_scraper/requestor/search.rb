@@ -1,39 +1,68 @@
 module OscnScraper
   module Requestor
-    # Uses parameters to search OSCN
+    # Mimics the search functionality of OSCN
+    # @note OSCN Endpoint - https://www.oscn.net/dockets/Search.aspx
+    #   returns a maximum of 500 cases
     class Search < Base
       attr_reader :kwargs
 
-      def new(kwargs = {})
+      # Initialize the class
+      #
+      # @param [Hash] kwargs
+      # @option kwargs [String] :db description
+      # @option kwargs [String] :number description
+      # @option kwargs [String] :lname Last name of party
+      # @option kwargs [String] :fname First name of party
+      # @option kwargs [String] :mname Middle name of party
+      # @option kwargs [String] :DoBMin Minimum date of birth
+      # @option kwargs [String] :DoBMax Maximum date of birth
+      # @option kwargs [String] :partytype Party Type
+      # @option kwargs [String] :apct description
+      # @option kwargs [String] :dcct description
+      # @option kwargs [String] :FiledDateL description
+      # @option kwargs [String] :FiledDateH description
+      # @option kwargs [String] :ClosedDateL description
+      # @option kwargs [String] :ClosedDateH description
+      # @option kwargs [String] :iLC description
+      # @option kwargs [String] :iLCType description
+      # @option kwargs [String] :iYear description
+      # @option kwargs [String] :iNumber description
+      # @option kwargs [String] :citation description
+      # @return Initialized Object
+      def initialize(kwargs = {})
         @kwargs = kwargs
-        valid_params?(kwargs)
+        valid_params?(kwargs.keys, valid_params)
       end
 
+      # Creates class method for calling .fetch_cases
       def self.fetch_cases(kwargs = {})
         new(kwargs).fetch_cases
       end
 
-      def self.fetch_case_by_number(kwargs = {})
-        new(kwargs).fetch_case_by_number
-      end
-      # Mimics the search funcitonality of site
-      # https://www.oscn.net/dockets/Search.aspx
+      # Makes request to OSCN
+      #
+      # @return Request data
       def fetch_cases
-        endpoint = '/dockets/Results.aspx?'
-        url = "#{base_url}#{endpoint}#{params.to_query}"
-        request(url)
+        request(concatenated_url(endpoint, kwargs))
       end
 
-      # Find a case by the Case number
-      # County must be specific because Case Number is only unique scoped to county
-      def fetch_case_by_number
-        endpoint = 'dockets/GetCaseInformation.aspx?'
-        params = {
-          db: kwargs[:county].downcase,
-          number: kwargs[:case_number]
-        }
-        url = "#{base_url}#{endpoint}#{params.to_query}"
-        request(url)
+      private
+
+      # Defines the endpoint on OSCN
+      def endpoint
+        '/dockets/Results.aspx?'
+      end
+
+      # List of valid params for this class
+      def valid_params
+        %i[db number lname fname mname DoBMin DoBMax
+           partytype apct dcct FiledDateL FiledDateH
+           ClosedDateL ClosedDateH iLC iLCType iYear
+           iNumber citation]
+      end
+
+      def required_params
+
       end
     end
   end

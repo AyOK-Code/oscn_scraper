@@ -26,9 +26,11 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'httparty', '~> 0.17'
   spec.add_development_dependency 'nokogiri', '~> 1.11'
   spec.add_development_dependency 'rake', '~> 10.0'
+  spec.add_development_dependency 'yard', '~> 0.9.26'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 1.12'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.4'
   spec.add_development_dependency 'ruby-limiter', '~> 1.0.1'
   spec.add_development_dependency 'simplecov', '~> 0.21.2'
+  spec.add_development_dependency 'webrick', '~> 1.7'
 end

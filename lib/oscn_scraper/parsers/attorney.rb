@@ -1,18 +1,26 @@
 module OscnScraper
   module Parsers
-    # Description/Explanation of Case class
+    # Parses Attorney data from the case
     class Attorney
       attr_reader :attorney_html
 
+      # Initializes class
+      #
+      # @param attorney_html [Html] From the Attorney section of the CaseInformation endpoint
+      # @return Class object
       def initialize(attorney_html)
         @attorney_html = attorney_html
         @attorneys = { attorneys: [] }
       end
 
+      # Class method to call .parse
+      # @param attorney_html [Html]
+      # @return attorneys [Array]
       def self.parse(attorney_html)
         new(attorney_html).parse
       end
 
+      # TODO: Drop this method?
       def parse
         parse_attorney
       end
