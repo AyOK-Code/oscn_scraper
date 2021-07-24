@@ -30,6 +30,7 @@ module OscnScraper
       # @option kwargs [String] :citation description
       # @return Initialized Object
       def initialize(kwargs = {})
+        super()
         @kwargs = kwargs
         valid_params?(kwargs.keys, valid_params)
       end

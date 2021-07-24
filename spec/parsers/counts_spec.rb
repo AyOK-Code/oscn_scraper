@@ -5,8 +5,6 @@ RSpec.describe OscnScraper::Parsers::Counts do
       parsed_html = load_and_parse_fixture(fixture_path)
       data = described_class.parse(parsed_html)
 
-      byebug
-
       # Test that all data is there
     end
 

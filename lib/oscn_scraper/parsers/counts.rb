@@ -23,7 +23,6 @@ module OscnScraper
       attr_accessor :counts
 
       def parse_counts
-        byebug
         return counts if counts_html.count < 1
 
         counts_html.each do |row|

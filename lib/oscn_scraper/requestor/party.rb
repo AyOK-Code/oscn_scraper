@@ -10,6 +10,7 @@ module OscnScraper
       # @param county [String] Name of Oklahoma County
       # @param oscn_id [Integer] OSCN id for the party
       def initialize(county, oscn_id)
+        super()
         @county = county
         @oscn_id = oscn_id
       end

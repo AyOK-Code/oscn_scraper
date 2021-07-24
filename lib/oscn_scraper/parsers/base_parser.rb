@@ -12,7 +12,7 @@ module OscnScraper
       # Initializes the object
       #
       # @param parsed_html [Html] Parsed Html from CaseInformation endpoint
-      # @return case_object [Array] Full case 
+      # @return case_object [Array] Full case
       def initialize(parsed_html)
         @parsed_html = parsed_html
         @case_object = {}
@@ -41,7 +41,7 @@ module OscnScraper
 
         begin
           case_object.merge!(data)
-        rescue InvalidParseError => e
+        rescue OscnScraper::Errors::InvalidParse => e
           puts "#{e}: Something went wrong parsing #{name}"
         end
       end

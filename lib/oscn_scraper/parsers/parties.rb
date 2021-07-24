@@ -25,7 +25,6 @@ module OscnScraper
         return parties if parties_html.blank?
 
         parties_html.css('a').each do |link|
-          byebug
           build_parties(link)
         end
         parties

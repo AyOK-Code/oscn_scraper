@@ -11,7 +11,8 @@ module OscnScraper
       # @option kwargs [String] :county Name of Oklahoma county
       # @option kwargs [String] :number OSCN Case Number (Ex: CF-2020-1203)
       # @return Initialized Object
-      def new(kwargs = {})
+      def initialize(kwargs = {})
+        super()
         @kwargs = kwargs
         valid_params?(kwargs.keys, valid_params)
       end
