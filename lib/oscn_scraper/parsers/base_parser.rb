@@ -20,6 +20,8 @@ module OscnScraper
       end
 
       def build_object
+        return OscnScraper::Errors::CaseNotFound if error?
+
         [
           OscnScraper::Parsers::Case,
           OscnScraper::Parsers::Judge,
@@ -53,9 +55,12 @@ module OscnScraper
         Nokogiri::HTML(html.body)
       end
 
+      def error?
+        error_html.count.positive?
+      end
+
       def error_html
-        # TODO: Throw an error if OSCN returns an error
-        errors = parsed_html.css('.errorMessage')
+        parsed_html.css('.errorMessage')
       end
 
       def case_html

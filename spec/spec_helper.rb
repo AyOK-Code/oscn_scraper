@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'oscn_scraper'
 require 'simplecov'
-require './spec/helpers.rb'
+require './spec/helpers'
 SimpleCov.start
 
 RSpec.configure do |config|

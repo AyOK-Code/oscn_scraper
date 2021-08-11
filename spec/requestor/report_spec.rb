@@ -3,7 +3,7 @@ RSpec.describe OscnScraper::Requestor::Report do
     it 'only allows valid params' do
       params = {
         county: 'Oklahoma',
-        bad_param: Date.new(2020,1,1)
+        bad_param: Date.new(2020, 1, 1)
       }
       expect { described_class.new(params).fetch_daily_filings }.to raise_error OscnScraper::Errors::InvalidParam
     end
@@ -20,7 +20,7 @@ RSpec.describe OscnScraper::Requestor::Report do
     it 'only allows valid params' do
       params = {
         county: 'Oklahoma',
-        bad_param: Date.new(2020,1,1)
+        bad_param: Date.new(2020, 1, 1)
       }
       expect { described_class.new(params).events_scheduled }.to raise_error OscnScraper::Errors::InvalidParam
     end

@@ -14,5 +14,4 @@ RSpec.describe OscnScraper::Requestor::Case do
       expect { described_class.new(args).fetch_case_by_number }.to raise_error OscnScraper::Errors::RequiredParam
     end
   end
-
 end

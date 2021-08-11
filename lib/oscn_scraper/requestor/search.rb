@@ -62,9 +62,7 @@ module OscnScraper
            iNumber citation]
       end
 
-      def required_params
-
-      end
+      def required_params; end
     end
   end
 end

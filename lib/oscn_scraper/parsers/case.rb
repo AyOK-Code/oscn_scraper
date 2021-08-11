@@ -28,7 +28,7 @@ module OscnScraper
         closed_element = case_html.children.find { |d| d.text.include? 'Closed:' }
         closed_on = closed_element.nil? ? nil : closed_element.text.gsub('Closed: ', '')
         filed_element = case_html.children.find { |d| d.text.include? 'Filed:' }
-        filed_on =  filed_element.nil? ? nil :filed_element.text.gsub('Filed: ', '').squish
+        filed_on =  filed_element.nil? ? nil : filed_element.text.gsub('Filed: ', '').squish
 
         { filed_on: parse_date(filed_on), closed_on: parse_date(closed_on) }
       end

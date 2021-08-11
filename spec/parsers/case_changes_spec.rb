@@ -15,6 +15,8 @@ RSpec.describe OscnScraper::Parsers::CaseChanges do
     data = described_class.new(parsed_html).parse
 
     expect(data.count).to eq 11
-    expect(data.map { |d| d['href'] }).to include 'GetCaseInformation.asp?submitted=true&db=Oklahoma&casemasterid=2829347'
+    expect(data.map do |d|
+             d['href']
+           end).to include 'GetCaseInformation.asp?submitted=true&db=Oklahoma&casemasterid=2829347'
   end
 end

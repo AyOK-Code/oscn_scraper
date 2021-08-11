@@ -8,6 +8,8 @@ AllCops:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/GuardClause:
+  Enabled: false
 Style/RegexpLiteral:
   Enabled: false
 Style/MutableConstant:
@@ -16,3 +18,5 @@ Metrics/MethodLength:
   Max: 25
 Metrics/AbcSize:
   Max: 30
+Metrics/BlockLength:
+  Max: 35

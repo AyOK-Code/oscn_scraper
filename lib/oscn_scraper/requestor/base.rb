@@ -22,12 +22,19 @@ module OscnScraper
 
       def valid_params?(keys, valid_params)
         invalid_params = keys.difference(valid_params)
-        raise OscnScraper::Errors::InvalidParam, "Invalid Params: #{invalid_params.join(', ')}" if invalid_params.count > 0
+        if invalid_params.count.positive?
+          raise OscnScraper::Errors::InvalidParam,
+                "Invalid Params: #{invalid_params.join(', ')}"
+        end
       end
 
       def required_params?(keys, required_params)
         missing_params = required_params.difference(keys)
-        raise OscnScraper::Errors::RequiredParam, "Missing required params: #{missing_params.join(', ')}" if missing_params.count > 0
+
+        if missing_params.count.positive?
+          raise OscnScraper::Errors::RequiredParam,
+                "Missing required params: #{missing_params.join(', ')}"
+        end
       end
 
       def base_url
