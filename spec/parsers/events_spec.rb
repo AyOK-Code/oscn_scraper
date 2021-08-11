@@ -2,20 +2,21 @@ RSpec.describe OscnScraper::Parsers::Events do
   describe '#parse' do
     it 'parses a case with many events' do
       fixture_path = 'spec/fixtures/parsers/events/multiple.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('table')
       data = described_class.parse(parsed_html)
 
-      expect(false).to eq true
-      # Test that all data is there
+      expect(data[:events].count).to eq 13
+      expect(data[:events].first).to include ({ date: DateTime.new(2017, 4, 6, 13, 30, 00, '-0600'), event_type: "PRELIMINARY HEARING CONFERENCE", party_name: "CARGLE,  EDWARD  III", docket: "Larry Shaw" })
     end
 
     it 'parses a case with no events' do
       fixture_path = 'spec/fixtures/parsers/events/none.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('table')
       data = described_class.parse(parsed_html)
 
-      expect(false).to eq true
-      # Test that all data is there
+      expect(data[:events].count).to eq 0
     end
   end
 end

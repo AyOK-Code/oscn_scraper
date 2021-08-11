@@ -3,9 +3,6 @@ RSpec.describe OscnScraper::Search do
     it 'returns an error if no cases are found' do
       # load fixture
       skip
-      html = File.open('spec/fixtures/example.html').read
-      described_class.new(html)
-                     .expect((data.css('title').text.include? 'OSCN Case Details')).to be true
     end
 
     it 'returns a warning if more than 500 cases are returned' do

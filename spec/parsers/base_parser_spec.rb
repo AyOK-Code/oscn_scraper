@@ -6,7 +6,7 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
       data = described_class.new(parsed_html).build_object
 
       expect(data[:events].count).to eq 30
-      expect(data[:attorneys].count).to eq 2
+      expect(data[:attorneys].count).to eq 1
       expect(data[:parties].count).to eq 4
       expect(data[:counts].count).to eq 9
       expect(data[:docket_events].count).to eq 247

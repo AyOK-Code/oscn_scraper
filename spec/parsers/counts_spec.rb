@@ -2,36 +2,32 @@ RSpec.describe OscnScraper::Parsers::Counts do
   describe '#parse' do
     it 'parses a case with multiple counts' do
       fixture_path = 'spec/fixtures/parsers/counts/multiple.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('.CountsContainer')
       data = described_class.parse(parsed_html)
 
-      # Test that all data is there
+      expect(data[:counts].count).to eq 2
+      expect(data[:counts].first[:disposition]).to eq 'CONVICTION, 07/02/2018. Guilty Plea'
     end
 
     it 'parses a single count' do
       fixture_path = 'spec/fixtures/parsers/counts/single.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('.CountsContainer')
       data = described_class.parse(parsed_html)
 
-      expect(false).to eq true
-      # Test that script does not break
-      # Test that script bar number is nil
+      expect(data[:counts].count).to eq 1
+      expect(data[:counts].first[:disposition]).to eq 'CONVICTION, 01/14/2020. Guilty Plea'
     end
 
     it 'parses a counts without disposition info' do
-      fixture_path = 'spec/fixtures/parsers/counts/no_disposition.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
+      fixture_path = 'spec/fixtures/parsers/counts/no_disposition_info.html'
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('.CountsContainer')
       data = described_class.parse(parsed_html)
 
-      expect(false).to eq true
-      # Test that script does not break
-      # Test that script bar number is nil
-    end
-
-    it 'skips counts that do not have parties attached' do
-      fixture_path = 'spec/fixtures/parsers/counts/missing_party'
-      parsed_html = load_and_parse_fixture(fixture_path)
-      data = described_class.parse(parsed_html)
+      expect(data[:counts].count).to eq 3
+      expect(data[:counts].first[:as_filed]).to eq 'DRIVING WHILE UNDER THE INFLUENCE'
     end
   end
 end

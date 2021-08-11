@@ -6,8 +6,8 @@ RSpec.describe OscnScraper::Parsers::Attorney do
       data = described_class.parse(parsed_html)
 
       expect(data[:attorneys].count).to eq 2
-      expect(data[:attorneys].include?({ name: 'ADLER, S THOMAS II', address: '', bar_number: '19997',
-                                         represented_parties: 'PIT,   ANTHONY  LEE' })).to eq(true)
+      expect(data[:attorneys].first).to eq ({ name: 'ADLER, S THOMAS II', address: '', bar_number: '19997',
+                                         represented_parties: ['PIT,   ANTHONY  LEE'] })
     end
 
     it 'parses a case with multiple parties with same attorney' do
