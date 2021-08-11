@@ -40,10 +40,10 @@ module OscnScraper
         end
         docket_events
       end
-    end
 
-    def date(data)
-      Date.strptime(sanitize_data(data), '%m-%d-%Y')
+      def date(data)
+        Date.strptime(sanitize_data(data), '%m-%d-%Y')
+      end
     end
   end
 end
