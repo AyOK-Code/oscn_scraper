@@ -3,12 +3,15 @@ module OscnScraper
     # Description/Explanation of Case class
     class Counts
       include OscnScraper::Parsers::Helpers
-      attr_reader :parsed_html, :counts_html
+      attr_reader :counts_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @counts_html = parsed_html.css('div.CountsContainer')
+      def initialize(counts_html)
+        @counts_html = counts_html
         @counts = { counts: [] }
+      end
+
+      def self.parse(counts_html)
+        new(counts_html).parse
       end
 
       def parse
@@ -19,16 +22,50 @@ module OscnScraper
 
       attr_accessor :counts
 
+      def parse_counts
+        return counts if counts_html.count < 1
+
+        counts_html.each do |row|
+          parties_html(row).each do |p|
+            counts[:counts] << count_object(row, p)
+          end
+        end
+        counts
+      end
+
+      def count_object(row, party)
+        {
+          party_name: party_name(party),
+          offense_on: offense_on(row),
+          as_filed: as_filed(row),
+          filed_statute_violation: statute(row),
+          filed_statute_violation_link: statute_link(row),
+          disposition: disposition(party),
+          charge: charge(party),
+          disposition_on: disposition_on(party),
+          disposed_statute_violation: disposition_statute(party),
+          disposed_statute_violation_link: disposition_link(party),
+          plea: disposition_plea(party),
+          verdict: disposition_verdict(party)
+        }
+      end
+
       def disposition(party_html)
         party_html.css('td font[color="red"]').text.squish.gsub('Disposed: ', '')
       end
 
+      def charge(party_html)
+        data = party_html.css('td')[2]&.children
+        data[3]&.text&.gsub('Count as Disposed:', '')&.squish
+      end
+
       def disposition_on(party_html)
-        disposition(party_html).match(/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/).to_s
+        data = disposition(party_html).match(/[0-9]{2}\/[0-9]{2}\/[0-9]{4}/).to_s
+        parse_date(data)
       end
 
       def disposition_link(party_html)
-        party_html.css('td a').attribute('href')&.text
+        party_html.css('td a').attribute('href')&.text&.squish
       end
 
       def disposition_statute(party_html)
@@ -60,38 +97,16 @@ module OscnScraper
       end
 
       def statute_link(row)
-        filed_html(row).children[1].attribute('href').value&.squish
+        filed_html(row).children[1].attribute('href')&.value&.squish
       end
 
       def offense_on(row)
-        filed_html(row).children[3].text.gsub('Date of Offense: ', '')
+        data = filed_html(row).children[3].text.gsub('Date of Offense: ', '')
+        parse_date(data)
       end
 
       def parties_html(row)
         row.at('table:contains("Party Name")').css('tbody tr')
-      end
-
-      def parse_counts
-        return if counts_html.blank?
-
-        counts_html.each do |row|
-          parties_html(row).each do |p|
-            counts[:counts] << {
-              party_name: party_name(p),
-              offense_on: parse_date(offense_on(row)),
-              as_filed: as_filed(row),
-              filed_statute_violation: statute(row),
-              filed_statute_violation_link: statute_link(row),
-              disposition: disposition(p),
-              disposition_on: parse_date(disposition_on(p)),
-              disposed_statute_violation: disposition_statute(p),
-              disposed_statute_violation_link: disposition_link(p),
-              plea: disposition_plea(p),
-              verdict: disposition_verdict(p)
-            }
-          end
-        end
-        counts
       end
     end
   end

@@ -3,12 +3,15 @@ module OscnScraper
     # Description/Explanation of Case class
     class Case
       include OscnScraper::Parsers::Helpers
-      attr_reader :parsed_html, :case_html
+      attr_reader :case_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
-        @case_html = parsed_html.at('td:contains("Closed:")')
-        @case_data = { closed_on: nil }
+      def initialize(case_html)
+        @case_html = case_html
+        @case_data = { filed_on: nil, closed_on: nil }
+      end
+
+      def self.parse(case_html)
+        new(case_html).parse
       end
 
       def parse
@@ -22,9 +25,12 @@ module OscnScraper
       def parse_closed_date
         return case_data if case_html.blank?
 
-        element = case_html.children.find { |d| d.text.include? 'Closed:' }
-        date = element.text.gsub('Closed: ', '')
-        { closed_on: parse_date(date) }
+        closed_element = case_html.children.find { |d| d.text.include? 'Closed:' }
+        closed_on = closed_element.nil? ? nil : closed_element.text.gsub('Closed: ', '')
+        filed_element = case_html.children.find { |d| d.text.include? 'Filed:' }
+        filed_on =  filed_element.nil? ? nil : filed_element.text.gsub('Filed: ', '').squish
+
+        { filed_on: parse_date(filed_on), closed_on: parse_date(closed_on) }
       end
     end
   end

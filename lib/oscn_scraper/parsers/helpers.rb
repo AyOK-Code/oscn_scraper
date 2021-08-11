@@ -7,6 +7,8 @@ module OscnScraper
       end
 
       def parse_date(date)
+        return nil if date.nil?
+
         Date.strptime(date, '%m/%d/%Y')
       rescue Date::Error
         nil

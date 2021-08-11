@@ -1,12 +1,25 @@
 RSpec.describe OscnScraper::Parsers::Events do
-  it 'correctly parses the Event' do
-    html = File.open('spec/fixtures/parsers/case_with_closed.html').read
-    parsed_html = Nokogiri::HTML.parse(html)
-    described_class.new(parsed_html).parse
-    skip
-  end
+  describe '#parse' do
+    it 'parses a case with many events' do
+      fixture_path = 'spec/fixtures/parsers/events/multiple.html'
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('table')
+      data = described_class.parse(parsed_html)
 
-  it 'returns a empty array if the next sibling is not a table' do
-    skip
+      expect(data[:events].count).to eq 13
+      expect(data[:events].first).to include({ date: DateTime.new(2017, 4, 6, 13, 30, 0o0, '-0600'),
+                                               event_type: 'PRELIMINARY HEARING CONFERENCE',
+                                               party_name: 'CARGLE,  EDWARD  III',
+                                               docket: 'Larry Shaw' })
+    end
+
+    it 'parses a case with no events' do
+      fixture_path = 'spec/fixtures/parsers/events/none.html'
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('table')
+      data = described_class.parse(parsed_html)
+
+      expect(data[:events].count).to eq 0
+    end
   end
 end

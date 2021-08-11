@@ -2,11 +2,15 @@ module OscnScraper
   module Parsers
     # Description/Explanation of Case class
     class Parties
-      attr_reader :parsed_html
+      attr_reader :parties_html
 
-      def initialize(parsed_html)
-        @parsed_html = parsed_html
+      def initialize(parties_html)
+        @parties_html = parties_html
         @parties = { parties: [] }
+      end
+
+      def self.parse(parties_html)
+        new(parties_html).parse
       end
 
       def parse
@@ -18,10 +22,9 @@ module OscnScraper
       attr_accessor :parties
 
       def parse_parties
-        parties_html = parsed_html.xpath('//h2[contains(@class, "party")]/following-sibling::p[1]')
         return parties if parties_html.blank?
 
-        parties_html.first.css('a').each do |link|
+        parties_html.css('a').each do |link|
           build_parties(link)
         end
         parties
