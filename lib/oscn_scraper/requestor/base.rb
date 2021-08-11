@@ -1,6 +1,5 @@
 require 'httparty'
 require 'byebug'
-require 'ruby-limiter'
 require 'active_support/core_ext/object'
 require 'logger'
 
@@ -8,11 +7,8 @@ module OscnScraper
   module Requestor
     # Description/Explanation of BaseScraper class
     class Base
-      extend Limiter::Mixin
       attr_accessor :logger, :queue
 
-      # TODO: Figure out the queue to limit api calls
-      #   @queue = Limiter::RateQueue.new(120, interval: 60) # Limits requests to 120 per 60 seconds change to config
       def concatenated_url(endpoint, params = {})
         "#{base_url}#{endpoint}#{params.to_query}"
       end
