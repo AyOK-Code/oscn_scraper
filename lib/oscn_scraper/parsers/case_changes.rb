@@ -12,8 +12,7 @@ module OscnScraper
 
       def parse
         report_html.css('a')
-          .select{ |a| a["href"].include?('GetCaseInformation.asp') }
-          .map { |a| a.text }
+          .select { |a| a["href"].include?('GetCaseInformation.asp') }
       end
     end
   end

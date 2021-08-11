@@ -1,6 +1,6 @@
 module OscnScraper
   module Errors
-  # Invalid param
+    # Invalid param
     class InvalidParam < RuntimeError; end
   end
 end

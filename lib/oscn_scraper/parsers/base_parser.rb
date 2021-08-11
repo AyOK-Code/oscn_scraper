@@ -1,5 +1,6 @@
 require 'nokogiri'
 require 'byebug'
+require 'awesome_print'
 require 'active_support/core_ext/string'
 
 module OscnScraper
@@ -52,8 +53,13 @@ module OscnScraper
         Nokogiri::HTML(html.body)
       end
 
+      def error_html
+        # TODO: Throw an error if OSCN returns an error
+        errors = parsed_html.css('.errorMessage')
+      end
+
       def case_html
-        parsed_html.at('td:contains("Closed:")')
+        parsed_html.css('table').first.css('td')[1]
       end
 
       def judge_html

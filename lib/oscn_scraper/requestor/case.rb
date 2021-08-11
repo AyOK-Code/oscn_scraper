@@ -29,7 +29,7 @@ module OscnScraper
         required_params?(kwargs.keys, required_params)
         params = {
           db: kwargs[:county].downcase,
-          number: kwargs[:case_number]
+          number: kwargs[:number]
         }
         request(concatenated_url(endpoint, params))
       end

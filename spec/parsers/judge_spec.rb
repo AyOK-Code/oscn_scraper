@@ -8,7 +8,6 @@ RSpec.describe OscnScraper::Parsers::Judge do
   end
 
   it 'distiguishes between a Docket and a Judge' do
-    # TODO: Figure out how we are going to handle docket vs judge
     skip
   end
 end
