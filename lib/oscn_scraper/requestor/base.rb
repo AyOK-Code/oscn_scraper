@@ -1,5 +1,4 @@
 require 'httparty'
-require 'byebug'
 require 'active_support/core_ext/object'
 require 'logger'
 
