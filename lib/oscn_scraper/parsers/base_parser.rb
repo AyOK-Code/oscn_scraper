@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'awesome_print'
 require 'active_support/core_ext/string'
 
 module OscnScraper

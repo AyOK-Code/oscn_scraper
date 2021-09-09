@@ -1,5 +1,3 @@
-require 'awesome_print'
-
 RSpec.describe OscnScraper::Parsers::Case do
   it 'correctly parses filed on date' do
     fixture_path = 'spec/fixtures/parsers/case/case_with_closed.html'
