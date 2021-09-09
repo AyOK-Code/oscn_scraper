@@ -8,6 +8,7 @@ PATH
       httparty (~> 0.17)
       nokogiri (~> 1.11)
       rake (~> 10.0)
+      simplecov (~> 0.21.2)
       yard (~> 0.9.26)
 
 GEM
@@ -97,7 +98,6 @@ DEPENDENCIES
   rspec (~> 3.0)
   rubocop (~> 1.12)
   rubocop-rspec (~> 2.4)
-  simplecov (~> 0.21.2)
   webrick (~> 1.7)
 
 BUNDLED WITH
