@@ -2,6 +2,12 @@ PATH
   remote: .
   specs:
     oscn_scraper (0.1.1)
+      activesupport (>= 5.0.0)
+      bundler (~> 2.0)
+      httparty (~> 0.17)
+      nokogiri (~> 1.11)
+      rake (~> 10.0)
+      yard (~> 0.9.26)
 
 GEM
   remote: https://rubygems.org/
@@ -84,19 +90,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (>= 5.0.0)
   awesome_print (~> 1.9.2)
-  bundler (~> 2.0)
-  httparty (~> 0.17)
-  nokogiri (~> 1.11)
   oscn_scraper!
-  rake (~> 10.0)
   rspec (~> 3.0)
   rubocop (~> 1.12)
   rubocop-rspec (~> 2.4)
   simplecov (~> 0.21.2)
   webrick (~> 1.7)
-  yard (~> 0.9.26)
 
 BUNDLED WITH
    2.2.15
