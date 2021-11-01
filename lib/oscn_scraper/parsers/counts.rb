@@ -38,6 +38,7 @@ module OscnScraper
           party_name: party_name(party),
           offense_on: offense_on(row),
           as_filed: as_filed(row),
+          filed_code: filed_code(row),
           filed_statute_violation: statute(row),
           filed_statute_violation_link: statute_link(row),
           disposition: disposition(party),
@@ -90,6 +91,10 @@ module OscnScraper
 
       def as_filed(row)
         filed_html(row).children[0].text.squish.split(',')[1]&.squish
+      end
+
+      def filed_code(row)
+        filed_html(row).children[0].text
       end
 
       def statute(row)
