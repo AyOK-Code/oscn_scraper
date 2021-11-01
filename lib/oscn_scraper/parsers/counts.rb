@@ -101,7 +101,7 @@ module OscnScraper
       end
 
       def filed_code(row)
-        filed_html(row).children[0].text.squish.split(',')[0]&.squish
+        filed_html(row).children[0].text.squish.split(',')[0].gsub('Count as Filed: ', '')&.squish
       end
 
       def statute(row)
