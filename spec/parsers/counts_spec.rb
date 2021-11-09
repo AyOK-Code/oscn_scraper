@@ -18,6 +18,7 @@ RSpec.describe OscnScraper::Parsers::Counts do
 
       expect(data[:counts].count).to eq 1
       expect(data[:counts].first[:disposition]).to eq 'CONVICTION, 01/14/2020. Guilty Plea'
+      expect(data[:counts].first[:filed_statute_code]).to eq 'BRG2'
     end
 
     it 'parses a counts without disposition info' do
