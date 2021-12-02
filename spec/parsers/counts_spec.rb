@@ -18,6 +18,7 @@ RSpec.describe OscnScraper::Parsers::Counts do
 
       expect(data[:counts].count).to eq 1
       expect(data[:counts].first[:disposition]).to eq 'CONVICTION, 01/14/2020. Guilty Plea'
+      expect(data[:counts].first[:filed_statute_code]).to eq 'BRG2'
     end
 
     it 'parses a counts without disposition info' do
@@ -28,6 +29,16 @@ RSpec.describe OscnScraper::Parsers::Counts do
 
       expect(data[:counts].count).to eq 3
       expect(data[:counts].first[:as_filed]).to eq 'DRIVING WHILE UNDER THE INFLUENCE'
+    end
+
+    it 'parses the last parentheses from the Count as Disposed text' do
+      fixture_path = 'spec/fixtures/parsers/counts/multiple_parentheses_count.html'
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('.CountsContainer')
+      data = described_class.parse(parsed_html)
+
+      expect(data[:counts].count).to eq 4
+      expect(data[:counts].first[:disposed_statute_code]).to eq 'DU2II'
     end
   end
 end
