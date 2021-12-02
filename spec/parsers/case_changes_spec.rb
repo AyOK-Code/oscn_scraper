@@ -1,5 +1,3 @@
-require 'awesome_print'
-
 RSpec.describe OscnScraper::Parsers::CaseChanges do
   it 'returns an empty array if no cases are on the page' do
     fixture_path = 'spec/fixtures/parsers/case_changes/blank_docket_schedule.html'

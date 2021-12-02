@@ -38,11 +38,13 @@ module OscnScraper
           party_name: party_name(party),
           offense_on: offense_on(row),
           as_filed: as_filed(row),
+          filed_statute_code: filed_code(row),
           filed_statute_violation: statute(row),
           filed_statute_violation_link: statute_link(row),
           disposition: disposition(party),
           charge: charge(party),
           disposition_on: disposition_on(party),
+          disposed_statute_code: disposition_code(party),
           disposed_statute_violation: disposition_statute(party),
           disposed_statute_violation_link: disposition_link(party),
           plea: disposition_plea(party),
@@ -72,6 +74,12 @@ module OscnScraper
         party_html.css('td a')&.text&.squish
       end
 
+      def disposition_code(party_html)
+        data = party_html.css('td')[2]&.children
+        full = data[3]&.text&.gsub('Count as Disposed:', '')&.squish
+        full.rpartition('(')[2]&.gsub(')', '') if full.present?
+      end
+
       def party_name(party_html)
         party_html.css('td')[1].text
       end
@@ -90,6 +98,10 @@ module OscnScraper
 
       def as_filed(row)
         filed_html(row).children[0].text.squish.split(',')[1]&.squish
+      end
+
+      def filed_code(row)
+        filed_html(row).children[0].text.squish.split(',')[0].gsub('Count as Filed: ', '')&.squish
       end
 
       def statute(row)
