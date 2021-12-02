@@ -77,7 +77,7 @@ module OscnScraper
       def disposition_code(party_html)
         data = party_html.css('td')[2]&.children
         full = data[3]&.text&.gsub('Count as Disposed:', '')&.squish
-        full.split('(')[1]&.gsub(')', '') if full.present?
+        full.rpartition('(')[2]&.gsub(')', '') if full.present?
       end
 
       def party_name(party_html)
