@@ -9,6 +9,7 @@ RSpec.describe OscnScraper::Parsers::Events do
       expect(data[:events].count).to eq 13
       expect(data[:events].first).to include({ date: DateTime.new(2017, 4, 6, 13, 30, 0o0, '-0600'),
                                                event_type: 'PRELIMINARY HEARING CONFERENCE',
+                                               event_code: 'PRELIMC',
                                                party_name: 'CARGLE,  EDWARD  III',
                                                docket: 'Larry Shaw' })
     end
