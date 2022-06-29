@@ -10,6 +10,7 @@ module OscnScraper
   require 'oscn_scraper/parsers/judge'
   require 'oscn_scraper/parsers/parties'
   require 'oscn_scraper/parsers/events'
+  require 'oscn_scraper/parsers/reports/link'
   require 'oscn_scraper/parsers/counts'
   require 'oscn_scraper/parsers/attorney'
   require 'oscn_scraper/parsers/docket_events'

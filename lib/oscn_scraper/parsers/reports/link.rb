@@ -1,10 +1,10 @@
+require 'byebug'
 module OscnScraper
   module Parsers
     # Parses link data from Reports
     module Reports
+      # Initializes class
       class Link
-        # Initializes class
-        #
         # @param link_html [Html] From the Attorney section of the CaseInformation endpoint
         # @return Class object
         def initialize(link_html)
@@ -25,7 +25,12 @@ module OscnScraper
         private
 
         def parse_link
-          #TODO: Your code goes here
+          {
+            case_number: @link_html.children.text,
+            link: @link_html.values.first,
+            oscn_id: @link_html.values.first.match(/ID=(\d+)/)[1],
+            county: @link_html.values.first.match(/&db=(\D+)/)[1]
+          }
         end
       end
     end
