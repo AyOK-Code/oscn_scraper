@@ -5,6 +5,7 @@ module OscnScraper
 
   require 'oscn_scraper/parsers/base_parser'
   require 'oscn_scraper/parsers/helpers'
+  require 'oscn_scraper/parsers/party_details'
   require 'oscn_scraper/parsers/case'
   require 'oscn_scraper/parsers/case_changes'
   require 'oscn_scraper/parsers/judge'
