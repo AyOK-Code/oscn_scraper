@@ -19,17 +19,21 @@ module OscnScraper
         end
 
         def parse
+          
           parse_link
         end
 
         private
 
         def parse_link
+          uri = URI.parse(@link_html.at("a")['href'])
+          params = CGI.parse(uri.query)
           {
-            case_number: @link_html.children.text,
-            link: @link_html.values.first,
-            oscn_id: @link_html.values.first.match(/ID=(\d+)/)[1],
-            county: @link_html.values.first.match(/&db=(\D+)/)[1]
+            
+            case_number: @link_html.at("a").text,
+            link: @link_html.at("a")['href'].first,
+            oscn_id: params['casemasterID'].first.to_i,
+            county:params['db'].first
           }
         end
       end
