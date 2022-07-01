@@ -10,6 +10,6 @@ RSpec.describe OscnScraper::Parsers::Reports::Link do
 
     expect(data[:case_number]).to eq 'CF-2021-489'
     expect(data[:county]).to eq 'Oklahoma'
-    expect(data[:oscn_id]).to eq 3946802
+    expect(data[:oscn_id]).to eq 3_946_802
   end
 end

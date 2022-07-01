@@ -1,4 +1,3 @@
-require 'byebug'
 module OscnScraper
   module Parsers
     # Parses link data from Reports
@@ -19,21 +18,20 @@ module OscnScraper
         end
 
         def parse
-          
           parse_link
         end
 
         private
 
         def parse_link
-          uri = URI.parse(@link_html.at("a")['href'])
+          uri = URI.parse(@link_html.at('a')['href'])
           params = CGI.parse(uri.query)
           {
-            
-            case_number: @link_html.at("a").text,
-            link: @link_html.at("a")['href'].first,
+
+            case_number: @link_html.at('a').text,
+            link: @link_html.at('a')['href'].first,
             oscn_id: params['casemasterID'].first.to_i,
-            county:params['db'].first
+            county: params['db'].first
           }
         end
       end
