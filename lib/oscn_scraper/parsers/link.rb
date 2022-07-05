@@ -25,9 +25,8 @@ module OscnScraper
         uri = URI.parse(@link_html.at('a')['href'])
         params = CGI.parse(uri.query)
         {
-
           case_number: @link_html.at('a').text,
-          link: @link_html.at('a')['href'].first,
+          link: @link_html.at('a')['href'],
           oscn_id: params['casemasterID'].first.to_i,
           county: params['db'].first
         }

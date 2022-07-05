@@ -5,6 +5,7 @@ RSpec.describe OscnScraper::Parsers::Link do
     data = described_class.parse(link_html)
 
     expect(data[:case_number]).to eq 'CF-2021-489'
+    expect(data[:link]).to eq 'GetCaseInformation.asp?viewtype=&submitted=true&casemasterID=3946802&db=Oklahoma'
     expect(data[:county]).to eq 'Oklahoma'
     expect(data[:oscn_id]).to eq 3_946_802
   end
