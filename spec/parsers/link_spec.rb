@@ -1,6 +1,6 @@
-RSpec.describe OscnScraper::Parsers::Reports::Link do
+RSpec.describe OscnScraper::Parsers::Link do
   it 'correctly parses and gathers links' do
-    fixture_path = 'spec/fixtures/parsers/reports/link.html'
+    fixture_path = 'spec/fixtures/parsers/links/link.html'
     link_html = load_and_parse_fixture(fixture_path)
     data = described_class.parse(link_html)
 

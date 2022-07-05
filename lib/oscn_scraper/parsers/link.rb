@@ -1,8 +1,6 @@
 module OscnScraper
   module Parsers
     # Parses link data from Reports
-    module Reports
-      # Initializes class
       class Link
         # @param link_html [Html] From the Attorney section of the CaseInformation endpoint
         # @return Class object
@@ -36,5 +34,4 @@ module OscnScraper
         end
       end
     end
-  end
 end
