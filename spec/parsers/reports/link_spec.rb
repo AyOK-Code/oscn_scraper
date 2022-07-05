@@ -1,7 +1,3 @@
-require 'byebug'
-require 'oscn_scraper'
-
-# byebug
 RSpec.describe OscnScraper::Parsers::Reports::Link do
   it 'correctly parses and gathers links' do
     fixture_path = 'spec/fixtures/parsers/reports/link.html'
