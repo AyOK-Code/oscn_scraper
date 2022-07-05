@@ -11,7 +11,7 @@ module OscnScraper
 
         Date.strptime(date, '%m/%d/%Y')
       rescue Date::Error
-        nil
+        true
       end
     end
   end
