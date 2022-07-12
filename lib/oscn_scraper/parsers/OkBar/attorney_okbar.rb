@@ -22,7 +22,7 @@ module OscnScraper
           url = "pagenum=1&sort%5B5%5D=desc&filter_11=#{state_abreviation}&mode=all"
           full_url = @base_url + url
 
-          html = URI.open(full_url) # "#{base_url}#{url}"
+          html = URI.parse(full_url).open # "#{base_url}#{url}"
 
           parsed_data = Nokogiri::HTML(html)
           parsed_data.css('.gv-table-view')
