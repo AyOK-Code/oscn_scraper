@@ -1,3 +1,5 @@
+require 'byebug'
+
 module OscnScraper
   module Parsers
     # Description/Explanation of Case class
@@ -35,12 +37,14 @@ module OscnScraper
         date_string = event.css('td font[color="green"]').text # Date
         date = parsed_date(date_string)
         event_type = event.css('td')[0].children[3].text.squish # Event Type
+        event_code = event.search('.//comment()').text.squish.gsub('(', '').gsub(')', '')
         party_name = event.css('td')[1].text.strip
         docket = event.css('td')[2].text.strip
 
         events[:events] << {
           date: date,
           event_type: event_type,
+          event_code: event_code,
           party_name: party_name,
           docket: docket
         }
