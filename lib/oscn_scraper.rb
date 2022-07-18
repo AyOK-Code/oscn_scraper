@@ -17,6 +17,7 @@ module OscnScraper
   require 'oscn_scraper/requestor/base'
   require 'oscn_scraper/requestor/case'
   require 'oscn_scraper/requestor/party'
+  require 'oscn_scraper/requestor/district_attorney'
   require 'oscn_scraper/requestor/search'
   require 'oscn_scraper/requestor/report'
   require 'oscn_scraper/errors/invalid_parse'
