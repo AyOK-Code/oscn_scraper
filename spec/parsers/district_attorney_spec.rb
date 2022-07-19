@@ -1,15 +1,20 @@
+require 'byebug'
 RSpec.describe OscnScraper::Parsers::DistrictAttorney do
     describe '#perform' do
   it 'gets the html' do
-    test_data = OscnScraper::Requestor::DistrictAttorney.new
-    test_data = test_data.perform
+    fixture_path = 'spec/fixtures/parsers/district_attorney.html'
+    html =File.open(fixture_path).read
+    
 
-    test_parser = described_class.new(test_data)
+    parser = described_class.new(html)
 
-    parsed_html = test_parser.perform
+    data = parser.perform
+    
 
-    expect(parsed_html.class).to eq(Nokogiri::HTML4::Document)
-    expect(parsed_html.css('tr td').first.children.text).to eq('District')
+    expect(data.first[:district]).to eq('1')
+    expect(data.first[:district_attorney]).to eq('George Leach')
+    expect(data.first[:counties].size).to eq(4)
+    expect(data.size).to eq(27)
   end
 end
   end
