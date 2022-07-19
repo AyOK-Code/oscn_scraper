@@ -3,49 +3,35 @@ module OscnScraper
   module Parsers
     # Parses da_html with Nokogiri and returns it
     class DistrictAttorney
-        attr_reader :parsed_html
-        attr_accessor :district_attorneys
+      attr_reader :parsed_html
+      attr_accessor :district_attorneys
+
       def initialize(html)
-        @parsed_html= Nokogiri::HTML(html)
+        @parsed_html = Nokogiri::HTML(html)
 
-    @district_attorneys= []
-
+        @district_attorneys = []
       end
 
       def perform
-      
-       
+        parsed_html.css('tr').each_with_index do |d, i|
+          next if i.zero?
 
-       parsed_html.css('tr').each_with_index do |d,i| 
-        if i == 0
-            next
+          district_attorneys << district_attorney(d)
         end
 
-            district_attorneys << district_attorney(d)
-
-       end
-       
         district_attorneys
-
       end
 
-      def  district_attorney(d)
+      def district_attorney(dist)
         {
-            district: d.children[1].text.squish,
-       
-            district_attorney: d.children[3].text.squish,
-       
-            counties: d.children[5].text.split(',').map(&:squish).select(&:present?)
-            
-         }
-         
+          district: dist.children[1].text.squish,
 
+          district_attorney: dist.children[3].text.squish,
+
+          counties: dist.children[5].text.split(',').map(&:squish).select(&:present?)
+
+        }
       end
-
-      
-
-
-      
     end
   end
 end
