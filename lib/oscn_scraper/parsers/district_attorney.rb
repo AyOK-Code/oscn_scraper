@@ -27,7 +27,7 @@ module OscnScraper
         
             if dist.children[1].text.squish === 'Cimmarron'
                 dist.children[1].text ='Cimarron'
-                byebug
+                
             end
         {
             
