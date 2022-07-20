@@ -20,7 +20,6 @@ module OscnScraper
         end
 
         district_attorneys
-        byebug
       end
 
       def district_attorney(dist)
