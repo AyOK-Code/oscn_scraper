@@ -20,17 +20,12 @@ module OscnScraper
         end
 
         district_attorneys
-        
       end
 
       def district_attorney(dist)
-        
-            if dist.children[1].text.squish === 'Cimmarron'
-                dist.children[1].text ='Cimarron'
-                
-            end
+        dist.children[1].text = 'Cimarron' if dist.children[1].text.squish.eql? 'Cimmarron'
         {
-            
+
           district: dist.children[1].text.squish,
 
           district_attorney: dist.children[3].text.squish,
