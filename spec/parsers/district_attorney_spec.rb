@@ -7,6 +7,8 @@ RSpec.describe OscnScraper::Parsers::DistrictAttorney do
 
     parser = described_class.new(html)
 
+
+
     data = parser.perform
 
     expect(data.first[:district]).to eq('1')
