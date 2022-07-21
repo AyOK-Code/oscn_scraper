@@ -25,15 +25,13 @@ module OscnScraper
       def district_attorney(dist)
         counts = dist.children[5].text.split(',').map(&:squish).select(&:present?)
         counts.map! do |county|
-      if county.eql? 'Cimmarron'
+      case county
+      when 'Cimmarron'
         'Cimarron'
+      when 'LeFlore'
+        'Le Flore'
       else
         county
-
-        if county.eql? 'LeFlore'
-            'Le Flore'
-          else
-            county
       end
     end
 
