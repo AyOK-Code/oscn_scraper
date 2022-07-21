@@ -29,6 +29,11 @@ module OscnScraper
         'Cimarron'
       else
         county
+
+        if county.eql? 'LeFlore'
+            'Le Flore'
+          else
+            county
       end
     end
 
