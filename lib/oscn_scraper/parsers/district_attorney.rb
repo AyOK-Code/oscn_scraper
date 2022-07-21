@@ -36,13 +36,11 @@ module OscnScraper
     end
 
         {
-
           district: dist.children[1].text.squish,
 
           district_attorney: dist.children[3].text.squish,
 
           counties: counts
-
         }
       end
     end
