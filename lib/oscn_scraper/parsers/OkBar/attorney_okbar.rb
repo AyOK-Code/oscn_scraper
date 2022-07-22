@@ -7,42 +7,31 @@ module OscnScraper
       # Pulls accurate data from the OK Bar Association
       # TODO: Figure out refresh schedule
       class AttorneyOkBar
-        attr_accessor :base_url, :state_abreviation,:attorneys
+        attr_accessor :base_url, :state_abreviation, :attorneys, :pagenum, :html
 
-        def initialize(state_abreviation = 'OK')
-          @base_url = 'https://www.okbar.org/oba-member-search/?'
-          @state_abreviation = state_abreviation
-          @attorneys =[]
+        def initialize(html)
+          @attorneys = []
+          @html = html
         end
 
-        def self.perform(state_abreviation = 'OK')
-          new(state_abreviation).perform
+        def self.perform(html)
+          new(html).perform
         end
 
         def perform
+          table = html.css('tr')
+          table.each_with_index do |row, _index|
+            next if row.children[1].text.squish.eql? 'Bar Number'
 
-        pagenum = (1..547).to_a
-        pagenum.each do |page|        
-          url = "pagenum=#{page}&sort%5B5%5D=desc&filter_11=#{state_abreviation}&mode=all"
-          full_url = @base_url + url
-
-          html = URI.parse(full_url).open # "#{base_url}#{url}"
-
-          parsed_data = Nokogiri::HTML(html)
-          table = parsed_data.css('tr')
-          table.each_with_index do |row,i|
-            next if i.zero?
-            
-              attorneys << attorney(row)
-              byebug
+            attorneys << attorney(row)
           end
+          attorneys
+        end
 
-        end
-        end
         def attorney(row)
           {
             bar_number: row.children[1].text,
-            first_name: row.children[2].text ,
+            first_name: row.children[2].text,
             middle_name: row.children[3].text,
             last_name: row.children[4].text,
             city: row.children[5].text,

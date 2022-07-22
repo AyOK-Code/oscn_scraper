@@ -5,6 +5,7 @@ module OscnScraper
 
   require 'oscn_scraper/parsers/base_parser'
   require 'oscn_scraper/parsers/OkBar/attorney_okbar'
+  require 'oscn_scraper/requestor/OkBar/attorney_okbar'
   require 'oscn_scraper/parsers/helpers'
   require 'oscn_scraper/parsers/case'
   require 'oscn_scraper/parsers/case_changes'

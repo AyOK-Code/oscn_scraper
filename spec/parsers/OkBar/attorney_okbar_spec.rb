@@ -1,17 +1,18 @@
 require 'byebug'
 RSpec.describe OscnScraper::Parsers::OkBar::AttorneyOkBar do
   it 'returns table from OkBar page' do
-    data = described_class.new('OK').perform
+    fixture_path = 'spec/fixtures/ok_bar.html'
+    parsed_html = load_and_parse_fixture(fixture_path)
+    data = described_class.new(parsed_html).perform
 
-    expect(data.attribute('class').value).to include('gv-table-view')
-    expect(data.css('td')[0].children.text).to eq '102'
-    expect(data.css('td')[1].children.text).to eq 'William'
-    expect(data.css('td')[2].children.text).to eq 'Rogers'
-    expect(data.css('td')[3].children.text).to eq 'Abbott'
-    expect(data.css('td')[4].children.text).to eq 'Oklahoma City'
-    expect(data.css('td')[5].children.text).to eq 'OK'
-    expect(data.css('td')[6].children.text).to eq 'Senior Member'
-    expect(data.css('td')[7].children.text).to eq 'Good Standing'
-    expect(data.css('td')[8].children.text).to eq '3/28/1961'
+    expect(data.first[:bar_number]).to eq '102'
+    expect(data.first[:first_name]).to eq 'William'
+    expect(data.first[:middle_name]).to eq 'Rogers'
+    expect(data.first[:last_name]).to eq 'Abbott'
+    expect(data.first[:city]).to eq 'Oklahoma City'
+    expect(data.first[:state]).to eq 'OK'
+    expect(data.first[:member_type]).to eq 'Senior Member'
+    expect(data.first[:member_status]).to eq 'Good Standing'
+    expect(data.first[:admit_date]).to eq '3/28/1961'
   end
 end
