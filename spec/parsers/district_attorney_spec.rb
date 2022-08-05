@@ -1,4 +1,3 @@
-require 'byebug'
 RSpec.describe OscnScraper::Parsers::DistrictAttorney do
     describe '#perform' do
       it 'gets the html' do
