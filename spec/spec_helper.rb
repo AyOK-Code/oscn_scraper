@@ -2,6 +2,8 @@ require 'bundler/setup'
 require 'oscn_scraper'
 require 'simplecov'
 require './spec/helpers'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 SimpleCov.start
 
 RSpec.configure do |config|
