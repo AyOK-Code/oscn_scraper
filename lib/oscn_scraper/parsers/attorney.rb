@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Parsers
     # Parses Attorney data from the case
@@ -36,6 +37,7 @@ module OscnScraper
           column_one = a.css('td')[0].children[0].text
           name = parse_name(column_one)
           bar_number = parse_bar_number(column_one)
+          byebug
           address = parse_address(a)
           all_parties = a.css('td')[1].children.select { |e| e.node_name == 'text' }
           attorneys[:attorneys] << {
