@@ -61,6 +61,7 @@ module OscnScraper
       end
 
       def parse_address(attorney)
+        byebug
         attorney.css('td')[0].children[1..].text
        # attorney.css('td')[0].children[1..].inner_html
       end
