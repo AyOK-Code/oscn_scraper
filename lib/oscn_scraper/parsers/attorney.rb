@@ -37,7 +37,6 @@ module OscnScraper
           column_one = a.css('td')[0].children[0].text
           name = parse_name(column_one)
           bar_number = parse_bar_number(column_one)
-          byebug
           address = parse_address(a)
           all_parties = a.css('td')[1].children.select { |e| e.node_name == 'text' }
           attorneys[:attorneys] << {
@@ -62,8 +61,8 @@ module OscnScraper
       end
 
       def parse_address(attorney)
-        byebug
-        attorney.css('td')[0].children[1..].inner_html
+        attorney.css('td')[0].children[1..].text
+       # attorney.css('td')[0].children[1..].inner_html
       end
 
       def parse_parties(element)
