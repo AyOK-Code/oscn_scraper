@@ -61,9 +61,13 @@ module OscnScraper
       end
 
       def parse_address(attorney)
-        byebug
-        attorney.css('td')[0].children[1..].text
-       # attorney.css('td')[0].children[1..].inner_html
+        full_address = ''
+
+        attorney.css('td')[0].children[1..].each do |n|
+  n.text == '' ? full_address.concat(' ') : full_address.concat(n.text)
+end
+
+        full_address.strip
       end
 
       def parse_parties(element)
