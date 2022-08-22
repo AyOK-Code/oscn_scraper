@@ -62,11 +62,9 @@ module OscnScraper
 
       def parse_address(attorney)
         full_address = ''
-
         attorney.css('td')[0].children[1..].each do |n|
   n.text == '' ? full_address.concat(' ') : full_address.concat(n.text)
 end
-
         full_address.strip
       end
 
