@@ -8,7 +8,6 @@ module OscnScraper
 
       def initialize(html)
         @parsed_html = Nokogiri::HTML(html)
-
         @district_attorneys = []
       end
 
@@ -25,21 +24,19 @@ module OscnScraper
       def district_attorney(dist)
         counts = dist.children[5].text.split(',').map(&:squish).select(&:present?)
         counts.map! do |county|
-      case county
-      when 'Cimmarron'
-        'Cimarron'
-      when 'LeFlore'
-        'Le Flore'
-      else
-        county
-      end
-    end
+          case county
+          when 'Cimmarron'
+            'Cimarron'
+          when 'LeFlore'
+            'Le Flore'
+          else
+            county
+          end
+        end
 
         {
           district: dist.children[1].text.squish,
-
           district_attorney: dist.children[3].text.squish,
-
           counties: counts
         }
       end
