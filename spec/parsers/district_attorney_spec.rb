@@ -2,7 +2,7 @@ RSpec.describe OscnScraper::Parsers::DistrictAttorney do
   describe '#perform' do
     it 'gets the html' do
       fixture_path = 'spec/fixtures/parsers/district_attorney.html'
-      html = File.open(fixture_path).read
+      html = File.read(fixture_path)
 
       parser = described_class.new(html)
 
