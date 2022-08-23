@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 RSpec.describe OscnScraper::Requestor::Report do
   describe '#fetch_daily_filings' do
     it 'only allows valid params' do
