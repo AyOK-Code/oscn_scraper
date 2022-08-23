@@ -22,9 +22,9 @@ module OscnScraper
         # rubocop:enable Layout/LineLength
 
         HTTParty.get(url, headers: {
-                       "User-Agent": user_agent,
-                       "Accept-Encoding": 'gzip, deflate, br',
-                       "Accept-Language": 'en-US,en;q=0.9,es;q=0.8',
+                       'User-Agent': user_agent,
+                       'Accept-Encoding': 'gzip, deflate, br',
+                       'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
                        Accept: accept
                      })
       end
