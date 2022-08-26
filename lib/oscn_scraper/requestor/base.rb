@@ -10,7 +10,6 @@ module OscnScraper
       attr_accessor :logger, :queue
 
       def concatenated_url(endpoint, params = {})
-        
         "#{base_url}#{endpoint}#{params.to_query}"
       end
 
@@ -29,7 +28,6 @@ module OscnScraper
                               'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
                               Accept: accept
                             })
-        
 
         captcha?(html)
       end
