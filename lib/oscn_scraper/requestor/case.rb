@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Requestor
     # Searches for a specific case
@@ -13,6 +14,7 @@ module OscnScraper
       # @return Initialized Object
       def initialize(kwargs = {})
         super()
+        byebug
         @kwargs = kwargs
         valid_params?(kwargs.keys, valid_params)
       end
@@ -26,11 +28,13 @@ module OscnScraper
       #
       # @return Request data
       def fetch_case_by_number
+        byebug
         required_params?(kwargs.keys, required_params)
         params = {
           db: kwargs[:county].downcase,
           number: kwargs[:number]
         }
+        
         request(concatenated_url(endpoint, params))
       end
 
@@ -45,7 +49,7 @@ module OscnScraper
       end
 
       def required_params
-        %i[county number]
+        %i[county number cmid]
       end
     end
   end
