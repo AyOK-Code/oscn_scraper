@@ -1,3 +1,4 @@
+require 'byebug'
 RSpec.describe OscnScraper::Requestor::Case do
   describe '#new' do
     it 'only accepts valid parameters' do
@@ -18,10 +19,13 @@ RSpec.describe OscnScraper::Requestor::Case do
 
   describe '#fetch_case_by_number(kwargs = {})' do
     it 'needs required params' do
+      args = { county: 'Tulsa', number:'TR-2022-5899' }
+       # stub_request(:get, "https://www.oscn.net/dockets/GetCaseInformation.aspx?cmid=3526063&db=tulsa").to_return(status: 200, body: "", headers: {})
+        requested = described_class.new(args).fetch_case_by_number
+        byebug
 
-      args = { county: 'Tulsa', case_number: 'TR-2022-5899', cmid: 3526063 }
-
-        described_class.new(args).fetch_case_by_number
     end
   end
+
+  
 end
