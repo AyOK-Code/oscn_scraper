@@ -14,7 +14,7 @@ module OscnScraper
       # @return Initialized Object
       def initialize(kwargs = {})
         super()
-        
+
         @kwargs = kwargs
         valid_params?(kwargs.keys, valid_params)
       end
@@ -43,11 +43,11 @@ module OscnScraper
       end
 
       def valid_params
-        %i[county  oscn]
+        %i[county oscn]
       end
 
       def required_params
-        %i[county  oscn]
+        %i[county oscn]
       end
     end
   end

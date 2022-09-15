@@ -10,7 +10,6 @@ module OscnScraper
       attr_accessor :logger, :queue
 
       def concatenated_url(endpoint, params = {})
-      
         "#{base_url}#{endpoint}#{params.to_query}"
       end
 
