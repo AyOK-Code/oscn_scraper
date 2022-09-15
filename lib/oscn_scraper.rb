@@ -25,5 +25,6 @@ module OscnScraper
   require 'oscn_scraper/errors/invalid_param'
   require 'oscn_scraper/errors/case_not_found'
   require 'oscn_scraper/errors/required_param'
+  require 'oscn_scraper/errors/captcha'
   require 'oscn_scraper/version'
 end
