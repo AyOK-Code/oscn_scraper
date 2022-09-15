@@ -1,6 +1,7 @@
 require 'httparty'
 require 'active_support/core_ext/object'
 require 'logger'
+require 'byebug'
 
 module OscnScraper
   module Requestor
@@ -9,6 +10,7 @@ module OscnScraper
       attr_accessor :logger, :queue
 
       def concatenated_url(endpoint, params = {})
+      
         "#{base_url}#{endpoint}#{params.to_query}"
       end
 
@@ -21,12 +23,14 @@ module OscnScraper
         accept = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
         # rubocop:enable Layout/LineLength
 
-        HTTParty.get(url, headers: {
-                       'User-Agent': user_agent,
-                       'Accept-Encoding': 'gzip, deflate, br',
-                       'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
-                       Accept: accept
-                     })
+        html = HTTParty.get(url, headers: {
+                              'User-Agent': user_agent,
+                              'Accept-Encoding': 'gzip, deflate, br',
+                              'Accept-Language': 'en-US,en;q=0.9,es;q=0.8',
+                              Accept: accept
+                            })
+
+        captcha?(html)
       end
 
       def valid_params?(keys, valid_params)
@@ -43,6 +47,15 @@ module OscnScraper
         if missing_params.count.positive?
           raise OscnScraper::Errors::RequiredParam,
                 "Missing required params: #{missing_params.join(', ')}"
+        end
+      end
+
+      def captcha?(html)
+        if html.match?('reCAPTCHA')
+          raise OscnScraper::Errors::Captcha,
+                'Ran into Captcha form'
+        else
+          html
         end
       end
 
