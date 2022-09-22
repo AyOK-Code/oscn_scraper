@@ -14,6 +14,7 @@ module OscnScraper
       # @return Initialized Object
       def initialize(kwargs = {})
         super()
+
         @kwargs = kwargs
         valid_params?(kwargs.keys, valid_params)
       end
@@ -30,7 +31,7 @@ module OscnScraper
         required_params?(kwargs.keys, required_params)
         params = {
           db: kwargs[:county].downcase,
-          number: kwargs[:number]
+          cmid: kwargs[:oscn]
         }
         request(concatenated_url(endpoint, params))
       end
@@ -42,11 +43,11 @@ module OscnScraper
       end
 
       def valid_params
-        %i[county number]
+        %i[county oscn]
       end
 
       def required_params
-        %i[county number]
+        %i[county oscn]
       end
     end
   end

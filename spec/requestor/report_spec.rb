@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'byebug'
 
 RSpec.describe OscnScraper::Requestor::Report do
   describe '#fetch_daily_filings' do
@@ -33,6 +34,18 @@ RSpec.describe OscnScraper::Requestor::Report do
         case_type_id: 'CF-2021-21'
       }
       expect { described_class.new(params).events_scheduled }.to raise_error OscnScraper::Errors::RequiredParam
+    end
+
+    it 'checks for required params' do
+      params = {
+        county: 'Oklahoma',
+        case_type_id: 'CF-2021-21',
+        date: Date.new(2020, 1, 1)
+      }
+      
+     results = described_class.new(params).events_scheduled
+     byebug
+     
     end
   end
 end
