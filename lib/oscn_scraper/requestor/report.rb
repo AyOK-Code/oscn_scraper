@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Requestor
     # Searches reports on OSCN
@@ -30,6 +31,7 @@ module OscnScraper
           db: kwargs[:county],
           StartDate: kwargs[:date]
         }
+        
         request(concatenated_url(endpoint, params))
       end
 
@@ -40,6 +42,7 @@ module OscnScraper
       # @param date [Date]
       # @return Request response
       def events_scheduled
+        
         valid_params?(kwargs.keys, valid_events_params)
         required_params?(kwargs.keys, required_events_params)
         params = {
@@ -51,6 +54,7 @@ module OscnScraper
           generalnumber1: 1,
           report: 'WebJudicialDocketCaseTypeAll'
         }
+        byebug
         request(concatenated_url(endpoint, params))
       end
 
