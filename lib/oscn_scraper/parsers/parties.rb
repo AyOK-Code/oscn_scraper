@@ -23,7 +23,7 @@ module OscnScraper
       attr_accessor :parties
 
       def parse_parties
-        byebug
+        
         return parties if parties_html.blank?
         if !parties_html.css('a').empty?
              parties_html.css('a').each do |link|
@@ -37,6 +37,7 @@ module OscnScraper
           end
         end
       end
+      byebug
         parties
       end
 
@@ -48,10 +49,12 @@ module OscnScraper
         }
       end
       def build_parties_text(element)
+
         parts = element.text.split(",\r\n")
+        byebug
         parties[:parties] << {
           name: parts[0].strip,
-          party_type:parts[1].squish
+          party_type:parts[1].strip
         }
       end
     end
