@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Parsers
     # Description/Explanation of Case class
@@ -41,6 +42,7 @@ module OscnScraper
       end
 
       def build_parties(link)
+        byebug
         parties[:parties] << {
           name: link.text.strip,
           link: link.attributes['href'].value,
@@ -48,7 +50,7 @@ module OscnScraper
         }
       end
       def build_parties_text(element)
-
+        byebug
         parts = element.text.split(",\r\n")
         parties[:parties] << {
           name: parts[0].strip,
