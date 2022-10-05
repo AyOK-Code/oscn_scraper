@@ -1,4 +1,3 @@
-require 'byebug'
 module OscnScraper
   module Parsers
     # Description/Explanation of Case class
@@ -31,13 +30,13 @@ module OscnScraper
              end
         end
       if !parties_html.css('p').empty?
-        parties_html.css('p').children.each do |element|
+        parties_html.css('p').each do |element|
           if !element.text.blank?
          build_parties_text(element)
           end
         end
       end
-      byebug
+      
         parties
       end
 
@@ -51,7 +50,6 @@ module OscnScraper
       def build_parties_text(element)
 
         parts = element.text.split(",\r\n")
-        byebug
         parties[:parties] << {
           name: parts[0].strip,
           party_type:parts[1].strip
