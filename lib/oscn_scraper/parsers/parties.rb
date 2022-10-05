@@ -30,7 +30,7 @@ module OscnScraper
              end
         end
       if !parties_html.css('p').empty?
-        parties_html.css('p').each do |element|
+        parties_html.css('p').children.each do |element|
           if !element.text.blank?
          build_parties_text(element)
           end
