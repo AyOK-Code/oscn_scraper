@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Parsers
     # Description/Explanation of Case class
@@ -22,6 +23,7 @@ module OscnScraper
       attr_accessor :parties
 
       def parse_parties
+        byebug
         return parties if parties_html.blank?
 
         parties_html.css('a').each do |link|
