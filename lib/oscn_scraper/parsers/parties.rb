@@ -29,16 +29,15 @@ module OscnScraper
              parties_html.css('a').each do |link|
               build_parties(link)
              end
+             return parties
+            else 
+              parties_html.css('p').children.each do |element|
+                if !element.text.blank?
+               build_parties_text(element)
+                end
+              end
+              return parties
         end
-      if !parties_html.css('p').empty?
-        parties_html.css('p').children.each do |element|
-          if !element.text.blank?
-         build_parties_text(element)
-          end
-        end
-      end
-      
-        parties
       end
 
       def build_parties(link)
