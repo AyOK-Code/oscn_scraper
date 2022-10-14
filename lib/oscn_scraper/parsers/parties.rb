@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Parsers
     # Description/Explanation of Case class
@@ -24,8 +25,14 @@ module OscnScraper
       def parse_parties
         return parties if parties_html.blank?
 
-        parties_html.css('a').each do |link|
-          build_parties(link)
+        if parties_html.css('a').empty?
+          parties_html.css('p').children.each do |element|
+            build_parties_text(element) unless element.text.blank?
+          end
+        else
+          parties_html.css('a').each do |link|
+            build_parties(link)
+          end
         end
         parties
       end
@@ -35,6 +42,14 @@ module OscnScraper
           name: link.text.strip,
           link: link.attributes['href'].value,
           party_type: link.xpath('following-sibling::node()').first.text.gsub(',', '').squish
+        }
+      end
+
+      def build_parties_text(element)
+        parts = element.text.split(",\r\n")
+        parties[:parties] << {
+          name: parts[0].strip,
+          party_type: parts[1].strip
         }
       end
     end
