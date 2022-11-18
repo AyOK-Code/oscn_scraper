@@ -28,10 +28,11 @@ module OscnScraper
           db: county,
           id: oscn_id
         }
-
+        blanks = 0
         request(concatenated_url(endpoint, params))
         if concatenated_url(endpoint, params) == 'https://www.oscn.net/dockets/GetPartyRecord.aspx?db=Oklahoma&id='
-          puts "blank here!"
+          blanks = blanks + 1
+          puts "blank here! " + blanks.to_s
         end
 
       end
