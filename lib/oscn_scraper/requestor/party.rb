@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Requestor
     # Searches for a specific party
@@ -30,6 +31,7 @@ module OscnScraper
         }
         blanks = 0
         request(concatenated_url(endpoint, params))
+        byebug
         if concatenated_url(endpoint, params) == 'https://www.oscn.net/dockets/GetPartyRecord.aspx?db=Oklahoma&id='
           blanks = blanks + 1
           puts "blank here! " + blanks.to_s
