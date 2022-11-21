@@ -31,7 +31,7 @@ module OscnScraper
         }
         blanks = 0
         request(concatenated_url(endpoint, params))
-        byebug
+        
        
 
       end
