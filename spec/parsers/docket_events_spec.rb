@@ -22,7 +22,7 @@ RSpec.describe OscnScraper::Parsers::DocketEvents do
         parsed_html = load_and_parse_fixture(fixture_path)
         data = described_class.parse(parsed_html)
         event_with_links = data[:docket_events].find { |de| de[:event_number] == 6 }
-        expected_keys = [:title, :link, :oscn_id]
+        expected_keys = %i[title link oscn_id]
 
         expect(event_with_links[:links].count).to eq 2
         expect(event_with_links[:links].first.keys - expected_keys).to eq []

@@ -43,7 +43,7 @@ module OscnScraper
       end
 
       def parse_links(row)
-        data = row.css('a').map{ |link| { title: link.text, link: "https://www.oscn.net/dockets/#{link['href']}", oscn_id: extract_id(link['href']) } }
+        row.css('a').map { |link| { title: link.text, link: "https://www.oscn.net/dockets/#{link['href']}", oscn_id: extract_id(link['href']) } }
       end
 
       def extract_id(link_url)
