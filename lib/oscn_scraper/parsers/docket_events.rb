@@ -35,10 +35,21 @@ module OscnScraper
             description: sanitize_data(row.css('td')[2]),
             count: sanitize_data(row.css('td')[3]),
             party: sanitize_data(row.css('td')[4]),
-            amount: sanitize_data(row.css('td')[5])
+            amount: sanitize_data(row.css('td')[5]),
+            links: parse_links(row)
           }
         end
         docket_events
+      end
+
+      def parse_links(row)
+        data = row.css('a').map{ |link| { title: link.text, link: "https://www.oscn.net/dockets/#{link['href']}", oscn_id: extract_id(link['href']) } }
+      end
+
+      def extract_id(link_url)
+        url = URI.parse(link_url)
+        params = CGI.parse(url.query)
+        params['bc'].first
       end
 
       def date(data)
