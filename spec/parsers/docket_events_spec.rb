@@ -15,5 +15,21 @@ RSpec.describe OscnScraper::Parsers::DocketEvents do
 
       expect(data[:docket_events].count).to eq 224
     end
+
+    context 'when a link is in the docket event' do
+      it 'returns the links array' do
+        fixture_path = 'spec/fixtures/parsers/docket_events/with_link.html'
+        parsed_html = load_and_parse_fixture(fixture_path)
+        data = described_class.parse(parsed_html)
+        event_with_links = data[:docket_events].find { |de| de[:event_number] == 6 }
+        expected_keys = %i[title link oscn_id]
+
+        expect(event_with_links[:links].count).to eq 2
+        expect(event_with_links[:links].first.keys - expected_keys).to eq []
+        first_link = event_with_links[:links].first
+        expect(first_link[:oscn_id]).to eq '1048798689'
+        expect(first_link[:title]).to eq 'TIFF'
+      end
+    end
   end
 end
