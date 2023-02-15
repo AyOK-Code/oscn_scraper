@@ -26,6 +26,7 @@ module OscnScraper
           OscnScraper::Parsers::Attorney,
           OscnScraper::Parsers::Parties,
           OscnScraper::Parsers::Events,
+          OscnScraper::Parsers::Issues,
           OscnScraper::Parsers::Counts,
           OscnScraper::Parsers::DocketEvents
         ].each do |parser|
@@ -82,7 +83,7 @@ module OscnScraper
       end
 
       def issues_html
-        parsed_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[1]')
+        parsed_html.xpath('//h2[contains(@class, "issues")]')
       end
 
       def counts_html

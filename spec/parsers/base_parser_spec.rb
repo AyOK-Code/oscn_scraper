@@ -1,6 +1,7 @@
 RSpec.describe OscnScraper::Parsers::BaseParser do
   describe '#build_object' do
-    it 'parses html' do
+    context 'when parsing a criminal case' do
+      it 'parses html' do
       fixture_path = 'spec/fixtures/example.html'
       parsed_html = load_and_parse_fixture(fixture_path)
       data = described_class.new(parsed_html).build_object
@@ -10,6 +11,13 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
       expect(data[:parties].count).to eq 4
       expect(data[:counts].count).to eq 9
       expect(data[:docket_events].count).to eq 247
+      end
+    end
+
+    context 'when parsing a small claims case' do
+      it 'parses the html' do
+
+      end
     end
   end
 end

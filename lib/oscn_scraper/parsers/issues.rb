@@ -27,6 +27,8 @@ module OscnScraper
         issue_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[2]')
         dispositions_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[3]')
         issues[:issues] << issue_object(issue_table, dispositions_table)
+
+        issues
       end
 
       def issue_object(issue_table, dispositions_table)
@@ -36,9 +38,17 @@ module OscnScraper
           issue_code: issue_code(issue_table),
           filed_by: filed_by(issue_table),
           filed_on: filed_date(issue_table),
-          parties: dispositions_table.css('tbody tr').map{ |row| disposition_object(row) }
+          parties: add_parties(dispositions_table)
         }
-        byebug
+      end
+
+      def add_parties(dispositions_table)
+        parties = []
+        dispositions_table.css('tbody tr').each do |row|
+          return parties if party_name(row).blank?
+          parties << disposition_object(row)
+        end
+        parties
       end
 
       def disposition_object(row)
