@@ -81,6 +81,10 @@ module OscnScraper
         parsed_html.xpath('//h2[contains(@class, "events")]/following-sibling::*[1]')
       end
 
+      def issues_html
+        parsed_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[1]')
+      end
+
       def counts_html
         parsed_html.css('div.CountsContainer')
       end
