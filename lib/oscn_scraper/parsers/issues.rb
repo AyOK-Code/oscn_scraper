@@ -23,8 +23,9 @@ module OscnScraper
       attr_accessor :issues, :issues_html
 
       def parse_issues
-        return issues if issues_html.count < 1
         issue_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[2]')
+        return issues if issue_table.count < 1
+
         dispositions_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[3]')
         issues[:issues] << issue_object(issue_table, dispositions_table)
 
@@ -32,10 +33,11 @@ module OscnScraper
       end
 
       def issue_object(issue_table, dispositions_table)
-        data = {
+        name_and_code = issue_table.css('tr td')[1].children[0].text.gsub('Issue:', '').squish.split('(')
+        {
           number: issue_number(issue_table),
-          issue_name: issue_name(issue_table),
-          issue_code: issue_code(issue_table),
+          issue_name: issue_name(name_and_code),
+          issue_code: issue_code(name_and_code),
           filed_by: filed_by(issue_table),
           filed_on: filed_date(issue_table),
           parties: add_parties(dispositions_table)
@@ -46,31 +48,31 @@ module OscnScraper
         parties = []
         dispositions_table.css('tbody tr').each do |row|
           return parties if party_name(row).blank?
+
           parties << disposition_object(row)
         end
         parties
       end
 
       def disposition_object(row)
-          {
-            name: party_name(row),
-            disposition_on: disposition_on(row),
-            verdict: verdict(row),
-            verdict_detail: verdict_detail(row)
-          }
+        {
+          name: party_name(row),
+          disposition_on: disposition_on(row),
+          verdict: verdict(row),
+          verdict_detail: verdict_detail(row)
+        }
       end
 
       def issue_number(table)
         table.css('tr td strong').text.split('#')[1].gsub('.', '').squish
       end
 
-      def issue_name(table)
-        table.css('tr td')[1].children[0].text.gsub('Issue:', '').split('(')[0].squish
+      def issue_name(name_and_code)
+        name_and_code[0].squish
       end
 
-      def issue_code(table)
-        data = table.css('tr td')[1].children[0].text.gsub('Issue:', '').split('(')[1]
-        data.gsub(')', '').squish
+      def issue_code(name_and_code)
+        name_and_code[1].gsub(')', '').squish
       end
 
       def filed_by(table)
@@ -87,12 +89,12 @@ module OscnScraper
 
       def verdict(row)
         data = row.css('td')[2]&.children
-        verdict = data.children.text.split(',').first&.gsub('Disposed:', '')&.squish
+        data.children.text.split(',').first&.gsub('Disposed:', '')&.squish
       end
 
       def verdict_detail(row)
         data = row.css('td')[2]&.children
-        detail = data.children.text.split('.')[1]&.squish
+        data.children.text.split('.')[1]&.squish
       end
 
       def disposition_on(row)
