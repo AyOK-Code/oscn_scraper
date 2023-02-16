@@ -25,6 +25,7 @@ module OscnScraper
           OscnScraper::Parsers::Judge,
           OscnScraper::Parsers::Attorney,
           OscnScraper::Parsers::Parties,
+          OscnScraper::Parsers::Issues,
           OscnScraper::Parsers::Events,
           OscnScraper::Parsers::Counts,
           OscnScraper::Parsers::DocketEvents
@@ -79,6 +80,10 @@ module OscnScraper
 
       def events_html
         parsed_html.xpath('//h2[contains(@class, "events")]/following-sibling::*[1]')
+      end
+
+      def issues_html
+        parsed_html
       end
 
       def counts_html

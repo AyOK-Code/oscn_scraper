@@ -1,15 +1,34 @@
 RSpec.describe OscnScraper::Parsers::BaseParser do
   describe '#build_object' do
-    it 'parses html' do
-      fixture_path = 'spec/fixtures/example.html'
-      parsed_html = load_and_parse_fixture(fixture_path)
-      data = described_class.new(parsed_html).build_object
+    context 'when parsing a criminal case' do
+      it 'parses html' do
+        fixture_path = 'spec/fixtures/example.html'
+        parsed_html = load_and_parse_fixture(fixture_path)
+        data = described_class.new(parsed_html).build_object
 
-      expect(data[:events].count).to eq 30
-      expect(data[:attorneys].count).to eq 1
-      expect(data[:parties].count).to eq 4
-      expect(data[:counts].count).to eq 9
-      expect(data[:docket_events].count).to eq 247
+        expect(data[:events].count).to eq 30
+        expect(data[:attorneys].count).to eq 1
+        expect(data[:parties].count).to eq 4
+        expect(data[:counts].count).to eq 9
+        expect(data[:docket_events].count).to eq 247
+      end
+    end
+
+    context 'when parsing a small claims case' do
+      it 'parses the html' do
+        fixture_path = 'spec/fixtures/small-claims-example.html'
+        html = File.read(fixture_path) # Custom parse to fix nokogiri parse error
+        html = html.gsub('<$', '< $')
+        parsed_html = Nokogiri::HTML.parse(html)
+        data = described_class.new(parsed_html).build_object
+
+        expect(data[:events].count).to eq 1
+        expect(data[:attorneys].count).to eq 0
+        expect(data[:parties].count).to eq 2
+        expect(data[:counts].count).to eq 0
+        expect(data[:issues].count).to eq 1
+        expect(data[:docket_events].count).to eq 12
+      end
     end
   end
 end
