@@ -7,6 +7,8 @@ RSpec.describe OscnScraper::Parsers::Counts do
       data = described_class.parse(parsed_html)
 
       expect(data[:counts].count).to eq 2
+      expect(data[:counts].first[:number]).to eq '1'
+      expect(data[:counts][1][:number]).to eq '2'
       expect(data[:counts].first[:disposition]).to eq 'CONVICTION, 07/02/2018. Guilty Plea'
     end
 

@@ -35,6 +35,7 @@ module OscnScraper
 
       def count_object(row, party)
         {
+          number: count_number(row),
           party_name: party_name(party),
           offense_on: offense_on(row),
           as_filed: as_filed(row),
@@ -50,6 +51,10 @@ module OscnScraper
           plea: disposition_plea(party),
           verdict: disposition_verdict(party)
         }
+      end
+
+      def count_number(row)
+        row.css('td')[0].text.gsub('Count # ', '').gsub('.','')&.squish
       end
 
       def disposition(party_html)
