@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 RSpec.describe OscnScraper::Parsers::Counts do
   describe '#parse' do
     it 'parses a case with multiple counts' do
@@ -44,3 +45,4 @@ RSpec.describe OscnScraper::Parsers::Counts do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

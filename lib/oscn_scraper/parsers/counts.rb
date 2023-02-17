@@ -54,7 +54,7 @@ module OscnScraper
       end
 
       def count_number(row)
-        row.css('td')[0].text.gsub('Count # ', '').gsub('.','')&.squish
+        row.css('td')[0].text.gsub('Count # ', '').gsub('.', '')&.squish
       end
 
       def disposition(party_html)
