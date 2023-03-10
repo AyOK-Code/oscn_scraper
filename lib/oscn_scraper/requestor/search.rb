@@ -44,14 +44,15 @@ module OscnScraper
       #
       # @return Request data
       def fetch_cases
-        request(concatenated_url(endpoint, kwargs))
+        url = concatenated_url(endpoint, kwargs)
+        HTTParty.get(url, headers: { 'User-Agent': ENV.fetch('USER_AGENT') })
       end
 
       private
 
       # Defines the endpoint on OSCN
       def endpoint
-        '/dockets/Results.aspx?'
+        'dockets/Results.aspx?'
       end
 
       # List of valid params for this class
@@ -62,7 +63,9 @@ module OscnScraper
            iNumber citation]
       end
 
-      def required_params; end
+      def required_params
+        %i[db]
+      end
     end
   end
 end
