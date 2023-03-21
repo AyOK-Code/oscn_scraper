@@ -62,10 +62,6 @@ module OscnScraper
            ClosedDateL ClosedDateH iLC iLCType iYear
            iNumber citation]
       end
-
-      def required_params
-        %i[db]
-      end
     end
   end
 end

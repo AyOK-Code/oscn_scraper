@@ -4,7 +4,7 @@ RSpec.describe OscnScraper::Parsers::Search do
       fixture_path = 'spec/fixtures/parsers/search/multiple_county_results.html'
       parsed_html = load_and_parse_fixture(fixture_path)
       data = described_class.parse(parsed_html)
-      
+
       expect(data.count).to eq 56
     end
   end
@@ -34,7 +34,7 @@ RSpec.describe OscnScraper::Parsers::Search do
       fixture_path = 'spec/fixtures/parsers/search/no_cases.html'
       parsed_html = load_and_parse_fixture(fixture_path)
       data = described_class.parse(parsed_html)
-      
+
       expect(data).to eq []
     end
   end

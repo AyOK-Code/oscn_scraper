@@ -8,7 +8,7 @@ module OscnScraper
       #
       # @param search_html [Html] Results page from search form
       # @return Class object
-      def initialize(search_html, county='')
+      def initialize(search_html, county = '')
         @search_html = search_html
         @links = []
         @county = county
@@ -17,7 +17,7 @@ module OscnScraper
       # Class method to call .parse
       # @param search_html [Html]
       # @return searchs [Array]
-      def self.parse(search_html, county='')
+      def self.parse(search_html, county = '')
         new(search_html, county).parse
       end
 
@@ -31,7 +31,8 @@ module OscnScraper
 
       def parse_search
         return links if search_html.blank?
-        links = search_html.css('tr td').css('a').map {|l| OscnScraper::Parsers::Link.new(l).parse }
+
+        links = search_html.css('tr td').css('a').map { |l| OscnScraper::Parsers::Link.new(l).parse }
         links = remove_duplicates(links)
         links = filter_by_county(links) if county.present?
         links
@@ -42,7 +43,7 @@ module OscnScraper
       end
 
       def filter_by_county(link_data)
-        link_data.filter { |l| l[:county] === county }
+        link_data.filter { |l| l[:county] == county }
       end
     end
   end

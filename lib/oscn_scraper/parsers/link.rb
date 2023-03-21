@@ -26,9 +26,12 @@ module OscnScraper
       def parse_link
         uri = URI.parse(link_html['href'])
         params = CGI.parse(uri.query)
-        param_keys = params.map{ |k, v| k }
+        param_keys = params.map { |k, _v| k }
         param_diff = required_params(params) - param_keys
-        raise OscnScraper::Errors::RequiredParam, "Missing Param: #{(param_diff).join(', ')}" if param_diff.count > 0
+        if param_diff.count.positive?
+          raise OscnScraper::Errors::RequiredParam,
+                "Missing Param: #{param_diff.join(', ')}"
+        end
 
         {
           case_number: case_number(params),
@@ -40,12 +43,12 @@ module OscnScraper
 
       def required_params(params)
         if params['casemasterID'].present?
-          ['casemasterID', 'db']
+          %w[casemasterID db]
         else
-          ['cmid', 'db', 'number']
+          %w[cmid db number]
         end
       end
-      
+
       def case_number(params)
         if params['casemasterID'].present?
           link_html.text
