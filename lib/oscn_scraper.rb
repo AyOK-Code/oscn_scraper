@@ -7,6 +7,7 @@ module OscnScraper
   require 'oscn_scraper/parsers/helpers'
   require 'oscn_scraper/parsers/case'
   require 'oscn_scraper/parsers/case_changes'
+  require 'oscn_scraper/parsers/search'
   require 'oscn_scraper/parsers/district_attorney'
   require 'oscn_scraper/parsers/judge'
   require 'oscn_scraper/parsers/parties'
