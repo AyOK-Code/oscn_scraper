@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 RSpec.describe OscnScraper::Parsers::BaseParser do
   describe '#build_object' do
     context 'when parsing a criminal case' do
@@ -43,3 +45,5 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
