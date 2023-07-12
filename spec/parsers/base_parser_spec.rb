@@ -38,7 +38,7 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         parsed_html = Nokogiri::HTML.parse(html)
         data = described_class.new(parsed_html).build_object
 
-        byebug
+        expect(data).to eq OscnScraper::Errors::CaseNotFound
       end
     end
   end
