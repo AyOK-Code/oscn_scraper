@@ -36,7 +36,7 @@ module OscnScraper
       def build_event(event)
         date_string = event.css('td font[color="green"]').text # Date
         date = parsed_date(date_string)
-        event_type = event.css('td')[0].children[3].text.squish # Event Type
+        event_type = event.css('td')[0].children[4].text.squish # Event Type
         event_code = event.search('.//comment()').text.squish.gsub('(', '').gsub(')', '')
         party_name = event.css('td')[1].text.strip
         docket = event.css('td')[2].text.strip
