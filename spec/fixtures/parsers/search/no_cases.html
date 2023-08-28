@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>
+    OSCN Search Results
+  </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <link rel="stylesheet" href="/assets/css/normalize.min.css">
+        <link rel="stylesheet" href="/assets/css/main.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap-2.3.2.min.css">
+		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">		
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+		<link rel="stylesheet" href="/assets/css/oscn-navigation.css">
+        <link rel="stylesheet" href="/assets/css/oscn-footer.css">
+
+<style> /* test */
+.caseCourtTable { width:100%; margin-bottom: 1px;  position: relative;}
+.caseCourtHeader {  
+	text-align: left; 
+	font-weight: bold; 
+	position: relative;
+}
+.resultTableHeaders {  background: #f7f7f7; color: #033c60; padding: 2px 5px; margin: 0;}
+.caseCourtHeader {
+	background: #033c60;
+	color: white;
+	margin: 0;
+	padding: 6px;
+	font-size: 18px;
+	text-transform: uppercase;
+	position: relative;	
+}
+.resultTableHeaders { font-size: 15px; text-align: left; }
+.resultTableHeaders a { display: inline-block; /* background-color: yellow; */ }
+.resultTableHeaders th { padding: 4px 3px; vertical-align: top; }
+.caseNo { padding-left: 5px; }
+.resultTableHeaders { border-bottom: thin solid #e1e1e1; }
+.resultTableRow { border-top: thin solid #e1e1e1; }
+.resultTableRow td { font-size: 11px; padding: 4px 3px; color: #033c60; vertical-align: top;}
+.resultTableRow  a { color: #0073cf; }
+.resultTableRow  a:visited { color: #033c60; }
+.timeTaken { position: absolute; right: 5px; font-size: 14px; }
+.moreResults { color: #666666; font-size: 12px; background: white; }
+.resultsTitle { 
+	color: White; 
+	background-color: #0073cf; 
+	border-bottom: 2px solid white; 
+	border-top: 2px solid white; 
+	font-size: 18px; 
+	text-transform: uppercase;
+	font-weight: bold; 
+	padding: 0; 
+	margin: 0; 
+	padding: 5px 5px;
+	text-align: center;
+	}
+.resultsTitle span a {color: #e1e1ee; font-size: 11px;}
+.resultsTitle span a:visited {color: #e1e1ee;}
+.resultsTitle span a:hover {color: #f7f7f7;}
+
+.shortStyle { text-transform: uppercase; }
+
+.evenRow { background-color: #f7f7f7; }
+.oddRow { background-color: white; }</style>
+        <script src="/assets/js/modernizr-2.6.2.min.js"></script>
+		<!--[if lt IE 9]>	
+		<script src="/assets/js/respond.min.js"></script>
+		<script>
+		window.onload = function() {
+			setTimeout(function(){				
+				var height = $(".footer").outerHeight(true);
+				$("#oscn-content").css("padding-bottom", function(){
+					return height;
+				});}, 2000);
+		}
+		</script>
+		<![endif]-->
+        <script src="/assets/js/cookies.js"></script>			
+<!-- /JAVASCRIPT_TOP/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-54280338-1', {'sampleRate': 50});
+ga('send', 'pageview');
+</script>
+    </head>
+    <body>
+	<div class="wrapper">
+<!-- /ERRORMESSAGE/ -->
+		<div class="header" data-elastic-exclude>
+			<div class="accessibility">
+				<a href="#oscn-content">Skip to Main Content</a>
+				<a href="/v4/accessibility/">Accessibility Statement</a>
+			</div>
+			<div class="navigation-tophat">
+				<div class="sized">
+					<div class="left">
+						<ul>
+							<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=">Help</a></li>
+							<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
+						</ul>
+					</div>
+					<div class="right">
+						<ul>
+							<!--<li><a href="">e-filing</a></li>-->
+							<li><a href="https://pay.oscn.net/epayments/">e-payments</a></li>
+							<li><a href="/jobs/">Careers</a></li>
+							<!-- <li class="site-search no-border">
+								<form class="search-form" method="get" action="/search/search.aspx">
+									<div class="search-container">
+									<select class="template-dropdown" style="display: none;">
+										<option class="template-option"></option>
+									</select>	
+									<select class="search-dropdown" name="t">
+										<optgroup label="Legal Research">
+											<option value="citation">By Citation (QuickCite)</option>
+											<option value="judge">By Judge</option>
+											<option value="caselaw">Case Law (full-text)</option>
+											<option value="statutes">Statutes &amp; Rules (full-text)</option>
+											<option value="library">All Oklahoma Materials (full-text)</option>
+										</optgroup>
+										<optgroup label="Court Records">
+											<option selected="selected" value="party">By Party Name</option>
+											<option value="business">By Business Name</option>
+											<option value="casenumber">By Case Number</option>
+											<option value="traffic">By Traffic Citation</option>
+										</optgroup>											
+									</select></div><!--
+									<input class="search-input" type="text" value="Search" name="q"></input><!-- 
+									<button class="search-button" type="submit" value="Go!"></button>
+								</form>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="navigation-spectacles sized">
+				<div class="navigation-utility">
+					<div class="brand"><a href="/"><img id="logo" class="screen-logo" alt="OSCN" src="/assets/img/logo.jpg" /><img class="print-logo" alt="" src="/assets/img/logo-bw.jpg" /></a></div>
+					<div class="toggle" style="display: none;"><button type="button" data-toggle="navigation"><span class="sr-only">toggle navigation</span></button></div>
+				</div>
+				<nav>
+					<ol class="nav-menu">
+						<li class="nav-item" id="home"><a href="/v4/">Home</a></li>
+						<li class="nav-item" id="courts_menu"><a href="/courts/">Courts</a></li>
+						<li class="nav-item" id="decisions"><a href="/decisions/">Decisions</a></li>
+						<li class="nav-item" id="programs"><a href="/v4/programs/">Programs</a></li>
+						<li class="nav-item" id="news"><a href="/news/">News</a></li>
+						<li class="nav-item" id="legal-research"><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=LIBRARY">Legal Research</a></li>
+						<li class="nav-item" id="court-records"><a href="/dockets/">Court Records</a></li>
+						<li class="nav-item" id="quick-links"><a href="/v4/quicklinks/">Quick Links</a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>		
+<div id="oscn-content"><div class="sized results">
+<div class="resultsTitle">
+        <span style="float: left;"><a href="Default.aspx" title="Back to Court Records">Court Records</a></span>
+        Search Results
+        <span style="float: right;"><a href="Search.aspx" title="Start a New Search">New Search</a></span>
+</div>
+    
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">adair&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 9ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">alfalfa&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 5ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">appellate&nbsp;Court<span class="timeTaken">Found No Records&nbsp;in 2ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">atoka&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 22ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">beaver&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 13ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">beckham&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 73ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">blaine&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 24ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">bryan&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 114ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">caddo&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 44ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">canadian&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 56ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">carter&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 25ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">cherokee&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 64ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">choctaw&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 36ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">cimarron&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 20ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">cleveland&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 97ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">coal&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 15ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">comanche&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 66ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">cotton&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 20ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">craig&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 157ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">creek&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 74ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">Creek&nbsp;(Bristow)&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 23ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">Creek&nbsp;(Drumright)&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 18ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">custer&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 52ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">delaware&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 59ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">dewey&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 31ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">ellis&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 4ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">garfield&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 103ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">garvin&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 41ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">grady&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 70ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">grant&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 13ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">greer&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 11ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">harmon&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 7ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">harper&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 9ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">haskell&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 27ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">hughes&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 28ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">jackson&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 55ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">jefferson&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 29ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">johnston&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 18ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">kay&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 98ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">Kay&nbsp;(Ponca&nbsp;City)&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 26ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">kingfisher&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 28ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">kiowa&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 34ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">latimer&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 18ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">LeFlore&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 147ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">lincoln&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 87ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">logan&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 17ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">love&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 25ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">major&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 94ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">marshall&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 30ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">mayes&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 52ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">mcclain&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 38ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">mccurtain&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 61ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">mcintosh&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 36ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">murray&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 27ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">muskogee&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 78ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">noble&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 57ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">nowata&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 18ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">okfuskee&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 31ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">oklahoma&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 932ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">okmulgee&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 50ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">Okmulgee&nbsp;(Henryetta)&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 10ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">osage&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 63ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">ottawa&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 135ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">payne&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 47ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">pawnee&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 67ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">pittsburg&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 69ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">pontotoc&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 93ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">pottawatomie&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 59ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">pushmataha&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 14ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">Roger Mills&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 7ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">rogers&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 44ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">seminole&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 60ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">sequoyah&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 43ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">stephens&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 50ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">texas&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 21ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">tillman&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 15ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">tulsa&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 571ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">wagoner&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 150ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">washington&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 109ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">washita&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 44ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">woods&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 19ms.</span></caption>
+</table>
+<table class="caseCourtTable">
+  <caption class="caseCourtHeader">woodward&nbsp;County<span class="timeTaken">Found No Records&nbsp;in 69ms.</span></caption>
+</table>
+</div>
+</div>
+<div class="footer" data-elastic-exclude>
+	<div class="container-fluid sized">
+		<div class="row-fluid">
+			<div class="contact-foot column span3">
+				<h6>oscn</h6>
+				<p>
+				EMAIL: <a href="mailto:webmaster@oscn.net">webmaster@oscn.net</a><br />
+				Oklahoma Judicial Center<br />
+				2100 N Lincoln Blvd.<br />
+				Oklahoma City, OK 73105</p>
+			</div>
+			<div class="courts-foot column span3">
+				<h6>courts</h6>
+				<ul class="footer-list">
+					<li><a href="http://www.oscn.net/oscn/schome/">Supreme Court of Oklahoma</a></li>
+					<li><a href="http://www.okcca.net/">Court of Criminal Appeals</a></li>					
+					<li>Court of Civil Appeals</li>
+					<li><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=COURTS">District Courts</a></li>
+				</ul>
+			</div>
+			<div class="decisions-foot column span3">
+				<h6>decisions</h6>
+				<ul class="footer-list">
+					<li><a href="/decisions/">New Decisions</a></li>
+					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSSC">Supreme Court of Oklahoma</a></li>
+					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCR">Court of Criminal Appeals</a></li>
+					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCV">Court of Civil Appeals</a></li>
+				</ul>					
+			</div>
+			<div class="programs-foot column span3">
+				<h6>programs</h6>
+				<ul class="footer-list">
+					<li><a href="http://www.thesovereigntysymposium.com/">The Sovereignty Symposium</a></li>
+					<!--<li><a href="#">Access to Justice</a></li>-->
+					<li><a href="http://www.oscn.net/static/adr/default.aspx">Alternative Dispute Resolution</a></li>
+					<li><a href="http://www.oscn.net/static/adr/default.aspx">Early Settlement Mediation</a></li>
+					<li><a href="http://www.oscn.net/Sites/CourtImprovement/default.aspx">Children's Court Improvement Program (CIP)</a></li>
+					<li><a href="/jnc/">Judicial Nominating Commission</a></li>
+					<li><a href="http://www.oscn.net/static/forms/aoc_forms/interpreter.asp">Certified Courtroom Interpreters</a></li>
+					<li><a href="http://www.oscn.net/static/forms/aoc_forms/csr.asp">Certified Shorthand Reporters</a></li>
+					<li><a href="/pages/accessibility">Accessibility ADA</a></li>
+				</ul>					
+			</div>
+		</div>
+	</div>
+	<div class="shoes">
+		<div class="sized">
+			<ul>
+				<!--<li><a href="#">site map</a></li>
+				<li><a href="#">information</a></li>
+				-->
+				<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
+				<li><a href="/jobs/">Careers</a></li>
+				<li><a href="/pages/accessibility">Accessibility ADA</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+	</div>
+        <script src="/assets/js/jquery-1.11.1.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/adobe.aria.menu.min.js"></script>
+        <script src="/assets/js/navigation.js"></script>		
+        <script src="/assets/js/oscn.js"></script>	
+        <script src="/assets/js/table.sort.filter.js"></script>	
+<script>
+	if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = Array.prototype.forEach; }
+	
+	var d = new Date()
+	var cb = d.getFullYear().toString() + (d.getMonth()+1).toString() + ("0" + d.getDate()).slice(-2) + d.getHours()
+	
+	var anchors = document.querySelectorAll("a[href$='.pdf']")
+	anchors.forEach(function(a){
+		a.href = a.href.split('?')[0] + "?d=" + cb;		
+	});
+	
+</script>		
+<script>
+  
+var getUrlParameter = function getUrlParameter(sParam, sPageURL) {
+    var sPageURL = sPageURL.split('?');
+    var sURLVariables = sPageURL[1].split('&');
+	var sParameterName;
+    var i;
+	
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};
+
+$(".moreResults a").each(function(i,v){
+	county = getUrlParameter("db", v.href);
+	v.href = v.href.split(county).join('all').replace('db=all',('db='+county));
+});  
+  
+  </script>
+<!--[if IE 7]>
+	<script>
+		var height = $(".home-banner").height();
+		$("#bg").height(height);
+	</script>
+<![endif]-->
+    </body>
+</html>

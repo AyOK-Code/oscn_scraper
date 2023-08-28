@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 RSpec.describe OscnScraper::Parsers::BaseParser do
   describe '#build_object' do
     context 'when parsing a criminal case' do
@@ -30,5 +32,18 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         expect(data[:docket_events].count).to eq 12
       end
     end
+
+    context 'when the case is not found on OSCN' do
+      it 'returns a helpful message' do
+        fixture_path = 'spec/fixtures/case_not_found.html'
+        html = File.read(fixture_path)
+        parsed_html = Nokogiri::HTML.parse(html)
+        data = described_class.new(parsed_html).build_object
+
+        expect(data).to eq OscnScraper::Errors::CaseNotFound
+      end
+    end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
