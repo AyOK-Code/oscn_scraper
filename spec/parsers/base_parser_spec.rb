@@ -8,7 +8,7 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         parsed_html = load_and_parse_fixture(fixture_path)
         data = described_class.new(parsed_html).build_object
 
-        expect(data[:events].count).to eq 30
+        expect(data[:events].count).to eq 24
         expect(data[:attorneys].count).to eq 1
         expect(data[:parties].count).to eq 4
         expect(data[:counts].count).to eq 9
