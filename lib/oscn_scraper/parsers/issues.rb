@@ -103,7 +103,7 @@ module OscnScraper
       end
 
       def party_name(row)
-        row.css('td')[1].text.gsub('Defendant:', '').squish
+        row.css('td')[1].text.gsub('Defendant:', '').gsub('Plaintiff:', '').squish
       end
     end
   end
