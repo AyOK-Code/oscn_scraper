@@ -46,7 +46,6 @@ module OscnScraper
       end
 
       def build_parties_text(element)
-        binding.pry
         parts = element.text.split(",\r\n")
         parties[:parties] << {
           name: parts[0]&.strip,
