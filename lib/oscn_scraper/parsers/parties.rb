@@ -48,8 +48,8 @@ module OscnScraper
       def build_parties_text(element)
         parts = element.text.split(",\r\n")
         parties[:parties] << {
-          name: parts[0].strip,
-          party_type: parts[1].strip
+          name: parts[0]&.strip,
+          party_type: parts[1]&.strip
         }
       end
     end
