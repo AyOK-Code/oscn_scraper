@@ -23,7 +23,7 @@ module Parsers
         begin
           create_party_address(address_columns)
         rescue StandardError => e
-          Raygun.track_exception(e, custom_data: { error_type: 'Data Error', data_content: address_columns })
+          Raygun.track_exception(e, custom_data: { error_type: 'Data Error', data_content: address_columns,oscn_id: party.oscn_id })
         end
       end
   
