@@ -17,9 +17,9 @@ module OscnScraper
       def perform
         # html = party.party_html.html
         # parsed_html = Nokogiri::HTML(html)
-        personal_columns = personal_html(parsed_html)
-        aliases_column = aliases_html(parsed_html)
-        address_row = parsed_html.css('.addresses tr')
+        personal_columns = personal_html(@parsed_html)
+        aliases_column = aliases_html(@parsed_html)
+        address_row = @parsed_html.css('.addresses tr')
 
         { personal_columns: personal_columns, aliases_column: aliases_column,
           address_row: address_row }
