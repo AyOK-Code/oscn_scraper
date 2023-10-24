@@ -6,6 +6,7 @@ module OscnScraper
 
       def initialize(parsed_html)
         # @party = ::Party.find_by!(oscn_id: oscn_id)
+        @parsed_html = parsed_html
       end
 
       def self.perform(parsed_html)
