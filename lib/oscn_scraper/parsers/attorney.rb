@@ -49,6 +49,7 @@ module OscnScraper
       end
 
       def parse_name(text)
+        binding.pry
         text.split('(')[0].squish
       end
 
