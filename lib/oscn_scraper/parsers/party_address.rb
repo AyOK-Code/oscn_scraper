@@ -23,7 +23,7 @@ module OscnScraper
         return if address_columns[3].text.blank? # Skip if no address information found
 
         begin
-          binding.pry
+          
           create_party_address(address_columns)
         rescue StandardError => e
           Raygun.track_exception(e,
@@ -33,7 +33,7 @@ module OscnScraper
       end
 
       def create_party_address(address_columns)
-        binding.pry
+        
         string = address_string(address_columns)
 
         {
@@ -52,7 +52,10 @@ module OscnScraper
       end
 
       def zip(zip_html)
+        begin
         zip_html[1].split[1].squish.to_i
+      rescue NoMethodError => e
+        return nil
       end
 
       def address_string(columns)
