@@ -64,6 +64,7 @@ module OscnScraper
           return state_html[0]
         else
           return state_html[1].&split[0]
+        end
       end
     end
   end
