@@ -59,8 +59,11 @@ module OscnScraper
       end
 
       def state(state_html)
-        binding.pry
-        state_html[1].&split[0]
+        
+        if state_html[1] == nil
+          return state_html[0]
+        else
+          return state_html[1].&split[0]
       end
     end
   end
