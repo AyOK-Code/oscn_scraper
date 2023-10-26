@@ -1,15 +1,21 @@
-RSpec.describe OscnScraper::Parsers::Parties do
+RSpec.describe OscnScraper::Parsers::PartyAddress do
+  require 'ostruct'
   it 'parses the parties' do
-    fixture_path = 'spec/fixtures/parsers/parties/multiple.html'
+    fixture_path = 'spec/fixtures/parsers/parties/party_row.html'
     parsed_html = load_and_parse_fixture(fixture_path)
-    data = described_class.parse(parsed_html)
+    party_json = { id: 12, oscn_id: 7777 }
+    party = OpenStruct.new(party_json)
+    data = described_class.perform(parsed_html, party)
 
-    expect(data[:parties].count).to eq 3
-    expect(data[:parties]).to include(
+    expect(data).to include(
       {
-        name: 'PENA,  ANTHONY  RAMIRO',
-        link: 'GetPartyRecord.aspx?db=oklahoma&cn=CF-2021-1511&id=18498184',
-        party_type: 'Defendant'
+        party_id: 12,
+        record_on: Date.parse('20-02-2007'),
+        status: 'Current',
+        state: 'Oklahoma \\n',
+        address_type: 'Home Address',
+        zip: nil
+
       }
     )
   end
