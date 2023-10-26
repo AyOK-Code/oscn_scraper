@@ -6,7 +6,7 @@ module OscnScraper
       attr_reader :row
 
       def initialize(html_row, party_object)
-        binding.pry
+
         @row = html_row
         @party = party_object
       end
@@ -16,14 +16,14 @@ module OscnScraper
       end
 
       def perform
-        binding.pry
+
         address_columns = row.children.css('td')
         return if address_columns.count == 1 # No records found
 
         return if address_columns[3].text.blank? # Skip if no address information found
 
         begin
-          binding.pry
+  
           create_party_address(address_columns)
         rescue StandardError => e
           Raygun.track_exception(e,
@@ -59,7 +59,8 @@ module OscnScraper
       end
 
       def state(state_html)
-        state_html[1].split[0]
+        binding.pry
+        state_html[1].&split[0]
       end
     end
   end
