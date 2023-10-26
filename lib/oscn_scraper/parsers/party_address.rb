@@ -57,6 +57,7 @@ module OscnScraper
       rescue NoMethodError => e
         return nil
       end
+      end
 
       def address_string(columns)
         columns[3].text.split(',')
