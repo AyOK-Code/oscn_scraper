@@ -63,6 +63,7 @@ module OscnScraper
         custom_data: { error_type: 'Data Error', data_content: text })
         return nil
       end
+      end
 
       def parse_address(attorney)
         begin
@@ -70,12 +71,14 @@ module OscnScraper
       rescue NoMethodError
         return nil
       end
+      end
 
       def parse_parties(element)
         begin
         element.text
         rescue NoMethodError
           return nil
+        end
 
       end
     end
