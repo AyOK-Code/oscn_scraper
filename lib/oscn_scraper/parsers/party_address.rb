@@ -25,7 +25,7 @@ module OscnScraper
         rescue StandardError => e
           Raygun.track_exception(e,
                                  custom_data: { error_type: 'Data Error', data_content: address_columns,
-                                                oscn_id: party.oscn_id })
+                                                oscn_id: party[:oscn_id] })
         end
       end
 
@@ -33,7 +33,6 @@ module OscnScraper
         string = address_string(address_columns)
 
         {
-          party_id: party.id,
           record_on: record_on(address_columns[0]),
           status: address_columns[1].text,
           city: string[0],
