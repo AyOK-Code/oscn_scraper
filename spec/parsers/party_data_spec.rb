@@ -12,51 +12,89 @@
 
 RSpec.describe OscnScraper::Parsers::PartyData do
   context 'when party has no aliases' do
-    # TODO: 
+    it 'parses the party' do
+    fixture_path = 'spec/fixtures/parsers/parties/no_alias.html'
+
+     parsed_html = load_and_parse_fixture(fixture_path)
+     data = described_class.perform(parsed_html)
+     expect(data[:aliases_column][1].text).to eq "None Found."
+     
   end
+end
 
   context 'when party has aliases' do
+    it 'parses the party' do
+    fixture_path = 'spec/fixtures/parsers/parties/party_example_alias.html'
 
-    # TODO: 
+    parsed_html = load_and_parse_fixture(fixture_path)
+    data = described_class.perform(parsed_html)
+    expect(data[:aliases_column][1].text).to eq "EAGLE, AKA MARLENE ANNETTE "
+    expect(data[:aliases_column][3].text).to eq "ROBINSON, AKA ANNETTE "
+    end
   end
 
   context 'when party has marital status' do
-    # TODO: 
+    it 'parses the party' do
+     
+    end
 
   end
 
   context 'when party has no marital status' do
-    # TODO: 
+    it 'parses the party' do
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      expect(data[:personal_columns][1].text).to eq "-"
+    end 
 
   end
 
   context 'when party has birth month and year' do
-    # TODO: 
+    it 'parses the party' do
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      byebug
+      expect(data[:personal_columns][2].text).to eq "05/1984"
+    end 
 
   end
 
   context 'when party has no birth month and year' do
-    # TODO: 
+    it 'parses the party' do
+
+    end 
 
   end
 
   context 'when party has birth city' do
-    # TODO: 
+    it 'parses the party' do
+
+    end 
   
   end
 
   context 'when party has no birth city' do
-    # TODO: 
+    it 'parses the party' do
+
+    end 
 
   end
 
   context 'when party has birth place' do
-    # TODO: 
+    it 'parses the party' do
+
+    end 
 
   end
 
   context 'when party has no birth place' do
-    # TODO: 
+    it 'parses the party' do
+
+    end 
 
   end
 end

@@ -15,6 +15,7 @@ module OscnScraper
       end
 
       def perform
+        
         address_columns = row.children.css('td')
         return if address_columns.count == 1 # No records found
 
@@ -31,15 +32,16 @@ module OscnScraper
 
       def create_party_address(address_columns)
         string = address_string(address_columns)
-
-        {
+        
+        party = {
           record_on: record_on(address_columns[0]),
           status: address_columns[1].text,
-          city: string[0],
+          city: city(string),
           state: state(string),
           zip: zip(string),
           address_type: address_columns[2].text
         }
+        
       end
 
       def record_on(date_html)
@@ -52,16 +54,27 @@ module OscnScraper
         nil
       end
 
+      def city(city_html)
+        if city_html.length == 1
+          return nil
+        else
+         return city_html[0]
+        end
+        
+      end
+
       def address_string(columns)
         columns[3].text.split(',')
       end
 
       def state(state_html)
-        if state_html[1].nil?
+        if state_html.length == 1
           state_html[0]
         else
-          state_html[1].&split[0]
+          
+          state_html[1]&.split[0]
         end
+        
       end
     end
   end
