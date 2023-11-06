@@ -53,6 +53,7 @@ module OscnScraper
       end
 
       def date(data)
+        byebug
         Date.strptime(sanitize_data(data), '%m-%d-%Y')
       end
     end
