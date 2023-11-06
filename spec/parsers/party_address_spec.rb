@@ -20,7 +20,6 @@
 #   end
 # end
 
-
 RSpec.describe OscnScraper::Parsers::PartyAddress do
   context 'when only the state is provided' do
     it 'parses the party address' do
@@ -28,7 +27,8 @@ RSpec.describe OscnScraper::Parsers::PartyAddress do
       parsed_html = load_and_parse_fixture(fixture_path)
       party_json = { id: 12, oscn_id: 7777 }
       data = described_class.perform(parsed_html, party_json)
-      expect(data).to include({:record_on=>Date.parse('20-02-2007'), :status=>"Current", :city=>nil, :state=>"Oklahoma \\n", :zip=>nil, :address_type=>"Home Address"})
+      expect(data).to include({ record_on: Date.parse('20-02-2007'), status: 'Current', city: nil,
+                                state: 'Oklahoma \\n', zip: nil, address_type: 'Home Address' })
 
       # Save the fixture with only the stat
       # TODO: test that the state is saved & the rest is nil
@@ -41,7 +41,8 @@ RSpec.describe OscnScraper::Parsers::PartyAddress do
       parsed_html = load_and_parse_fixture(fixture_path)
       party_json = { id: 12, oscn_id: 7777 }
       data = described_class.perform(parsed_html, party_json)
-      expect(data).to include({:record_on=>Date.parse('20-02-2007'), :status=>"Current", :city=>"NORMAN", :state=>"Oklahoma", :zip=>73069, :address_type=>"Home Address"})
+      expect(data).to include({ record_on: Date.parse('20-02-2007'), status: 'Current', city: 'NORMAN',
+                                state: 'Oklahoma', zip: 73_069, address_type: 'Home Address' })
     end
   end
 
