@@ -53,8 +53,8 @@ module OscnScraper
       end
 
       def date(data)
-        
         return nil if sanitize_data(data) == ''
+
         Date.strptime(sanitize_data(data), '%m-%d-%Y')
       end
     end
