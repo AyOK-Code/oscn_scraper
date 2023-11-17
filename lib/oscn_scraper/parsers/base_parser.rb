@@ -79,7 +79,7 @@ module OscnScraper
       end
 
       def events_html
-        parsed_html.xpath('//h2[contains(@class, "events")]/following-sibling::*[1]')
+        parsed_html.xpath('//h2[contains(@class, "events")]/following-sibling::*[2]')
       end
 
       def issues_html

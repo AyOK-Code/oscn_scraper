@@ -8,11 +8,11 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         parsed_html = load_and_parse_fixture(fixture_path)
         data = described_class.new(parsed_html).build_object
 
-        expect(data[:events].count).to eq 24
+        expect(data[:events].count).to eq 2
         expect(data[:attorneys].count).to eq 1
-        expect(data[:parties].count).to eq 4
-        expect(data[:counts].count).to eq 9
-        expect(data[:docket_events].count).to eq 247
+        expect(data[:parties].count).to eq 3
+        expect(data[:counts].count).to eq 1
+        expect(data[:docket_events].count).to eq 11
       end
     end
 
@@ -25,11 +25,11 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         data = described_class.new(parsed_html).build_object
 
         expect(data[:events].count).to eq 1
-        expect(data[:attorneys].count).to eq 0
+        expect(data[:attorneys].count).to eq 1
         expect(data[:parties].count).to eq 2
         expect(data[:counts].count).to eq 0
         expect(data[:issues].count).to eq 1
-        expect(data[:docket_events].count).to eq 12
+        expect(data[:docket_events].count).to eq 19
       end
     end
 
