@@ -32,7 +32,7 @@ module OscnScraper
       def create_party_address(address_columns)
         string = address_string(address_columns)
 
-        party = {
+        {
           record_on: record_on(address_columns[0]),
           status: address_columns[1].text,
           city: city(string),

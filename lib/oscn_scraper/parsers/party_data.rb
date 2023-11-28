@@ -20,8 +20,8 @@ module OscnScraper
         personal_columns = personal_html(@parsed_html)
         aliases_column = aliases_html(@parsed_html)
         address_row = @parsed_html.css('.addresses tr')
-        birth_month = personal_columns[2]&.text&.split('/')[0].to_i
-        birth_year = personal_columns[2]&.text&.split('/')[1].to_i
+        birth_month = personal_columns[2]&.text&.split('/') & [0].to_i
+        birth_year = personal_columns[2]&.text&.split('/') & [1].to_i
 
         { personal_columns: personal_columns, aliases_column: aliases_column,
           address_row: address_row, birth_month: birth_month, birth_year: birth_year }

@@ -34,6 +34,7 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has marital status' do
     it 'parses the party' do
+      skip
     end
   end
 
@@ -59,11 +60,13 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has no birth month and year' do
     it 'parses the party' do
+      skip
     end
   end
 
   context 'when party has birth city' do
     it 'parses the party' do
+      skip
     end
   end
 
@@ -79,6 +82,7 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has birth place' do
     it 'parses the party' do
+      skip
     end
   end
 
