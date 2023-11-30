@@ -11,6 +11,8 @@ module OscnScraper
   require 'oscn_scraper/parsers/district_attorney'
   require 'oscn_scraper/parsers/judge'
   require 'oscn_scraper/parsers/parties'
+  require 'oscn_scraper/parsers/party_address'
+  require 'oscn_scraper/parsers/party_data'
   require 'oscn_scraper/parsers/events'
   require 'oscn_scraper/parsers/link'
   require 'oscn_scraper/parsers/issues'
