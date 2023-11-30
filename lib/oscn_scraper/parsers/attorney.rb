@@ -54,14 +54,16 @@ module OscnScraper
 
       def parse_bar_number(text)
         # TODO: Change to regex
-
+      begin
+        
         text.split('(')[1].split('#')[1].gsub(')', '')
+      
       rescue NoMethodError => e
         # TODO: Log unparsible bar number
-        Raygun.track_exception(e,
-                               custom_data: { error_type: 'Data Error', data_content: text })
+        
         nil
       end
+    end
 
       def parse_address(attorney)
         attorney.css('td')[0].children[1..].inner_html
