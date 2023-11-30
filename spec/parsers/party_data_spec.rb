@@ -34,7 +34,11 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has marital status' do
     it 'parses the party' do
-      skip
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias_married.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      expect(data[:personal_columns][1].text).to eq 'True'
     end
   end
 
@@ -60,13 +64,21 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has no birth month and year' do
     it 'parses the party' do
-      skip
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias_married.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      expect(data[:personal_columns][2].text).to eq '-'
     end
   end
 
   context 'when party has birth city' do
     it 'parses the party' do
-      skip
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias_married.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      expect(data[:personal_columns][3].text).to eq 'Tulsa'
     end
   end
 
@@ -82,7 +94,11 @@ RSpec.describe OscnScraper::Parsers::PartyData do
 
   context 'when party has birth place' do
     it 'parses the party' do
-      skip
+      fixture_path = 'spec/fixtures/parsers/parties/party_example_alias_married.html'
+
+      parsed_html = load_and_parse_fixture(fixture_path)
+      data = described_class.perform(parsed_html)
+      expect(data[:personal_columns][4].text).to include 'Oklahoma'
     end
   end
 
