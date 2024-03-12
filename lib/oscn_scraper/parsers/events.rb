@@ -57,8 +57,7 @@ module OscnScraper
         # Parse the date_string to a DateTime object
         time_in_central = Time.zone.parse(date_string)
         # Convert the time zone to UTC
-        datetime = time_in_central.utc.to_datetime
-        datetime
+        time_in_central.utc.to_datetime
       end
     end
   end
