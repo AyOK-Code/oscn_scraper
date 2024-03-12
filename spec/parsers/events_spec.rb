@@ -7,7 +7,8 @@ RSpec.describe OscnScraper::Parsers::Events do
       data = described_class.parse(parsed_html)
 
       expect(data[:events].count).to eq 24
-      expect(data[:events].first).to include({ date: DateTime.new(2020, 5, 29, 9, 1, 0o0, '-0600'),
+      expect(data[:events].first[:date]).to eq DateTime.new(2020, 5, 29, 14, 1, 0o0, '+0000')
+      expect(data[:events].first).to include({ date: DateTime.new(2020, 5, 29, 14, 1, 0o0, '+0000'),
                                                event_type: 'NO ISSUE PRELIMINARY HEARING',
                                                event_code: 'PDP',
                                                party_name: 'COHEN,  JOHN  DAVID',
