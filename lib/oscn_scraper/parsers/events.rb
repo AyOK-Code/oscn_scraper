@@ -52,7 +52,12 @@ module OscnScraper
 
       # TODO: move to helpers
       def parsed_date(date_string)
-        DateTime.parse("#{date_string} -06:00", '%A, %B %-d, %Y at %l:%m %p %z')
+        central_zone = ActiveSupport::TimeZone['Central Time (US & Canada)']
+        Time.zone = central_zone
+        # Parse the date_string to a DateTime object
+        time_in_central = Time.zone.parse(date_string)
+        # Convert the time zone to UTC
+        time_in_central.utc.to_datetime
       end
     end
   end
