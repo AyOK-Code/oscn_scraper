@@ -49,22 +49,29 @@ module OscnScraper
       end
 
       def parse_name(text)
-        text.split('(')[0].squish
+        text.split('(')[0]&.squish
       end
 
       def parse_bar_number(text)
         # TODO: Change to regex
+
         text.split('(')[1].split('#')[1].gsub(')', '')
       rescue NoMethodError
         # TODO: Log unparsible bar number
+
+        nil
       end
 
       def parse_address(attorney)
         attorney.css('td')[0].children[1..].inner_html
+      rescue NoMethodError
+        nil
       end
 
       def parse_parties(element)
         element.text
+      rescue NoMethodError
+        nil
       end
     end
   end
