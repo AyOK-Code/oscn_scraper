@@ -15,6 +15,15 @@ RSpec.describe OscnScraper::Parsers::Events do
                                                docket: 'Arraignment Docket' })
     end
 
+    it 'skips events that do not have a date' do
+      fixture_path = 'spec/fixtures/parsers/events/missing_date.html'
+      html_doc = load_and_parse_fixture(fixture_path)
+      parsed_html = html_doc.css('table')
+      data = described_class.parse(parsed_html)
+      print data
+      expect(data[:events].count).to eq 0
+    end
+
     it 'parses a case with no events' do
       fixture_path = 'spec/fixtures/parsers/events/none.html'
       html_doc = load_and_parse_fixture(fixture_path)
