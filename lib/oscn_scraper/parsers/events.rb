@@ -40,6 +40,7 @@ module OscnScraper
         event_code = event.search('.//comment()').text.squish.gsub('(', '').gsub(')', '')
         party_name = event.css('td')[1].text.strip
         docket = event.css('td')[2].text.strip
+        return nil if date.nil?
 
         events[:events] << {
           date: date,
@@ -57,6 +58,8 @@ module OscnScraper
         # Parse the date_string to a DateTime object
         time_in_central = Time.zone.parse(date_string)
         # Convert the time zone to UTC
+        return nil if time_in_central.nil?
+
         time_in_central.utc.to_datetime
       end
     end
