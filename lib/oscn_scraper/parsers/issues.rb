@@ -23,12 +23,24 @@ module OscnScraper
       attr_accessor :issues, :issues_html
 
       def parse_issues
-        issue_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[2]')
-        return issues if issue_table.count < 1
+        issue_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::table[1]')
+        return parse_simplified_issues if issue_table.count < 1
 
-        dispositions_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::*[3]')
+        dispositions_table = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::table[2]')
         issues[:issues] << issue_object(issue_table, dispositions_table)
 
+        issues
+      end
+
+      def parse_simplified_issues
+        # todo: add support for multiple issues once we can find example
+        issue_paragraph = issues_html.xpath('//h2[contains(@class, "issues")]/following-sibling::p[1]')
+        return issues if issue_paragraph.count < 1
+
+        issues[:issues] << {
+          number: issue_paragraph.css('strong')[0].text.gsub('.', ''),
+          issue_name: issue_paragraph.xpath('./strong[1]/following-sibling::text()[1]').text.squish
+        }
         issues
       end
 
