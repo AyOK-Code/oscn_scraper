@@ -3,7 +3,7 @@ module OscnScraper
 
     DAILING_FILINGS_COUNTIES = [
       'Adair', 'Canadian', 'Cleveland', 'Comanche',  'Ellis', 'Garfield', 'Logan', 'Oklahoma', 'Payne', 'Pushmataha',
-      'Roger Mills', 'Rogers County', 'Tulsa'
+      'Roger Mills', 'Rogers', 'Tulsa'
     ]
     # Searches reports on OSCN
     # @note OSCN Endpoint - https:://www.oscn.net/applications/oscn/report.asp?
