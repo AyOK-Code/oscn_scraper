@@ -7,6 +7,7 @@ PATH
       bigdecimal
       bundler (>= 2.6.9)
       byebug (>= 11.1.3)
+      csv
       httparty (>= 0.17)
       nokogiri (>= 1.11)
       rake (>= 10.0)
@@ -32,6 +33,7 @@ GEM
     concurrent-ruby (1.1.8)
     crack (0.4.5)
       rexml
+    csv (3.3.5)
     diff-lcs (1.4.4)
     docile (1.3.5)
     hashdiff (1.0.1)
