@@ -1,7 +1,7 @@
 RSpec.describe OscnScraper::Parsers::Events do
   describe '#parse' do
     it 'parses a case with many events' do
-      fixture_path = 'spec/fixtures/parsers/events/new.html'
+      fixture_path = 'spec/fixtures/parsers/events/multiple.html'
       html_doc = load_and_parse_fixture(fixture_path)
       parsed_html = html_doc.css('table')
       data = described_class.parse(parsed_html)
