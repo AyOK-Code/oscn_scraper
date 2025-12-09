@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html lang="en-US" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -13,14 +12,15 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/oscn-theme/navigation-style.css?v=1.0.1">
+    <script src="/datafiles/ext/javascript-navigation/?v=1.0.0"></script>
     <link rel="stylesheet" href="/assets/css/normalize.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/bootstrap-2.3.2.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
     <link rel="stylesheet" href="/assets/css/oscn-navigation.css">
-    <link rel="stylesheet" href="/assets/css/oscn-footer.css">
+    <!--<link rel="stylesheet" href="/assets/css/oscn-footer.css">-->
     <style>
         .bold {
             font-weight: bold;
@@ -286,85 +286,22 @@
     <![endif]-->
     <script src="/assets/js/cookies.js"></script>
     <!-- /JAVASCRIPT_TOP/ -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-54280338-1', {'sampleRate': 50});
-      ga('send', 'pageview');
-    </script>
 </head>
 <body>
 <div class="wrapper">
     <!-- /ERRORMESSAGE/ -->
-    <div class="header" data-elastic-exclude>
-        <div class="accessibility">
-            <a href="#oscn-content">Skip to Main Content</a>
-            <a href="/v4/accessibility/">Accessibility Statement</a>
-        </div>
-        <div class="navigation-tophat">
-            <div class="sized">
-                <div class="left">
-                    <ul>
-                        <li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=">Help</a></li>
-                        <li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
-                    </ul>
+    <header id="masthead" class="site-header header" data-elastic-exclude style="">
+        <div class="nav_container">
+            <a class="oscn-brand" href="https://www.oscn.net/">
+                <div class="oscn-brand-container">
+                    <div class="oscn-logo"><img src="https://www.oscn.net/static/supreme-court-seal-updated-color.svg"></div>
+                    <div class="oscn-full-name"><span>OKLAHOMA <br>STATE <br>COURTS <br>NETWORK </span></div>
+                    <div class="oscn-abbreviation"><span>OSCN</span></div>
                 </div>
-                <div class="right">
-                    <ul>
-                        <li><a href="https://efile.oscn.net">e-filing</a></li>
-                        <li><a href="https://pay.oscn.net/epayments/">e-payments</a></li>
-                        <li><a href="/jobs/">Careers</a></li>
-                        <!-- <li class="site-search no-border">
-                            <form class="search-form" method="get" action="/search/search.aspx">
-                                <div class="search-container">
-                                <select class="template-dropdown" style="display: none;">
-                                    <option class="template-option"></option>
-                                </select>
-                                <select class="search-dropdown" name="t">
-                                    <optgroup label="Legal Research">
-                                        <option value="citation">By Citation (QuickCite)</option>
-                                        <option value="judge">By Judge</option>
-                                        <option value="caselaw">Case Law (full-text)</option>
-                                        <option value="statutes">Statutes &amp; Rules (full-text)</option>
-                                        <option value="library">All Oklahoma Materials (full-text)</option>
-                                    </optgroup>
-                                    <optgroup label="Court Records">
-                                        <option selected="selected" value="party">By Party Name</option>
-                                        <option value="business">By Business Name</option>
-                                        <option value="casenumber">By Case Number</option>
-                                        <option value="traffic">By Traffic Citation</option>
-                                    </optgroup>
-                                </select></div><!--
-                                <input class="search-input" type="text" value="Search" name="q"></input><!--
-                                <button class="search-button" type="submit" value="Go!"></button>
-                            </form>
-                        </li>-->
-                    </ul>
-                </div>
-            </div>
+            </a>
         </div>
-        <div class="navigation-spectacles sized">
-            <div class="navigation-utility">
-                <div class="brand"><a href="/"><img id="logo" class="screen-logo" alt="OSCN" src="/assets/img/logo.jpg" /><img class="print-logo" alt="" src="/assets/img/logo-bw.jpg" /></a></div>
-                <div class="toggle" style="display: none;"><button type="button" data-toggle="navigation"><span class="sr-only">toggle navigation</span></button></div>
-            </div>
-            <nav>
-                <ol class="nav-menu">
-                    <li class="nav-item" id="home"><a href="/v4/">Home</a></li>
-                    <li class="nav-item" id="courts_menu"><a href="/courts/">Courts</a></li>
-                    <li class="nav-item" id="decisions"><a href="/decisions/">Decisions</a></li>
-                    <li class="nav-item" id="programs"><a href="/v4/programs/">Programs</a></li>
-                    <li class="nav-item" id="news"><a href="/news/">News</a></li>
-                    <li class="nav-item" id="legal-research"><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=LIBRARY">Legal Research</a></li>
-                    <li class="nav-item" id="court-records"><a href="/dockets/">Court Records</a></li>
-                    <li class="nav-item" id="quick-links"><a href="/v4/quicklinks/">Quick Links</a></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+    </header><!-- #masthead -->
+
     <div id="oscn-content"><div class="sized">
         <style>
             td, th { padding: 2px 5px; }
@@ -518,8 +455,17 @@
                 border-bottom: 1px #e1e1e1 solid;
                 font-size: 22px;
                 text-align: left;
+                position: relative;
             }
-
+            .section button.btn.btn-primary {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            #text-alert-message {
+                font-size: small;
+            }
             .partyCounts thead th {
                 text-decoration: underline;
             }
@@ -574,8 +520,16 @@
                 </strong><br><br>
                     Filed: 10/29/2007<br>Closed: 06/30/2011<br><br>Judge: Kerr, Elizabeth<br></td>
             </tr>
-        </table><script id="json_style" type="application/json">
+        </table><script>
+        let counties = new Map([
+            ["ADAIR","AD"],["ALFALFA","AL"],["APPELLATE","AP"],["ATOKA","AT"],["BEAVER","BV"],["BECKHAM","BK"],["BLAINE","BL"],["BRYAN","BR"],["CADDO","CA"],["CANADIAN","CD"],["CARTER","CR"],["CHEROKEE","CH"],["CHOCTAW","CT"],["CIMARRON","CI"],["CLEVELAND","CL"],["COAL","CO"],["COMANCHE","CM"],["COTTON","CN"],["CRAIG","CG"],["CREEK","CK"],["CUSTER","CU"],["DELAWARE","DW"],["DEWEY","DE"],["ELLIS","EL"],["GARFIELD","GA"],["GARVIN","GV"],["GRADY","GD"],["GRANT","GN"],["GREER","GR"],["HARMON","HM"],["HARPER","HP"],["HASKELL","HS"],["HUGHES","HU"],["JACKSON","JK"],["JEFFERSON","JF"],["JOHNSTON","JS"],["KAY","KA"],["KINGFISHER","KF"],["KIOWA","KI"],["LATIMER","LA"],["LEFLORE","LE"],["LINCOLN","LI"],["LOGAN","LO"],["LOVE","LV"],["MCCLAIN","ML"],["MCCURTAIN","MC"],["MCINTOSH","MT"],["MAJOR","MJ"],["MARSHALL","MS"],["MAYES","MY"],["MURRAY","MR"],["MUSKOGEE","MG"],["NOBLE","NB"],["NOWATA","NW"],["OKFUSKEE","OF"],["OKLAHOMA","OK"],["OKMULGEE","OM"],["OSAGE","OS"],["OTTAWA","OT"],["PAWNEE","PA"],["PAYNE","PY"],["PITTSBURG","PB"],["PONTOTOC","PT"],["POTTAWATOMIE","PW"],["PUSHMATAHA","PU"],["ROGER MILLS","RM"],["ROGERS","RG"],["SEMINOLE","SM"],["SEQUOYAH","SQ"],["STEPHENS","SP"],["TEXAS","TX"],["TILLMAN","TM"],["TULSA","TU"],["WAGONER","WG"],["WASHINGTON","WS"],["WASHITA","WH"],["WOODS","WD"],["WOODWARD","WW"]
+        ]);
+        var casenumber = "CS-2007-8762"
+        var court = "OKLAHOMA".toUpperCase();
+        var smscasenumber = counties.get(court)+casenumber.replaceAll('-','');
+    </script><script id="json_style" type="application/json">
         {
+            "casenumber": "CS-2007-8762",
             "style": "Citibank NA v. Lillge, Ashley R",
             "cmid": "2225148",
             "cms": "ocis",
@@ -604,16 +558,176 @@
             </tr>
             </tbody>
         </table>
-        <h2 class="section events">Events</h2><script id="json_events" type="application/json">
+        <h2 class="section events">Events
+            <div class="text-alerts-active" style="display: none;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#text-alert-message" style="">
+                Get Text Reminders
+            </button><script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script><div class="modal fade" id="text-alert-message" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Text Reminders</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button></div>
+                        <style>
+                            #text-qrcode img {
+                                margin: auto;
+                            }
+                        </style>
+                        <div class="modal-body">
+                            <p style="text-align: center;">Message and data rates may apply, depending on your mobile plan.</p>
+                            <p style="text-align: center;"><a href="https://www.oscn.net/misc/service-disclaimer">Instructions and Disclaimer</a></p><br><a class="text-casenumber" href=""><div id="text-qrcode"></div></a><br><script>
+                            var protocol = "sms"
+
+                            var url = "https://www.oscn.net/datafiles/text-messaging/redirect/";
+                            var ph_num = "18778490889";
+                            var text_message = `SUBSCRIBE ${smscasenumber}`;
+                            //var redirect_url = `${url}?to=%2B${ph_num}&body=${text_message}`;
+                            var redirect_url = `sms:+${ph_num}?body=${text_message}`;
+
+                            var qrcode = new QRCode("text-qrcode", {
+                                text: redirect_url,
+                                width: 160,
+                                height: 160,
+                                colorDark : "#000000",
+                                colorLight : "#ffffff",
+                                correctLevel : QRCode.CorrectLevel.H
+                            });
+                        </script><p style="text-align: center;"><script>
+                            var text = `Text <a class="text-casenumber" href=""><b>SUBSCRIBE ${smscasenumber}</b></a> to <b>1-877-849-0889</b>`;
+                            document.write(text);
+
+                            document.querySelectorAll('.text-casenumber').forEach(function(item){
+                                item.href = redirect_url;
+                            })
+                        </script></p>
+                        </div>
+                        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </h2><script id="json_events" type="application/json">
         {
             "events": [
 
                 {
                     "date": "Thursday, June 30, 2011 at 1:30 PM",
                     "description":
+
                     "DISPOSITION HEARING DOCKET"
+
                 }
             ]}
+    </script><script>
+        console.log(court);
+
+        const activateAt = new Date('2025-11-10T06:00:00-06:00');
+        const now = new Date();
+
+        var counties_active = []
+        var counties_temp = []
+        counties_active.push(
+            "CANADIAN"
+            ,"PAYNE"
+            ,"LOGAN"
+        );
+        counties_active.push( //ADDED 11/10/2025 6:00AM
+            "HARMON"
+            ,"GREER"
+            ,"KIOWA"
+            ,"TILLMAN"
+            ,"JACKSON"
+            ,"WASHINGTON"
+            ,"NOWATA"
+            ,"MCINTOSH"
+            ,"PITTSBURG"
+        );
+        counties_active.push( //ADDED 11/10/2025 9:00AM
+            "ELLIS"
+            ,"ROGER MILLS"
+            ,"PUSHMATAHA"
+        );
+
+        if (now >= new Date('2025-11-17T06:00:00-06:00')) {
+            counties_active.push( //ADDED 11/17/2025 6:00AM
+                "ADAIR"
+                ,"CLEVELAND"
+                ,"GARFIELD"
+                ,"CIMARRON"
+                ,"TEXAS"
+                ,"BEAVER"
+                ,"HARPER"
+                ,"CUSTER"
+                ,"COMANCHE"
+                ,"COTTON"
+                ,"STEPHENS"
+                ,"JEFFERSON"
+                ,"OSAGE"
+                ,"COAL"
+                ,"ATOKA"
+            );
+        }
+        if (now >= new Date('2025-11-24T06:00:00-06:00')) {
+            counties_active.push( //ADDED 11/24/2025 6:00AM
+                "TULSA"
+                ,"BECKHAM"
+                ,"WASHITA"
+                ,"WOODS"
+                ,"ALFALFA"
+                ,"GRANT"
+                ,"WOODWARD"
+                ,"MAJOR"
+                ,"KINGFISHER"
+                ,"BLAINE"
+                ,"DEWEY"
+                ,"LINCOLN"
+                ,"POTTAWATOMIE"
+                ,"CRAIG"
+                ,"ROGERS"
+                ,"MAYES"
+            );
+        }
+        if (now >= new Date('2025-12-01T06:00:00-06:00')) {
+            counties_active.push( //ADDED 12/01/2025 6:00AM
+                "OKLAHOMA"
+                ,"MURRAY"
+                ,"CARTER"
+                ,"JOHNSTON"
+                ,"LOVE"
+                ,"MARSHALL"
+                ,"MCCLAIN"
+                ,"GARVIN"
+                ,"BRYAN"
+                ,"WAGONER"
+                ,"CHEROKEE"
+                ,"MUSKOGEE"
+                ,"SEQUOYAH"
+                ,"PAWNEE"
+                ,"CADDO"
+                ,"GRADY"
+            );
+        }
+        if (now >= new Date('2025-12-08T06:00:00-06:00')) {
+            counties_active.push( //ADDED 12/08/2025 6:00AM
+                "KAY"
+                ,"NOBLE"
+                ,"SEMINOLE"
+                ,"PONTOTOC"
+                ,"HUGHES"
+                ,"HASKALL"
+                ,"LATIMER"
+                ,"LEFLORE"
+                ,"OTTAWA"
+                ,"DELAWARE"
+                ,"CREEK"
+                ,"OKFUSKEE"
+                ,"OKMULGEE"
+                ,"MCCURTAIN"
+                ,"CHOCTAW"
+            );
+        }
+        if(counties_active.indexOf(court) > -1){
+            document.querySelectorAll('.text-alerts-active')[0].style.display = '';
+        }
+
     </script><table class="events_table" width="100%">
         <thead>
         <tr>
@@ -1064,84 +1178,51 @@
             </tbody>
         </table>
     </div></div>
-    <div class="footer" data-elastic-exclude>
-        <div class="container-fluid sized">
-            <div class="row-fluid">
-                <div class="contact-foot column span3">
-                    <h6>oscn</h6>
-                    <p>
-                        EMAIL: <a href="mailto:webmaster@oscn.net">webmaster@oscn.net</a><br />
-                        Oklahoma Judicial Center<br />
-                        2100 N Lincoln Blvd.<br />
-                        Oklahoma City, OK 73105</p>
-                </div>
-                <div class="courts-foot column span3">
-                    <h6>courts</h6>
-                    <ul class="footer-list">
-                        <li><a href="http://www.oscn.net/oscn/schome/">Supreme Court of Oklahoma</a></li>
-                        <li><a href="http://www.okcca.net/">Court of Criminal Appeals</a></li>
-                        <li>Court of Civil Appeals</li>
-                        <li><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=COURTS">District Courts</a></li>
-                    </ul>
-                </div>
-                <div class="decisions-foot column span3">
-                    <h6>decisions</h6>
-                    <ul class="footer-list">
-                        <li><a href="/decisions/">New Decisions</a></li>
-                        <li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSSC">Supreme Court of Oklahoma</a></li>
-                        <li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCR">Court of Criminal Appeals</a></li>
-                        <li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCV">Court of Civil Appeals</a></li>
-                    </ul>
-                </div>
-                <div class="programs-foot column span3">
-                    <h6>programs</h6>
-                    <ul class="footer-list">
-                        <li><a href="http://www.thesovereigntysymposium.com/">The Sovereignty Symposium</a></li>
-                        <!--<li><a href="#">Access to Justice</a></li>-->
-                        <li><a href="http://www.oscn.net/static/adr/default.aspx">Alternative Dispute Resolution</a></li>
-                        <li><a href="http://www.oscn.net/static/adr/default.aspx">Early Settlement Mediation</a></li>
-                        <li><a href="http://www.oscn.net/Sites/CourtImprovement/default.aspx">Children's Court Improvement Program (CIP)</a></li>
-                        <li><a href="/jnc/">Judicial Nominating Commission</a></li>
-                        <li><a href="http://www.oscn.net/static/forms/aoc_forms/interpreter.asp">Certified Courtroom Interpreters</a></li>
-                        <li><a href="http://www.oscn.net/static/forms/aoc_forms/csr.asp">Certified Shorthand Reporters</a></li>
-                        <li><a href="/pages/accessibility">Accessibility ADA</a></li>
-                    </ul>
-                </div>
+    <footer id="colophon" class="site-footer fullwidth" data-elastic-exclude>
+        <div class="site-info oksc-content">
+            <div class="center-brand">
+                <a class="oscn-brand" href="/">
+                    <div class="oscn-brand-container">
+                        <div class="oscn-logo"><img src="https://www.oscn.net/static/supreme-court-seal-updated-color.svg"></div>
+                        <div class="oscn-full-name"><span>OKLAHOMA <br>STATE <br>COURTS <br>NETWORK </span></div>
+                        <div class="oscn-abbreviation"><span>OSCN</span></div>
+                    </div>
+                </a>
             </div>
-        </div>
-        <div class="shoes">
-            <div class="sized">
-                <ul>
-                    <!--<li><a href="#">site map</a></li>
-                    <li><a href="#">information</a></li>
-                    -->
-                    <li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
-                    <li><a href="/jobs/">Careers</a></li>
-                    <li><a href="/pages/accessibility">Accessibility ADA</a></li>
-                </ul>
+            <div class="row">
+                <div class="col-xs"></div>
+                <div class="col-xs" style="text-align: center;">
+
+                    The Oklahoma Supreme Court<br />
+                    2100 N. Lincoln Blvd., Suite 1<br />
+                    Oklahoma City, OK 73105<br />
+                    <br />
+                    <br />
+                </div>
+                <div class="col-xs"></div>
             </div>
-        </div>
-    </div>
+        </div><!-- .site-info -->
+    </footer><!-- #colophon -->
 </div>
 <script src="/assets/js/jquery-1.11.1.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 <script src="/assets/js/adobe.aria.menu.min.js"></script>
-<script src="/assets/js/navigation.js"></script>
+<!--<script src="/assets/js/navigation.js"></script>-->
 <script src="/assets/js/oscn.js"></script>
 <script src="/assets/js/table.sort.filter.js"></script>
 <script>
-  if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = Array.prototype.forEach; }
+    if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = Array.prototype.forEach; }
 
-  var d = new Date()
-  var cb = d.getFullYear().toString() + (d.getMonth()+1).toString() + ("0" + d.getDate()).slice(-2) + d.getHours()
+    var d = new Date()
+    var cb = d.getFullYear().toString() + (d.getMonth()+1).toString() + ("0" + d.getDate()).slice(-2) + d.getHours()
 
-  var anchors = document.querySelectorAll("a[href$='.pdf']")
-  anchors.forEach(function(a){
-    a.href = a.href.split('?')[0] + "?d=" + cb;
-  });
+    var anchors = document.querySelectorAll("a[href$='.pdf']")
+    anchors.forEach(function(a){
+        a.href = a.href.split('?')[0] + "?d=" + cb;
+    });
 
 </script>
-<script src="/dockets/scripts/dockets.js"></script>
+<script src="/dockets/scripts/dockets.js?v=1.0.0"></script>
 <!--[if IE 7]>
 <script>
     var height = $(".home-banner").height();

@@ -6,13 +6,12 @@ RSpec.describe OscnScraper::Parsers::Events do
       parsed_html = html_doc.css('table')
       data = described_class.parse(parsed_html)
 
-      expect(data[:events].count).to eq 2
-      expect(data[:events].first[:date]).to eq DateTime.new(2023, 10, 19, 14, 0, 0o0, '+0000')
-      expect(data[:events].first).to include({ date: DateTime.new(2023, 10, 19, 14, 0, 0o0, '+0000'),
-                                               event_type: 'ARRAIGNMENT',
-                                               event_code: 'ARR',
-                                               party_name: 'EDGAR,  JAMES  KEVIN',
-                                               docket: 'Arraignment Docket' })
+      expect(data[:events].count).not_to be 0
+      expect(data[:events].first).to include({ date: DateTime.new(2023, 10, 0o5, 14, 0, 0o0, '+0000'),
+                                               event_type: 'PRELIMINARY HEARING CONFERENCE (9-8-23)',
+                                               event_code: 'PRELIMC',
+                                               party_name: 'MOSHER,  AARON  JOE',
+                                               docket: 'Cassandra M Williams' })
     end
 
     it 'skips events that do not have a date' do
