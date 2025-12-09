@@ -3,1786 +3,1953 @@
 <!--[if IE 7]>         <html lang="en-US" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en-US" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en-US" class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>
-    OSCN Case Details
-  </title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        OSCN Case Details
+    </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-        <link rel="stylesheet" href="/assets/css/normalize.min.css">
-        <link rel="stylesheet" href="/assets/css/main.css">
-        <link rel="stylesheet" href="/assets/css/bootstrap-2.3.2.min.css">
-		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">		
-		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-		<link rel="stylesheet" href="/assets/css/oscn-navigation.css">
-        <link rel="stylesheet" href="/assets/css/oscn-footer.css">
-<style>
-.bold {
-	font-weight: bold;
-}
-.docket-first-column {
-	display: inline-block;
-	width: 125px;
-	text-align: center;
-}
-.docketlist th:nth-child(2){
-	display: none;
-}
-.docketlist td:nth-child(2){
-	display: none;
-}
-.docketlist,.docketlist tr {
-	position: relative;
-}
-.docketlist th:nth-child(3) {
-	position: absolute;
-	left: 10em;
-}
-span.partyname {
-	font-size: 0.75rem;
-}
-.docketlist td:nth-child(3) .description-wrapper{
-	margin-top: 1.75em;
-	position: relative;
-	margin-left: -3.5em;
-	padding-right: 1em;
-}
-/*------ kellpro remove space on additional text*/
-.addtl-text .description-wrapper{
-	margin-top: 0!important;
-}
-.addtl-text .docket_code {
-	display: none;
-}
-.docketlist td:nth-child(1) {
-	font-weight: bold;
-}
-.docketlist th:nth-child(4),
-.docketlist td:nth-child(4){
-	position: absolute; 
-	right: 6em;
-}
-.docketlist th:nth-child(5),
-.docketlist td:nth-child(5){
-	position: absolute; 
-	right: 10em;
-}
-.docketlist th:nth-child(6),
-.docketlist td:nth-child(6){
-	position: absolute; 
-	right: 0;
-}
-.docketlist th:nth-child(2),
-.docketlist td:nth-child(2){
-	display: table-cell;
-	position: absolute; 
-	left: 6.1em;
-	font-weight: bold;
-}
-
-.docketRow td {
-	border-bottom: none!important;
-	border-top: none!important;
-}
-/*
-.docketlist td:nth-child(1),
-.docketlist td:nth-child(3){
-	border-bottom: gray solid 1px!important;
-}
-*/
-.primary-entry {
-	overflow: hidden;
-}
-.primary-entry td {
-	position: relative;
-}
-.primary-entry > td:before {
-	content: '';
-	border-top: 1px solid gray;
-	display: block;
-	position: absolute;
-	top: -1px;
-	width: 100%;
-}
-.kp.docketlist td:nth-child(1),
-.kp.docketlist td:nth-child(3){
-	//border-bottom: #cecece solid 1px!important;
-}
-
-
-
-@media print {
-	.docketlist thead {
-		display: table-row;
-	}
-	.description-wrapper img { display: none; }
-	thead, thead tr {
-		position: relative!important;
-		width: 100%;
-	}
-}
-@media screen and (max-width:768px){
-	.docketlist td:nth-child(2){
-		display: none;
-		font-size: smaller;
-	}
-}
-.partyname:after {
-	content:'\f007';
-	font-family: "Font Awesome 5 Pro";
-    font-weight: 900;
-	position: relative;
-	right: -0.25em;
-}
-.count_issue:before {
-	content:'\f292';
-	font-family: "Font Awesome 5 Pro";
-    font-weight: 900;
-}
-.docket_code:before {
-	content:'[';
-	font-family: "Font Awesome 5 Pro";	
-	position: relative;
-	left: -0.25em;
-}
-.docket_code:after {
-	content:']';
-	font-family: "Font Awesome 5 Pro";	
-	position: relative;
-	right: -0.25em;
-}
-.warrant .docket_code:before {
-	content:'[ \f06e';
-	font-family: "Font Awesome 5 Pro";
-	left: -0.25em;
-	font-weight: 900;
-}
-.return-warrant .docket_code:before {
-	content:'[ \f0e2';
-	font-family: "Font Awesome 5 Pro";
-	left: -0.25em;
-	font-weight: 900;
-}
-.doc-tif:before {
-	content: '\f15b';
-	font-family: "Font Awesome 5 Pro";
-	left: -0.25em;
-	color: black;
-}
-.doc-pdf:before {
-	content: '\f1c1';
-	font-family: "Font Awesome 5 Pro";
-	left: -0.25em;
-	color: #FF0000;
-}
-
-
-/*COUNTS*/
-@media screen and (max-width:1024px){
-	
-	/*SHORTSTYLE*/
-	.caseStyle td ~ td{
-		width: 33%;
-	}
-	/*END SHORTSTYLE*/
-	
-    .Disposition td, .Disposition th, .Counts td {
-        display: block;    
-    }
-    
-    .dispositionInformation, .paddedContainer, .partyName {
-        display: none!important;
-    }
-    
-    .CountsContainer ~ .CountsContainer {
-        border-top: 3px solid silver;
-    }
-    
-    .CountDescription {
-        padding-left: 1.75rem;
-    }
-    
-    .Disposition th,
-    .Disposition td {
-        padding-left: 14px;
-    }
-    
-    .countpartyname:before {
-        content: 'Party Name: ';
-        font-weight: bold;
-        white-space: nowrap;
-    }
-    .countdisposition, .countdisposition {
-        margin-left: 1rem;
-    }
-    
-    .Disposition tbody tr ~ tr {
-        display: block;
-        margin-top: 0.5rem;
-        border-top: 1px silver dashed
-    }
-}
-
-
-/*EVENTS*/
-@media screen and (max-width:1024px){
-	.events_table td {
-		display: block;
-	}
-	td.event_partyname.empty, td.event_reporter.empty, td.event_judge.empty {
-		display: none;
-	}
-
-	td.event_partyname:before,
-	td.event_reporter:before,
-	td.event_judge:before {
-		font-weight: 600; 
-	}
-	td.event_partyname:before { content: 'Party Name: '; }
-	td.event_reporter:before { content: 'Reporter: '; }
-	td.event_judge:before { content: 'Docket: '; }
-
-	span.nbsps { display: none; }
-
-	.events_table tr ~ tr {
-		border-top: 1px dashed silver;
-		padding: 0.25rem
-	}
-	.events_table tr{
-		padding-left: 0.5rem;
-		display: block;
-	}
-	td.event_partyname,
-	td.event_reporter,
-	td.event_judge
-	{
-		padding-left: 2rem;
-		font-size: 12px
-	}
-
-	.events_table thead {
-		display: none;    
-	}
-}
-  </style>
-<!-- /STYLESHEET_INLINE/ -->
-        <script src="/assets/js/modernizr-2.6.2.min.js"></script>
-		<!--[if lt IE 9]>	
-		<script src="/assets/js/respond.min.js"></script>
-		<script>
-		window.onload = function() {
-			setTimeout(function(){				
-				var height = $(".footer").outerHeight(true);
-				$("#oscn-content").css("padding-bottom", function(){
-					return height;
-				});}, 2000);
-		}
-		</script>
-		<![endif]-->
-        <script src="/assets/js/cookies.js"></script>			
-<!-- /JAVASCRIPT_TOP/ -->
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-54280338-1', {'sampleRate': 50});
-ga('send', 'pageview');
-</script>
-    </head>
-    <body>
-	<div class="wrapper">
-<!-- /ERRORMESSAGE/ -->
-		<div class="header" data-elastic-exclude>
-			<div class="accessibility">
-				<a href="#oscn-content">Skip to Main Content</a>
-				<a href="/v4/accessibility/">Accessibility Statement</a>
-			</div>
-			<div class="navigation-tophat">
-				<div class="sized">
-					<div class="left">
-						<ul>
-							<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=">Help</a></li>
-							<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
-						</ul>
-					</div>
-					<div class="right">
-						<ul>
-							<li><a href="https://efile.oscn.net">e-filing</a></li>
-							<li><a href="https://pay.oscn.net/epayments/">e-payments</a></li>
-							<li><a href="/jobs/">Careers</a></li>
-							<!-- <li class="site-search no-border">
-								<form class="search-form" method="get" action="/search/search.aspx">
-									<div class="search-container">
-									<select class="template-dropdown" style="display: none;">
-										<option class="template-option"></option>
-									</select>	
-									<select class="search-dropdown" name="t">
-										<optgroup label="Legal Research">
-											<option value="citation">By Citation (QuickCite)</option>
-											<option value="judge">By Judge</option>
-											<option value="caselaw">Case Law (full-text)</option>
-											<option value="statutes">Statutes &amp; Rules (full-text)</option>
-											<option value="library">All Oklahoma Materials (full-text)</option>
-										</optgroup>
-										<optgroup label="Court Records">
-											<option selected="selected" value="party">By Party Name</option>
-											<option value="business">By Business Name</option>
-											<option value="casenumber">By Case Number</option>
-											<option value="traffic">By Traffic Citation</option>
-										</optgroup>											
-									</select></div><!--
-									<input class="search-input" type="text" value="Search" name="q"></input><!-- 
-									<button class="search-button" type="submit" value="Go!"></button>
-								</form>
-							</li>-->
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="navigation-spectacles sized">
-				<div class="navigation-utility">
-					<div class="brand"><a href="/"><img id="logo" class="screen-logo" alt="OSCN" src="/assets/img/logo.jpg" /><img class="print-logo" alt="" src="/assets/img/logo-bw.jpg" /></a></div>
-					<div class="toggle" style="display: none;"><button type="button" data-toggle="navigation"><span class="sr-only">toggle navigation</span></button></div>
-				</div>
-				<nav>
-					<ol class="nav-menu">
-						<li class="nav-item" id="home"><a href="/v4/">Home</a></li>
-						<li class="nav-item" id="courts_menu"><a href="/courts/">Courts</a></li>
-						<li class="nav-item" id="decisions"><a href="/decisions/">Decisions</a></li>
-						<li class="nav-item" id="programs"><a href="/v4/programs/">Programs</a></li>
-						<li class="nav-item" id="news"><a href="/news/">News</a></li>
-						<li class="nav-item" id="legal-research"><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=LIBRARY">Legal Research</a></li>
-						<li class="nav-item" id="court-records"><a href="/dockets/">Court Records</a></li>
-						<li class="nav-item" id="quick-links"><a href="/v4/quicklinks/">Quick Links</a></li>
-					</ol>
-				</nav>
-			</div>
-		</div>		
-<div id="oscn-content"><div class="sized">
-  <style>
-        td, th { padding: 2px 5px; }
-        h2.styletop {
-			text-align: left;
-			background: #033c60;
-			color: white;
-			margin: 0;
-			padding: 6px;
-			font-size: 18px;
-			text-transform: uppercase;
-			font-weight: bold;
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/oscn-theme/navigation-style.css?v=1.0.1">
+    <script src="/datafiles/ext/javascript-navigation/?v=1.0.0"></script>
+    <link rel="stylesheet" href="/assets/css/normalize.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap-2.3.2.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-Bx4pytHkyTDy3aJKjGkGoHPt3tvv6zlwwjc3iqN7ktaiEMLDPqLSZYts2OjKcBx1" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="/assets/css/oscn-navigation.css">
+    <!--<link rel="stylesheet" href="/assets/css/oscn-footer.css">-->
+    <style>
+        .bold {
+            font-weight: bold;
         }
-        span.styletop { 
-			display: block; 
-			text-align: center; 
-			line-height: 1.5rem;
-			padding: 0.5rem 0;
-		}
-
-        .section {
-        text-transform: uppercase;
-        color: #033c60;
-        padding: 2px 5px;
-        background-color: #f7f7f7;
-        border-top: 1px #e1e1e1 solid;
-        border-bottom: 1px #e1e1e1 solid;
-        font-size: 22px;
-        text-align: left;
+        .docket-first-column {
+            display: inline-block;
+            width: 125px;
+            text-align: center;
+        }
+        .docketlist th:nth-child(2){
+            display: none;
+        }
+        .docketlist td:nth-child(2){
+            display: none;
+        }
+        .docketlist,.docketlist tr {
+            position: relative;
+        }
+        .docketlist th:nth-child(3) {
+            position: absolute;
+            left: 10em;
+        }
+        span.partyname {
+            font-size: 0.75rem;
+        }
+        .docketlist td:nth-child(3) .description-wrapper{
+            margin-top: 1.75em;
+            position: relative;
+            margin-left: -3.5em;
+            padding-right: 1em;
+        }
+        /*------ kellpro remove space on additional text*/
+        .addtl-text .description-wrapper{
+            margin-top: 0!important;
+        }
+        .addtl-text .docket_code {
+            display: none;
+        }
+        .docketlist td:nth-child(1) {
+            font-weight: bold;
+        }
+        .docketlist th:nth-child(4),
+        .docketlist td:nth-child(4){
+            position: absolute;
+            right: 6em;
+        }
+        .docketlist th:nth-child(5),
+        .docketlist td:nth-child(5){
+            position: absolute;
+            right: 10em;
+        }
+        .docketlist th:nth-child(6),
+        .docketlist td:nth-child(6){
+            position: absolute;
+            right: 0;
+        }
+        .docketlist th:nth-child(2),
+        .docketlist td:nth-child(2){
+            display: table-cell;
+            position: absolute;
+            left: 6.1em;
+            font-weight: bold;
         }
 
-        .partyCounts thead th { text-decoration: underline; }
-        .paddedContainer { width: 75px; }
-        .partyName, .dispositionInformation, .CountDescription { padding: 2px 5px; }
-        .CountNumber { width: 75px; }
-        .CountNumber, .partyName, .dispositionInformation, .CountDescription { vertical-align: top; }
-
-        p { margin: 0; padding: 0; }
-        table th { text-align: left; }
-        table { margin-bottom: 10px; width: 100%; border-collapse: collapse; }
-
-        .caseStyle {  }
-        .caseStyle td { border: 1px solid #e1e1e1; padding: 5px 10px; }
-
-        .docketRow td { padding: 3px 2px 3px 2px; border-top: thin solid #e1e1e1; border-bottom: thin solid #e1e1e1;}
-
-        .evenRow { background-color: #f7f7f7;}
-        .oddRow { background-color: white; }
-
-        .multipleRecords {
-        width: 100%;
-        position: relative;
-        margin-top: 2em;
-        margin-bottom: 2em;
+        .docketRow td {
+            border-bottom: none!important;
+            border-top: none!important;
         }
-        .multipleRecords caption {
-        text-align: left;
-        font-weight: bold;
-        position: relative;
-        background: #033c60;
-        color: white;
-        margin: 0;
-        padding: 6px;
-        font-size: 18px;
-        text-transform: uppercase;
-        position: relative;
+        /*
+        .docketlist td:nth-child(1),
+        .docketlist td:nth-child(3){
+            border-bottom: gray solid 1px!important;
         }
-        .foundRecords {
-        position: absolute;
-        right: 5px; font-size: 14px;
+        */
+        .primary-entry {
+            overflow: hidden;
         }
-        .multipleRecords thead th {
-        font-size: 13px;
-        text-align: left;
-        padding: 4px 3px;
-        vertical-align: top;
-        background-color: #f7f7f7;
+        .primary-entry td {
+            position: relative;
         }
-        .tablerow { border-top: thin solid #e1e1e1; }
-        .tablerow td { font-size: 11px; padding: 4px 3px; color: #033c60; vertical-align: top;}
-
-        
-        #rev, .revLabel { display: inline; margin: 0; }
-
-        .heading3 {
-        text-transform: uppercase;
-        color: #033c60;
-        padding: 2px 5px;
-        background-color: #f7f7f7;
-        border-top: 1px #e1e1e1 solid;
-        border-bottom: 1px #e1e1e1 solid;
-        font-size: 22px;
-        text-align: center;
-        margin-top: 2em;
+        .primary-entry > td:before {
+            content: '';
+            border-top: 1px solid gray;
+            display: block;
+            position: absolute;
+            top: -1px;
+            width: 100%;
+        }
+        .kp.docketlist td:nth-child(1),
+        .kp.docketlist td:nth-child(3){
+        //border-bottom: #cecece solid 1px!important;
         }
 
-        table { margin: 0 auto 0 auto; }
-        .casetype { width: 50%; }
-        .casetype caption {
-        text-align: center;
-        color: #033c60;
-        margin: 0;
-        padding: 10px 5px;
-        font-size: 18px;
-        text-transform: uppercase;
-        font-weight: bold;
+
+
+        @media print {
+            .docketlist thead {
+                display: table-row;
+            }
+            .description-wrapper img { display: none; }
+            thead, thead tr {
+                position: relative!important;
+                width: 100%;
+            }
         }
-        .casetype th {
-        font-size: 13px;
-        text-align: left;
-        padding: 4px 3px;
-        vertical-align: top;
-        background-color: #f7f7f7;
-        border-top: 1px #e1e1e1 solid;
-        border-bottom: 1px #e1e1e1 solid;
+        @media screen and (max-width:768px){
+            .docketlist td:nth-child(2){
+                display: none;
+                font-size: smaller;
+            }
         }
-        .casetype tr {
-        border-top: 1px #e1e1e1 solid;
-        border-bottom: 1px #e1e1e1 solid;
+        .partyname:after {
+            content:'\f007';
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            position: relative;
+            right: -0.25em;
         }
-        .casetype td { padding: 3px 4px; }
-        .casenoformat { width: 350px; }
-        .casenoformat tbody tr td { text-align: center; }
-        table caption { }
-        .casetype { min-width: 250px; }
-        form label { font: bold 11pt arial; }
-        .padding { height: 2em; }
-      </style>
-  <style>
-		td, th {
-			padding: 2px 5px;
-		}
-		h2.styletop {
-			text-align: left;
-			background: #033c60;
-			color: white;
-			margin: 0;
-			padding: 6px;
-			font-size: 18px;
-			text-transform: uppercase;
-			font-weight: bold;	
-		}
-		span.styletop { display: block; text-align: center; }
+        .count_issue:before {
+            content:'\f292';
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+        }
+        .docket_code:before {
+            content:'[';
+            font-family: "Font Awesome 5 Pro";
+            position: relative;
+            left: -0.25em;
+        }
+        .docket_code:after {
+            content:']';
+            font-family: "Font Awesome 5 Pro";
+            position: relative;
+            right: -0.25em;
+        }
+        .warrant .docket_code:before {
+            content:'[ \f06e';
+            font-family: "Font Awesome 5 Pro";
+            left: -0.25em;
+            font-weight: 900;
+        }
+        .return-warrant .docket_code:before {
+            content:'[ \f0e2';
+            font-family: "Font Awesome 5 Pro";
+            left: -0.25em;
+            font-weight: 900;
+        }
+        .doc-tif:before {
+            content: '\f15b';
+            font-family: "Font Awesome 5 Pro";
+            left: -0.25em;
+            color: black;
+        }
+        .doc-pdf:before {
+            content: '\f1c1';
+            font-family: "Font Awesome 5 Pro";
+            left: -0.25em;
+            color: #FF0000;
+        }
 
-		.section { 
-			text-transform: uppercase; 
-			color: #033c60;  
-			padding: 2px 5px;
-			background-color: #f7f7f7;
-			border-top: 1px #e1e1e1 solid;
-			border-bottom: 1px #e1e1e1 solid;
-			font-size: 22px;
-			text-align: left;
-		}
 
-		.partyCounts thead th {
-			text-decoration: underline;
-		}
-		.paddedContainer {
-			width: 75px;
-		}
-		.partyName, .dispositionInformation, .CountDescription {
-			padding: 2px 5px;
-		}
-		.CountNumber {
-			width: 75px;
-		}
-		
-		.CountNumber, .partyName, .dispositionInformation, .CountDescription {
-			vertical-align: top;
-		}
-		
-		p { margin: 0; padding: 0; }
-		table th { text-align: left; }
-		table { margin-bottom: 10px; width: 100%; border-collapse: collapse; }
+        /*COUNTS*/
+        @media screen and (max-width:1024px){
 
-		.caseStyle {  }
-		.caseStyle td { border: 1px solid #e1e1e1; padding: 5px 10px; }
+            /*SHORTSTYLE*/
+            .caseStyle td ~ td{
+                width: 33%;
+            }
+            /*END SHORTSTYLE*/
 
-		.docketRow td { padding: 3px 2px 3px 2px; border-top: thin solid #e1e1e1; border-bottom: thin solid #e1e1e1;}
+            .Disposition td, .Disposition th, .Counts td {
+                display: block;
+            }
 
-		.evenRow { background-color: #f7f7f7;}
-		.oddRow { background-color: white; }	
+            .dispositionInformation, .paddedContainer, .partyName {
+                display: none!important;
+            }
+
+            .CountsContainer ~ .CountsContainer {
+                border-top: 3px solid silver;
+            }
+
+            .CountDescription {
+                padding-left: 1.75rem;
+            }
+
+            .Disposition th,
+            .Disposition td {
+                padding-left: 14px;
+            }
+
+            .countpartyname:before {
+                content: 'Party Name: ';
+                font-weight: bold;
+                white-space: nowrap;
+            }
+            .countdisposition, .countdisposition {
+                margin-left: 1rem;
+            }
+
+            .Disposition tbody tr ~ tr {
+                display: block;
+                margin-top: 0.5rem;
+                border-top: 1px silver dashed
+            }
+        }
+
+
+        /*EVENTS*/
+        @media screen and (max-width:1024px){
+            .events_table td {
+                display: block;
+            }
+            td.event_partyname.empty, td.event_reporter.empty, td.event_judge.empty {
+                display: none;
+            }
+
+            td.event_partyname:before,
+            td.event_reporter:before,
+            td.event_judge:before {
+                font-weight: 600;
+            }
+            td.event_partyname:before { content: 'Party Name: '; }
+            td.event_reporter:before { content: 'Reporter: '; }
+            td.event_judge:before { content: 'Docket: '; }
+
+            span.nbsps { display: none; }
+
+            .events_table tr ~ tr {
+                border-top: 1px dashed silver;
+                padding: 0.25rem
+            }
+            .events_table tr{
+                padding-left: 0.5rem;
+                display: block;
+            }
+            td.event_partyname,
+            td.event_reporter,
+            td.event_judge
+            {
+                padding-left: 2rem;
+                font-size: 12px
+            }
+
+            .events_table thead {
+                display: none;
+            }
+        }
     </style>
-  <p class="notice">The information on this page is NOT an official 
-            record. Do not rely on the correctness or completeness of this 
+    <!-- /STYLESHEET_INLINE/ -->
+    <script src="/assets/js/modernizr-2.6.2.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/assets/js/respond.min.js"></script>
+    <script>
+        window.onload = function() {
+            setTimeout(function(){
+                var height = $(".footer").outerHeight(true);
+                $("#oscn-content").css("padding-bottom", function(){
+                    return height;
+                });}, 2000);
+        }
+    </script>
+    <![endif]-->
+    <script src="/assets/js/cookies.js"></script>
+    <!-- /JAVASCRIPT_TOP/ -->
+</head>
+<body>
+<div class="wrapper">
+    <!-- /ERRORMESSAGE/ -->
+    <header id="masthead" class="site-header header" data-elastic-exclude style="">
+        <div class="nav_container">
+            <a class="oscn-brand" href="https://www.oscn.net/">
+                <div class="oscn-brand-container">
+                    <div class="oscn-logo"><img src="https://www.oscn.net/static/supreme-court-seal-updated-color.svg"></div>
+                    <div class="oscn-full-name"><span>OKLAHOMA <br>STATE <br>COURTS <br>NETWORK </span></div>
+                    <div class="oscn-abbreviation"><span>OSCN</span></div>
+                </div>
+            </a>
+        </div>
+    </header><!-- #masthead -->
+
+    <div id="oscn-content"><div class="sized">
+        <style>
+            td, th { padding: 2px 5px; }
+            h2.styletop {
+                text-align: left;
+                background: #033c60;
+                color: white;
+                margin: 0;
+                padding: 6px;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            span.styletop {
+                display: block;
+                text-align: center;
+                line-height: 1.5rem;
+                padding: 0.5rem 0;
+            }
+
+            .section {
+                text-transform: uppercase;
+                color: #033c60;
+                padding: 2px 5px;
+                background-color: #f7f7f7;
+                border-top: 1px #e1e1e1 solid;
+                border-bottom: 1px #e1e1e1 solid;
+                font-size: 22px;
+                text-align: left;
+            }
+
+            .partyCounts thead th { text-decoration: underline; }
+            .paddedContainer { width: 75px; }
+            .partyName, .dispositionInformation, .CountDescription { padding: 2px 5px; }
+            .CountNumber { width: 75px; }
+            .CountNumber, .partyName, .dispositionInformation, .CountDescription { vertical-align: top; }
+
+            p { margin: 0; padding: 0; }
+            table th { text-align: left; }
+            table { margin-bottom: 10px; width: 100%; border-collapse: collapse; }
+
+            .caseStyle {  }
+            .caseStyle td { border: 1px solid #e1e1e1; padding: 5px 10px; }
+
+            .docketRow td { padding: 3px 2px 3px 2px; border-top: thin solid #e1e1e1; border-bottom: thin solid #e1e1e1;}
+
+            .evenRow { background-color: #f7f7f7;}
+            .oddRow { background-color: white; }
+
+            .multipleRecords {
+                width: 100%;
+                position: relative;
+                margin-top: 2em;
+                margin-bottom: 2em;
+            }
+            .multipleRecords caption {
+                text-align: left;
+                font-weight: bold;
+                position: relative;
+                background: #033c60;
+                color: white;
+                margin: 0;
+                padding: 6px;
+                font-size: 18px;
+                text-transform: uppercase;
+                position: relative;
+            }
+            .foundRecords {
+                position: absolute;
+                right: 5px; font-size: 14px;
+            }
+            .multipleRecords thead th {
+                font-size: 13px;
+                text-align: left;
+                padding: 4px 3px;
+                vertical-align: top;
+                background-color: #f7f7f7;
+            }
+            .tablerow { border-top: thin solid #e1e1e1; }
+            .tablerow td { font-size: 11px; padding: 4px 3px; color: #033c60; vertical-align: top;}
+
+
+            #rev, .revLabel { display: inline; margin: 0; }
+
+            .heading3 {
+                text-transform: uppercase;
+                color: #033c60;
+                padding: 2px 5px;
+                background-color: #f7f7f7;
+                border-top: 1px #e1e1e1 solid;
+                border-bottom: 1px #e1e1e1 solid;
+                font-size: 22px;
+                text-align: center;
+                margin-top: 2em;
+            }
+
+            table { margin: 0 auto 0 auto; }
+            .casetype { width: 50%; }
+            .casetype caption {
+                text-align: center;
+                color: #033c60;
+                margin: 0;
+                padding: 10px 5px;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            .casetype th {
+                font-size: 13px;
+                text-align: left;
+                padding: 4px 3px;
+                vertical-align: top;
+                background-color: #f7f7f7;
+                border-top: 1px #e1e1e1 solid;
+                border-bottom: 1px #e1e1e1 solid;
+            }
+            .casetype tr {
+                border-top: 1px #e1e1e1 solid;
+                border-bottom: 1px #e1e1e1 solid;
+            }
+            .casetype td { padding: 3px 4px; }
+            .casenoformat { width: 350px; }
+            .casenoformat tbody tr td { text-align: center; }
+            table caption { }
+            .casetype { min-width: 250px; }
+            form label { font: bold 11pt arial; }
+            .padding { height: 2em; }
+        </style>
+        <style>
+            td, th {
+                padding: 2px 5px;
+            }
+            h2.styletop {
+                text-align: left;
+                background: #033c60;
+                color: white;
+                margin: 0;
+                padding: 6px;
+                font-size: 18px;
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+            span.styletop { display: block; text-align: center; }
+
+            .section {
+                text-transform: uppercase;
+                color: #033c60;
+                padding: 2px 5px;
+                background-color: #f7f7f7;
+                border-top: 1px #e1e1e1 solid;
+                border-bottom: 1px #e1e1e1 solid;
+                font-size: 22px;
+                text-align: left;
+                position: relative;
+            }
+            .section button.btn.btn-primary {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            #text-alert-message {
+                font-size: small;
+            }
+            .partyCounts thead th {
+                text-decoration: underline;
+            }
+            .paddedContainer {
+                width: 75px;
+            }
+            .partyName, .dispositionInformation, .CountDescription {
+                padding: 2px 5px;
+            }
+            .CountNumber {
+                width: 75px;
+            }
+
+            .CountNumber, .partyName, .dispositionInformation, .CountDescription {
+                vertical-align: top;
+            }
+
+            p { margin: 0; padding: 0; }
+            table th { text-align: left; }
+            table { margin-bottom: 10px; width: 100%; border-collapse: collapse; }
+
+            .caseStyle {  }
+            .caseStyle td { border: 1px solid #e1e1e1; padding: 5px 10px; }
+
+            .docketRow td { padding: 3px 2px 3px 2px; border-top: thin solid #e1e1e1; border-bottom: thin solid #e1e1e1;}
+
+            .evenRow { background-color: #f7f7f7;}
+            .oddRow { background-color: white; }
+        </style>
+        <p class="notice">The information on this page is NOT an official
+            record. Do not rely on the correctness or completeness of this
             information. Verify all information with the <a href="
-    /courts/tulsa">official record 
-            keeper</a>. The information contained in this report is provided in 
-            compliance with the Oklahoma Open Records Act, 
-            <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?citeid=80288">51 O.S. 24A.1</a>. 
-            Use of this information is governed by this act, as well as other 
+    /courts/tulsa">official record
+                keeper</a>. The information contained in this report is provided in
+            compliance with the Oklahoma Open Records Act,
+            <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?citeid=80288">51 O.S. 24A.1</a>.
+            Use of this information is governed by this act, as well as other
             applicable state and federal laws.
-          </p>
-  <h2 class="styletop"><span class="styletop">In the District Court in and for <a style="color: white; text-decoration: underline;" href="
+        </p>
+        <h2 class="styletop"><span class="styletop">In the District Court in and for <a style="color: white; text-decoration: underline;" href="
     /courts/tulsa">tulsa&nbsp;County</a>, Oklahoma</span></h2>
-  <table class="caseStyle" cellspacing="0" cellpadding="0" border="0" width="100%">
-    <tr>
-      <td valign="center" width="50%">STATE OF OKLAHOMA,<br />
-          Plaintiff,<br />
-v.<br />
-JAMES KEVIN EDGAR,<br />
-A/K/A JAMES EGAR<br />
-          Defendant.</td>
-      <td width="50%"><strong>
-              No. CF-2023-3583<br>
-              (Criminal Felony)
-            </strong><br><br>
-            Filed: 10/09/2023<br>Closed: 08/26/2024<br><br>Judge: CF FDV Docket<br></td>
-    </tr>
-  </table><script id="json_style" type="application/json">
-	{
-		"style": "STATE OF OKLAHOMA v. JAMES KEVIN EDGAR",
-		"cmid": "3637323",
-		"cms": "ocis",
-		"court": "TULSA"
-	}
-	</script><h2 class="section party">Parties</h2>
-  <p><span class="parties_party"><a class="parties_partyname" href="GetPartyRecord.aspx?db=tulsa&cn=CF-2023-3583&id=9177009">EDGAR,&nbsp; JAMES&nbsp; KEVIN</a>,
-				
+        <table class="caseStyle" cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+                <td valign="center" width="50%">STATE OF OKLAHOMA,<br />
+                    Plaintiff,<br />
+                    v.<br />
+                    JAMES KEVIN EDGAR,<br />
+                    A/K/A JAMES EGAR<br />
+                    Defendant.</td>
+                <td width="50%"><strong>
+                    No. CF-2023-3583<br>
+                    (Criminal Felony)
+                </strong><br><br>
+                    Filed: 10/09/2023<br>Closed: 08/26/2024<br><br>Judge: CF FDV Docket<br></td>
+            </tr>
+        </table><script>
+        let counties = new Map([
+            ["ADAIR","AD"],["ALFALFA","AL"],["APPELLATE","AP"],["ATOKA","AT"],["BEAVER","BV"],["BECKHAM","BK"],["BLAINE","BL"],["BRYAN","BR"],["CADDO","CA"],["CANADIAN","CD"],["CARTER","CR"],["CHEROKEE","CH"],["CHOCTAW","CT"],["CIMARRON","CI"],["CLEVELAND","CL"],["COAL","CO"],["COMANCHE","CM"],["COTTON","CN"],["CRAIG","CG"],["CREEK","CK"],["CUSTER","CU"],["DELAWARE","DW"],["DEWEY","DE"],["ELLIS","EL"],["GARFIELD","GA"],["GARVIN","GV"],["GRADY","GD"],["GRANT","GN"],["GREER","GR"],["HARMON","HM"],["HARPER","HP"],["HASKELL","HS"],["HUGHES","HU"],["JACKSON","JK"],["JEFFERSON","JF"],["JOHNSTON","JS"],["KAY","KA"],["KINGFISHER","KF"],["KIOWA","KI"],["LATIMER","LA"],["LEFLORE","LE"],["LINCOLN","LI"],["LOGAN","LO"],["LOVE","LV"],["MCCLAIN","ML"],["MCCURTAIN","MC"],["MCINTOSH","MT"],["MAJOR","MJ"],["MARSHALL","MS"],["MAYES","MY"],["MURRAY","MR"],["MUSKOGEE","MG"],["NOBLE","NB"],["NOWATA","NW"],["OKFUSKEE","OF"],["OKLAHOMA","OK"],["OKMULGEE","OM"],["OSAGE","OS"],["OTTAWA","OT"],["PAWNEE","PA"],["PAYNE","PY"],["PITTSBURG","PB"],["PONTOTOC","PT"],["POTTAWATOMIE","PW"],["PUSHMATAHA","PU"],["ROGER MILLS","RM"],["ROGERS","RG"],["SEMINOLE","SM"],["SEQUOYAH","SQ"],["STEPHENS","SP"],["TEXAS","TX"],["TILLMAN","TM"],["TULSA","TU"],["WAGONER","WG"],["WASHINGTON","WS"],["WASHITA","WH"],["WOODS","WD"],["WOODWARD","WW"]
+        ]);
+        var casenumber = "CF-2023-3583"
+        var court = "TULSA".toUpperCase();
+        var smscasenumber = counties.get(court)+casenumber.replaceAll('-','');
+    </script><script id="json_style" type="application/json">
+        {
+            "casenumber": "CF-2023-3583",
+            "style": "STATE OF OKLAHOMA v. JAMES KEVIN EDGAR",
+            "cmid": "3637323",
+            "cms": "ocis",
+            "court": "TULSA"
+        }
+    </script><h2 class="section party">Parties</h2>
+        <p><span class="parties_party"><a class="parties_partyname" href="GetPartyRecord.aspx?db=tulsa&cn=CF-2023-3583&id=9177009">EDGAR,&nbsp; JAMES&nbsp; KEVIN</a>,
+
 <span class="parties_type">Defendant</span></span><br><span class="parties_party"><a class="parties_partyname" href="GetPartyRecord.aspx?db=tulsa&cn=CF-2023-3583&id=32000">STATE OF OKLAHOMA</a>,
-				
+
 <span class="parties_type">Plaintiff</span></span><br><span class="parties_party"><a class="parties_partyname" href="GetPartyRecord.aspx?db=tulsa&cn=CF-2023-3583&id=296276">Tulsa Police Department</a>,
-				
+
 <span class="parties_type">ARRESTING AGENCY</span></span><br> &nbsp;
-          </p>
-  <h2 class="section attorneys">Attorneys</h2>
-  <table width="100%">
-    <thead>
-      <tr>
-        <th align="left">Attorney</th>
-        <th align="left">Represented Parties</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td valign="top" width="50%">TULSA COUNTY PUBLIC DEFENDER<br><br>&nbsp;
-                        </td>
-        <td valign="top" width="50%">EDGAR, &nbsp; JAMES&nbsp; KEVIN<br></td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="section events">Events</h2><script id="json_events" type="application/json">
-		{
-		"events": [
-		
-				{ 
-					"date": "Thursday, October 19, 2023 at 9:00 AM",
-					"description":
-					  "ARRAIGNMENT"
-				},
-				{ 
-					"date": "Thursday, November 16, 2023 at 9:00 AM",
-					"description":
-					  "PRELIMINARY HEARING  ISSUE (PUBLIC DEFENDER)"
-				},
-				{ 
-					"date": "Thursday, November 30, 2023 at 9:00 AM",
-					"description":
-					  "PRELIMINARY HEARING (ISSUE)"
-				},
-				{ 
-					"date": "Monday, December 11, 2023 at 9:00 AM",
-					"description":
-					  "DISTRICT COURT ARRAIGNMENT"
-				},
-				{ 
-					"date": "Friday, March 8, 2024 at 9:30 AM",
-					"description":
-					  "ALLEN (DISCOVERY) HEARING"
-				},
-				{ 
-					"date": "Monday, August 26, 2024 at 9:30 AM",
-					"description":
-					  "JURY TRIAL (ISSUE) **HATHCOAT**"
-				}
-		]}
-	</script><table class="events_table" width="100%">
-    <thead>
-      <tr>
-        <th>Event</th>
-        <th>Party</th>
-        <th>Docket</th>
-        <th>Reporter</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="event_description">
-          <font color="green">Thursday, October 19, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>ARRAIGNMENT<!--
+        </p>
+        <h2 class="section attorneys">Attorneys</h2>
+        <table width="100%">
+            <thead>
+            <tr>
+                <th align="left">Attorney</th>
+                <th align="left">Represented Parties</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td valign="top" width="50%">TULSA COUNTY PUBLIC DEFENDER<br><br>&nbsp;
+                </td>
+                <td valign="top" width="50%">EDGAR, &nbsp; JAMES&nbsp; KEVIN<br></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2 class="section events">Events
+            <div class="text-alerts-active" style="display: none;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#text-alert-message" style="">
+                Get Text Reminders
+            </button><script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script><div class="modal fade" id="text-alert-message" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Text Reminders</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button></div>
+                        <style>
+                            #text-qrcode img {
+                                margin: auto;
+                            }
+                        </style>
+                        <div class="modal-body">
+                            <p style="text-align: center;">Message and data rates may apply, depending on your mobile plan.</p>
+                            <p style="text-align: center;"><a href="https://www.oscn.net/misc/service-disclaimer">Instructions and Disclaimer</a></p><br><a class="text-casenumber" href=""><div id="text-qrcode"></div></a><br><script>
+                            var protocol = "sms"
+
+                            var url = "https://www.oscn.net/datafiles/text-messaging/redirect/";
+                            var ph_num = "18778490889";
+                            var text_message = `SUBSCRIBE ${smscasenumber}`;
+                            //var redirect_url = `${url}?to=%2B${ph_num}&body=${text_message}`;
+                            var redirect_url = `sms:+${ph_num}?body=${text_message}`;
+
+                            var qrcode = new QRCode("text-qrcode", {
+                                text: redirect_url,
+                                width: 160,
+                                height: 160,
+                                colorDark : "#000000",
+                                colorLight : "#ffffff",
+                                correctLevel : QRCode.CorrectLevel.H
+                            });
+                        </script><p style="text-align: center;"><script>
+                            var text = `Text <a class="text-casenumber" href=""><b>SUBSCRIBE ${smscasenumber}</b></a> to <b>1-877-849-0889</b>`;
+                            document.write(text);
+
+                            document.querySelectorAll('.text-casenumber').forEach(function(item){
+                                item.href = redirect_url;
+                            })
+                        </script></p>
+                        </div>
+                        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </h2><script id="json_events" type="application/json">
+        {
+            "events": [
+
+                {
+                    "date": "Thursday, October 19, 2023 at 9:00 AM",
+                    "description":
+
+                    "ARRAIGNMENT"
+
+                },
+                {
+                    "date": "Thursday, November 16, 2023 at 9:00 AM",
+                    "description":
+
+                    "PRELIMINARY HEARING  ISSUE (PUBLIC DEFENDER)"
+
+                },
+                {
+                    "date": "Thursday, November 30, 2023 at 9:00 AM",
+                    "description":
+
+                    "PRELIMINARY HEARING (ISSUE)"
+
+                },
+                {
+                    "date": "Monday, December 11, 2023 at 9:00 AM",
+                    "description":
+
+                    "DISTRICT COURT ARRAIGNMENT"
+
+                },
+                {
+                    "date": "Friday, March 8, 2024 at 9:30 AM",
+                    "description":
+
+                    "ALLEN (DISCOVERY) HEARING"
+
+                },
+                {
+                    "date": "Monday, August 26, 2024 at 9:30 AM",
+                    "description":
+
+                    "JURY TRIAL (ISSUE) **HATHCOAT**"
+
+                }
+            ]}
+    </script><script>
+        console.log(court);
+
+        const activateAt = new Date('2025-11-10T06:00:00-06:00');
+        const now = new Date();
+
+        var counties_active = []
+        var counties_temp = []
+        counties_active.push(
+            "CANADIAN"
+            ,"PAYNE"
+            ,"LOGAN"
+        );
+        counties_active.push( //ADDED 11/10/2025 6:00AM
+            "HARMON"
+            ,"GREER"
+            ,"KIOWA"
+            ,"TILLMAN"
+            ,"JACKSON"
+            ,"WASHINGTON"
+            ,"NOWATA"
+            ,"MCINTOSH"
+            ,"PITTSBURG"
+        );
+        counties_active.push( //ADDED 11/10/2025 9:00AM
+            "ELLIS"
+            ,"ROGER MILLS"
+            ,"PUSHMATAHA"
+        );
+
+        if (now >= new Date('2025-11-17T06:00:00-06:00')) {
+            counties_active.push( //ADDED 11/17/2025 6:00AM
+                "ADAIR"
+                ,"CLEVELAND"
+                ,"GARFIELD"
+                ,"CIMARRON"
+                ,"TEXAS"
+                ,"BEAVER"
+                ,"HARPER"
+                ,"CUSTER"
+                ,"COMANCHE"
+                ,"COTTON"
+                ,"STEPHENS"
+                ,"JEFFERSON"
+                ,"OSAGE"
+                ,"COAL"
+                ,"ATOKA"
+            );
+        }
+        if (now >= new Date('2025-11-24T06:00:00-06:00')) {
+            counties_active.push( //ADDED 11/24/2025 6:00AM
+                "TULSA"
+                ,"BECKHAM"
+                ,"WASHITA"
+                ,"WOODS"
+                ,"ALFALFA"
+                ,"GRANT"
+                ,"WOODWARD"
+                ,"MAJOR"
+                ,"KINGFISHER"
+                ,"BLAINE"
+                ,"DEWEY"
+                ,"LINCOLN"
+                ,"POTTAWATOMIE"
+                ,"CRAIG"
+                ,"ROGERS"
+                ,"MAYES"
+            );
+        }
+        if (now >= new Date('2025-12-01T06:00:00-06:00')) {
+            counties_active.push( //ADDED 12/01/2025 6:00AM
+                "OKLAHOMA"
+                ,"MURRAY"
+                ,"CARTER"
+                ,"JOHNSTON"
+                ,"LOVE"
+                ,"MARSHALL"
+                ,"MCCLAIN"
+                ,"GARVIN"
+                ,"BRYAN"
+                ,"WAGONER"
+                ,"CHEROKEE"
+                ,"MUSKOGEE"
+                ,"SEQUOYAH"
+                ,"PAWNEE"
+                ,"CADDO"
+                ,"GRADY"
+            );
+        }
+        if (now >= new Date('2025-12-08T06:00:00-06:00')) {
+            counties_active.push( //ADDED 12/08/2025 6:00AM
+                "KAY"
+                ,"NOBLE"
+                ,"SEMINOLE"
+                ,"PONTOTOC"
+                ,"HUGHES"
+                ,"HASKALL"
+                ,"LATIMER"
+                ,"LEFLORE"
+                ,"OTTAWA"
+                ,"DELAWARE"
+                ,"CREEK"
+                ,"OKFUSKEE"
+                ,"OKMULGEE"
+                ,"MCCURTAIN"
+                ,"CHOCTAW"
+            );
+        }
+        if(counties_active.indexOf(court) > -1){
+            document.querySelectorAll('.text-alerts-active')[0].style.display = '';
+        }
+
+    </script><table class="events_table" width="100%">
+        <thead>
+        <tr>
+            <th>Event</th>
+            <th>Party</th>
+            <th>Docket</th>
+            <th>Reporter</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class="event_description">
+                <font color="green">Thursday, October 19, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>ARRAIGNMENT<!--
                           (ARR)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> Arraignment Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-      <tr>
-        <td class="event_description">
-          <font color="green">Thursday, November 16, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>PRELIMINARY HEARING  ISSUE (PUBLIC DEFENDER)<!--
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> Arraignment Docket</td>
+            <td class="event_reporter empty">
+            </td>
+        </tr>
+        <tr>
+            <td class="event_description">
+                <font color="green">Thursday, November 16, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>PRELIMINARY HEARING  ISSUE (PUBLIC DEFENDER)<!--
                           (PDP)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> Preliminary Hearing Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-      <tr>
-        <td class="event_description">
-          <font color="green">Thursday, November 30, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>PRELIMINARY HEARING (ISSUE)<!--
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> Preliminary Hearing Docket</td>
+            <td class="event_reporter empty">
+            </td>
+        </tr>
+        <tr>
+            <td class="event_description">
+                <font color="green">Thursday, November 30, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>PRELIMINARY HEARING (ISSUE)<!--
                           (PLI)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> Preliminary Hearing Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-      <tr>
-        <td class="event_description">
-          <font color="green">Monday, December 11, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>DISTRICT COURT ARRAIGNMENT<!--
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> Preliminary Hearing Docket</td>
+            <td class="event_reporter empty">
+            </td>
+        </tr>
+        <tr>
+            <td class="event_description">
+                <font color="green">Monday, December 11, 2023 at 9:00 AM</font><br><span class='nbsps'>   </span>DISTRICT COURT ARRAIGNMENT<!--
                           (DCA)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> CF FDV Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-      <tr>
-        <td class="event_description">
-          <font color="green">Friday, March 8, 2024 at 9:30 AM</font><br><span class='nbsps'>   </span>ALLEN (DISCOVERY) HEARING<!--
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> CF FDV Docket</td>
+            <td class="event_reporter empty">
+            </td>
+        </tr>
+        <tr>
+            <td class="event_description">
+                <font color="green">Friday, March 8, 2024 at 9:30 AM</font><br><span class='nbsps'>   </span>ALLEN (DISCOVERY) HEARING<!--
                           (ADH)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> CF FDV Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-      <tr>
-        <td class="event_description">
-          <font color="green">Monday, August 26, 2024 at 9:30 AM</font><br><span class='nbsps'>   </span>JURY TRIAL (ISSUE) **HATHCOAT**<!--
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> CF FDV Docket</td>
+            <td class="event_reporter empty">
+            </td>
+        </tr>
+        <tr>
+            <td class="event_description">
+                <font color="green">Monday, August 26, 2024 at 9:30 AM</font><br><span class='nbsps'>   </span>JURY TRIAL (ISSUE) **HATHCOAT**<!--
                           (JTI)
                         --></td>
-        <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
-        <td class="event_judge"> CF FDV Docket</td>
-        <td class="event_reporter empty">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <h2 class="section counts">Counts</h2>
-  <p>
-    <font size="1">Parties appear only under the counts with which they were charged. For complete sentence information, see the court minute on the docket.</font><br>&nbsp;</p>
-  <div class="CountsContainer">
-    <table class="Counts">
-      <tr>
-        <td valign="top" width="100px"><strong>Count # 1.</strong></td>
-        <td class="CountDescription">
-								Count as Filed: 
-								ABDOM, DOMESTIC ASSAULT AND BATTERY BY STRANGULATION, 
-								in violation of <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21&box2=OS&box3=644 J">21 O.S. 644 J</a><br>Date of Offense: 06/03/2023<br></td>
-      </tr>
-    </table>
-    <table class="Disposition">
-      <thead>
-        <tr>
-          <th class="paddedContainer"></th>
-          <th class="partyName">Party Name</th>
-          <th class="dispositionInformation">Disposition Information</th>
+            <td class="event_partyname">EDGAR,&nbsp; JAMES&nbsp; KEVIN</td>
+            <td class="event_judge"> CF FDV Docket</td>
+            <td class="event_reporter empty">
+            </td>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td width="100px"></td>
-          <td class="countpartyname" width="20%" valign="top"><nobr>EDGAR, JAMES KEVIN</nobr></td>
-          <td class="countdisposition" valign="top">
-            <font color="red"><strong>
-                        Disposed:  DISMISSED,
-                        08/26/2024.
-                        Dismissed- Request of the State</strong></font><br>
+        </tbody>
+    </table>
+        <h2 class="section counts">Counts</h2>
+        <p>
+            <font size="1">Parties appear only under the counts with which they were charged. For complete sentence information, see the court minute on the docket.</font><br>&nbsp;</p>
+        <div class="CountsContainer">
+            <table class="Counts">
+                <tr>
+                    <td valign="top" width="100px"><strong>Count # 1.</strong></td>
+                    <td class="CountDescription">
+                        Count as Filed:
+                        ABDOM, DOMESTIC ASSAULT AND BATTERY BY STRANGULATION,
+                        in violation of <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21&box2=OS&box3=644 J">21 O.S. 644 J</a><br>Date of Offense: 06/03/2023<br></td>
+                </tr>
+            </table>
+            <table class="Disposition">
+                <thead>
+                <tr>
+                    <th class="paddedContainer"></th>
+                    <th class="partyName">Party Name</th>
+                    <th class="dispositionInformation">Disposition Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="100px"></td>
+                    <td class="countpartyname" width="20%" valign="top"><nobr>EDGAR, JAMES KEVIN</nobr></td>
+                    <td class="countdisposition" valign="top">
+                        <font color="red"><strong>
+                            Disposed:  DISMISSED,
+                            08/26/2024.
+                            Dismissed- Request of the State</strong></font><br>
                         Count as Disposed: DOMESTIC ASSAULT AND BATTERY BY STRANGULATION(ABDOM)<br>
-                          Violation of 
-                          <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21        &box2=OS&box3=644 J                                                                                               ">21         O.S. 644 J                                                                                               </a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="CountsContainer">
-    <table class="Counts">
-      <tr>
-        <td valign="top" width="100px"><strong>Count # 2.</strong></td>
-        <td class="CountDescription">
-								Count as Filed: 
-								MSOS, STALKING, 
-								in violation of <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21&box2=OS&box3=1173">21 O.S. 1173</a><br>Date of Offense: 06/09/2023<br></td>
-      </tr>
-    </table>
-    <table class="Disposition">
-      <thead>
-        <tr>
-          <th class="paddedContainer"></th>
-          <th class="partyName">Party Name</th>
-          <th class="dispositionInformation">Disposition Information</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td width="100px"></td>
-          <td class="countpartyname" width="20%" valign="top"><nobr>EDGAR, JAMES KEVIN</nobr></td>
-          <td class="countdisposition" valign="top">
-            <font color="red"><strong>
-                        Disposed:  DISMISSED,
-                        08/26/2024.
-                        Dismissed- Prosecution Witness Failed to Appear</strong></font><br>
+                        Violation of
+                        <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21        &box2=OS&box3=644 J                                                                                               ">21         O.S. 644 J                                                                                               </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="CountsContainer">
+            <table class="Counts">
+                <tr>
+                    <td valign="top" width="100px"><strong>Count # 2.</strong></td>
+                    <td class="CountDescription">
+                        Count as Filed:
+                        MSOS, STALKING,
+                        in violation of <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21&box2=OS&box3=1173">21 O.S. 1173</a><br>Date of Offense: 06/09/2023<br></td>
+                </tr>
+            </table>
+            <table class="Disposition">
+                <thead>
+                <tr>
+                    <th class="paddedContainer"></th>
+                    <th class="partyName">Party Name</th>
+                    <th class="dispositionInformation">Disposition Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width="100px"></td>
+                    <td class="countpartyname" width="20%" valign="top"><nobr>EDGAR, JAMES KEVIN</nobr></td>
+                    <td class="countdisposition" valign="top">
+                        <font color="red"><strong>
+                            Disposed:  DISMISSED,
+                            08/26/2024.
+                            Dismissed- Prosecution Witness Failed to Appear</strong></font><br>
                         Count as Disposed: STALKING(MSOS)<br>
-                          Violation of 
-                          <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21        &box2=OS&box3=1173                                                                                                ">21         O.S. 1173                                                                                                </a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <h2 class="section dockets">Docket</h2>
-  <table class="docketlist ocis" cellpadding="2" cellspacing="2" border="0">
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Code</th>
-        <th>Description</th>
-        <th>Count</th>
-        <th>Party</th>
-        <th>Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">CRIMINAL FELONY INITIAL FILING.</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>INFORMATION</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">DEFENDANT JAMES KEVIN EDGAR  WAS CHARGED WITH COUNT #1, DOMESTIC ASSAULT AND BATTERY BY STRANGULATION IN VIOLATION OF 21 O.S. 644 J</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>AFPC</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">AFFIDAVIT FINDING OF PROBABLE CAUSE</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow warrant primary-entry">
-        <td valign="top">
-          <font color="RED"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="RED"><nobr>WAI$</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="RED">WARRANT OF ARREST ISSUED, JUDGE: KASEY BALDWIN - BOND AMOUNT: $10,000.00<BR />
-<BR />
- COUNT 1 - DOMESTIC ASSAULT AND BATTERY BY STRANGULATION		<BR /></font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 50.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>OCISR</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 25.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>INFORMATION</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">DEFENDANT JAMES KEVIN EDGAR  WAS CHARGED WITH COUNT #2, STALKING IN VIOLATION OF 21 O.S. 1173</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"><span class="count_issue">2&nbsp;&nbsp;</span></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">OCIS HAS AUTOMATICALLY ASSIGNED JUDGE CF DOCKET E  TO THIS CASE.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>10-15-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE DRIELONG:  DEFENDANT PRESENT, IN CUSTODY. COURT DETERMINES ARREST IS SUPPORTED BY P.C. SPECIAL APPOINTMENT OF THE PUBLIC DEFENDER FOR THE PURPOSE OF BOND HEARING ONLY AND STATE REPRESENTED. BOND HEARING HELD.  ARRAIGNMENT PASSED TO 10-19-23 @ 9 AM IN ROOM 173.  DEFENDANT REMANDED TO CUSTODY. DEFENDANT ORDERED TO HAVE NO CONTACT WITH VICTIM. BOND SET AT $10,000. GPS IS A CONDITION OF BOND.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow return-warrant primary-entry">
-        <td valign="top">
-          <font color="cc6633"><nobr>10-16-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="cc6633"><nobr>RETWA</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="cc6633">WARRANT RETURNED 10/16/2023, WARRANT ISSUED ON 10/9/2023<BR /></font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>10-19-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE SHANNON TAYLOR :  DEFENDANT PRESENT, IN CUSTODY AND PUBLIC DEFENDER APPOINTED AS COUNSEL OF RECORD. ARRAIGNMENT HELD.  DEFENDANT WAIVES READING OF THE INFORMATION AND FURTHER TIME TO PLEAD.  DEFENDANT ENTERS A PLEA OF NOT GUILTY.  PRELIMINARY HEARING SET FOR 11/16/23 @  9AM IN ROOM 329.   BOND $10000. DEFENDANT REMANDED TO CUSTODY <BR /></font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-20-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>PA</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">PAUPER'S AFFIDAVIT</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>10-25-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>O</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ORDER PROHIBITING CONTACT OF STATE'S WITNESS</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>11-16-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTPASS</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE KASEY BALDWIN:  DEFENDANT NOT PRESENT, IN CUSTODY AND REPRESENTED BY ASHLEY NIX.  STATE REPRESENTED BY CAL WILCOXSEN.  PRELIMINARY HEARING  SET TO 11-30-23 9AM ROOM 329.  BOND TO REMAIN.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>11-17-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>AMIN</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">AMENDED INFORMATION</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>11-30-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>AMIN</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">2ND AMENDED INFORMATION<BR />
-ADDING COUNT 2, STALKING</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>11-30-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTPRLDCA</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE KASEY BALDWIN:  DEFENDANT PRESENT, IN CUSTODY AND REPRESENTED BY ABBY GORE.  STATE REPRESENTED BY MITCHELL WELLS AND MAX MALONE.  COURT REPORTER: CHRISTY SMITH.  CASE CALLED FOR PRELIMINARY HEARING. CF-23-3776 PREVIOUSLY DISMISSED, STALKING COUNT ADDED AS CT2. COURT SETS BOND AT $4,000 FOR CT 2. DEMURRER OVERRULED.  COURT SIGNS ORDER TO REASSIGN FROM CF DOCKET E TO FDV DOCKET. DEFENDANT IS BOUND OVER TO DISTRICT COURT ON THE CHARGE(S)  BEFORE JUDGE MICHELLE KEELY ON 12-11-23 AT 9:00AM.  BOND TO REMAIN; DEFENDANT RECOGNIZED BACK, REMANDED TO CUSTODY.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>12-01-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>ORC</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ORDER FOR REASSIGNMENT OF CRIMINAL DISTRICT JUDGE</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>BO</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36871-10 ), IN THE AMOUNT OF $4,000.00, POSTED 12/04/2023</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 10.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>BOJ</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">BOND INITIAL FILING JAIL FUND FEE</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 25.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>CCADMIN25</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">COURT CLERK ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 2.50</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="green"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="green"><nobr>DCADMIN25</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="green">DISTRICT COURT ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 3.75</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>BO</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36870-10 ), IN THE AMOUNT OF $10,000.00, POSTED 12/04/2023</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 10.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>BOJ</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">BOND INITIAL FILING JAIL FUND FEE</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 25.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>CCADMIN25</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">COURT CLERK ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 2.50</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="green"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="green"><nobr>DCADMIN25</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="green">DISTRICT COURT ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 3.75</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>12-04-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>RETCO</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">RETURN COMMITMENT</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="000000"><nobr>12-05-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="000000"><nobr>ELECTM</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="000000">ELECTRONIC MONITORING PROGRAM RULES & CONDITIONS</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>12-05-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>RETRL</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">RETURN RELEASE</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>12-11-2023&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE MICHELLE KEELY: DEFENDANT PRESENT, NOT IN CUSTODY, AND REPRESENTED BY KYLE KILLAM, PD. STATE REPRESENTED BY MITCHELL WELLS. THE DEFENDANT WAIVES THE FORMAL READING OF THE INFORMATION AND STANDS MUTE. ALLEN HEARING SET ON 3/8/2024 AT 9AM IN ROOM 601. BOND TO REMAIN, DEFENDANT RECOGNIZED BACK.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>02-07-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>MO</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">MOTION FOR JURY TO ASSESS PUNISHMENT</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>02-07-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>DIS</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">DISCOVERY COMPLIANCE AND NOTICE<BR /></font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="1"><nobr>02-07-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="1"><nobr>MFD</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="1">MOTION FOR DISCOVERY</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">Tulsa Police Department</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>02-29-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>LT</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">LETTER</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>03-08-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTPASS</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE RICHARD HATHCOAT:  DEFENDANT PRESENT,  NOT IN CUSTODY,  AND REPRESENTED BY KYLE KILLAM PD.  STATE REPRESENTED BY ERIK GRAYLESS.  ALLEN IS COMPLETE, JURY TRIAL ISSUE SET TO 8-26-2024 @ 9;30 AM IN ROOM 601, DEFENDANTS MOTIONS DUE BY 7/12, STATES RESPONSE DUE BY 7/262024.  BOND TO REMAIN; DEFENDANT RECOGNIZED BACK .</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>06-24-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE MICHELLE KEELY: COURT SIGNS ORDER ENDORSING WITNESSES.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="1"><nobr>06-24-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="1"><nobr>MFD</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="1">MOTION FOR DISCOVERY</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>06-24-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>MO</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">STATE'S MOTION TO ENDORSE WITNESSES FOR TRIAL</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="blue"><nobr>07-29-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="blue">JUDGE RICHARD HATHCOAT: ORDER FOR TRANSCRIPT SIGNED BY THE COURT.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>07-29-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>O</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ORDER ENDORSING WITNESSES</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>07-29-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>O</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ORDER FOR TRANSCRIPT</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>07-31-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>CCERT</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">COURT REPORTER'S CERTIFICATE</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>08-02-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>RTSUB$</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">RETURN SUBPOENA</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 50.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="GREEN"><nobr>08-02-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="GREEN"><nobr>OCISR</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="GREEN">OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 25.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>08-12-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>T&2</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ORIGINAL TRANSCRIPT & 2 COPIES OF PRELIMINARY HEARING ON NOVEMBER 30, 2023 WITH EXHIBITS #1-#4 ATTACHED IN BACK (ORIGINAL TRANSCRIPT TO FILE ONE COPY EACH TO DISTRICT ATTORNEYS OFFICE AND PUBLIC DEFENDERS OFFICE</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>08-20-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">ONE COPY OF PRELIMINARY HEARING TRANSCRIPT HAD ON THE 30TH DAY OF NOVEMBER, 2023 WITH STATE'S EXHIBITS 1-4 ATTACHED, RETURNED BY THE DISTRICT ATTORNEY'S OFFICE AND PLACED IN TRAY TO BE DELIVERED TO RECORDS WHERE IT WILL BE PLACED IN COURT FILE</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-      <tr class="docketRow evenRow primary-entry">
-        <td valign="top">
-          <font color="black"><nobr>08-23-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="black"><nobr>PYREQ</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="black">PAYMENT REQUEST - TRANSCRIPTS</font>
-            </p>
-            <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
-          </div>
-        </td>
-        <td align="center" valign="top"></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right">
-          <font color="green">$ 105.00</font>
-        </td>
-      </tr>
-      <tr class="docketRow oddRow primary-entry">
-        <td valign="top">
-          <font color="8B0000C"><nobr>08-26-2024&nbsp;</nobr></font>
-        </td>
-        <td valign="top">
-          <font class="docket_code" color="8B0000C"><nobr>DISMISSED</nobr></font>
-        </td>
-        <td valign="top">
-          <div class="description-wrapper">
-            <p>
-              <font color="8B0000C">JUDGE RICHARD HATHCOAT:   DEFENDANT  PRESENT, NOT IN CUSTODY AND REPRESENTED BY KYLE KILLIAM PD.  STATE REPRESENTED BY KEVIN FINNEGAN.    CASE DISMISSED COST TO STATE FOR PROSECUTORIAL DISCRETION. BOND EXONERATED.</font>
-            </p>
-          </div>
-        </td>
-        <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
-        <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
-        <td valign="top" align="right"></td>
-      </tr>
-    </tbody>
-  </table>
-</div></div>
-<div class="footer" data-elastic-exclude>
-	<div class="container-fluid sized">
-		<div class="row-fluid">
-			<div class="contact-foot column span3">
-				<h6>oscn</h6>
-				<p>
-				EMAIL: <a href="mailto:webmaster@oscn.net">webmaster@oscn.net</a><br />
-				Oklahoma Judicial Center<br />
-				2100 N Lincoln Blvd.<br />
-				Oklahoma City, OK 73105</p>
-			</div>
-			<div class="courts-foot column span3">
-				<h6>courts</h6>
-				<ul class="footer-list">
-					<li><a href="http://www.oscn.net/oscn/schome/">Supreme Court of Oklahoma</a></li>
-					<li><a href="http://www.okcca.net/">Court of Criminal Appeals</a></li>					
-					<li>Court of Civil Appeals</li>
-					<li><a href="http://www.oscn.net/applications/oscn/start.asp?viewType=COURTS">District Courts</a></li>
-				</ul>
-			</div>
-			<div class="decisions-foot column span3">
-				<h6>decisions</h6>
-				<ul class="footer-list">
-					<li><a href="/decisions/">New Decisions</a></li>
-					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSSC">Supreme Court of Oklahoma</a></li>
-					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCR">Court of Criminal Appeals</a></li>
-					<li><a href="http://www.oscn.net/applications/oscn/Index.asp?ftdb=STOKCSCV">Court of Civil Appeals</a></li>
-				</ul>					
-			</div>
-			<div class="programs-foot column span3">
-				<h6>programs</h6>
-				<ul class="footer-list">
-					<li><a href="http://www.thesovereigntysymposium.com/">The Sovereignty Symposium</a></li>
-					<!--<li><a href="#">Access to Justice</a></li>-->
-					<li><a href="http://www.oscn.net/static/adr/default.aspx">Alternative Dispute Resolution</a></li>
-					<li><a href="http://www.oscn.net/static/adr/default.aspx">Early Settlement Mediation</a></li>
-					<li><a href="http://www.oscn.net/Sites/CourtImprovement/default.aspx">Children's Court Improvement Program (CIP)</a></li>
-					<li><a href="/jnc/">Judicial Nominating Commission</a></li>
-					<li><a href="http://www.oscn.net/static/forms/aoc_forms/interpreter.asp">Certified Courtroom Interpreters</a></li>
-					<li><a href="http://www.oscn.net/static/forms/aoc_forms/csr.asp">Certified Shorthand Reporters</a></li>
-					<li><a href="/pages/accessibility">Accessibility ADA</a></li>
-				</ul>					
-			</div>
-		</div>
-	</div>
-	<div class="shoes">
-		<div class="sized">
-			<ul>
-				<!--<li><a href="#">site map</a></li>
-				<li><a href="#">information</a></li>
-				-->
-				<li><a href="http://www.oscn.net/applications/oscn/SimpleHelp.asp?HelpContextID=84">Contact Us</a></li>
-				<li><a href="/jobs/">Careers</a></li>
-				<li><a href="/pages/accessibility">Accessibility ADA</a></li>
-			</ul>
-		</div>
-	</div>
+                        Violation of
+                        <a href="http://www.oscn.net/applications/oscn/deliverdocument.asp?box1=21        &box2=OS&box3=1173                                                                                                ">21         O.S. 1173                                                                                                </a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <h2 class="section dockets">Docket</h2>
+        <table class="docketlist ocis" cellpadding="2" cellspacing="2" border="0">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Code</th>
+                <th>Description</th>
+                <th>Count</th>
+                <th>Party</th>
+                <th>Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">CRIMINAL FELONY INITIAL FILING.</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>INFORMATION</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">DEFENDANT JAMES KEVIN EDGAR  WAS CHARGED WITH COUNT #1, DOMESTIC ASSAULT AND BATTERY BY STRANGULATION IN VIOLATION OF 21 O.S. 644 J</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>AFPC</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">AFFIDAVIT FINDING OF PROBABLE CAUSE</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow warrant primary-entry">
+                <td valign="top">
+                    <font color="RED"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="RED"><nobr>WAI$</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="RED">WARRANT OF ARREST ISSUED, JUDGE: KASEY BALDWIN - BOND AMOUNT: $10,000.00<BR />
+                                <BR />
+                                COUNT 1 - DOMESTIC ASSAULT AND BATTERY BY STRANGULATION		<BR /></font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 50.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>OCISR</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 25.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>INFORMATION</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">DEFENDANT JAMES KEVIN EDGAR  WAS CHARGED WITH COUNT #2, STALKING IN VIOLATION OF 21 O.S. 1173</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"><span class="count_issue">2&nbsp;&nbsp;</span></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">OCIS HAS AUTOMATICALLY ASSIGNED JUDGE CF DOCKET E  TO THIS CASE.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>10-15-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE DRIELONG:  DEFENDANT PRESENT, IN CUSTODY. COURT DETERMINES ARREST IS SUPPORTED BY P.C. SPECIAL APPOINTMENT OF THE PUBLIC DEFENDER FOR THE PURPOSE OF BOND HEARING ONLY AND STATE REPRESENTED. BOND HEARING HELD.  ARRAIGNMENT PASSED TO 10-19-23 @ 9 AM IN ROOM 173.  DEFENDANT REMANDED TO CUSTODY. DEFENDANT ORDERED TO HAVE NO CONTACT WITH VICTIM. BOND SET AT $10,000. GPS IS A CONDITION OF BOND.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow return-warrant primary-entry">
+                <td valign="top">
+                    <font color="cc6633"><nobr>10-16-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="cc6633"><nobr>RETWA</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="cc6633">WARRANT RETURNED 10/16/2023, WARRANT ISSUED ON 10/9/2023<BR /></font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>10-19-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE SHANNON TAYLOR :  DEFENDANT PRESENT, IN CUSTODY AND PUBLIC DEFENDER APPOINTED AS COUNSEL OF RECORD. ARRAIGNMENT HELD.  DEFENDANT WAIVES READING OF THE INFORMATION AND FURTHER TIME TO PLEAD.  DEFENDANT ENTERS A PLEA OF NOT GUILTY.  PRELIMINARY HEARING SET FOR 11/16/23 @  9AM IN ROOM 329.   BOND $10000. DEFENDANT REMANDED TO CUSTODY <BR /></font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-20-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>PA</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">PAUPER'S AFFIDAVIT</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-25-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>O</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ORDER PROHIBITING CONTACT OF STATE'S WITNESS</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>11-16-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTPASS</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE KASEY BALDWIN:  DEFENDANT NOT PRESENT, IN CUSTODY AND REPRESENTED BY ASHLEY NIX.  STATE REPRESENTED BY CAL WILCOXSEN.  PRELIMINARY HEARING  SET TO 11-30-23 9AM ROOM 329.  BOND TO REMAIN.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>11-17-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>AMIN</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">AMENDED INFORMATION</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>11-30-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>AMIN</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">2ND AMENDED INFORMATION<BR />
+                                ADDING COUNT 2, STALKING</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>11-30-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTPRLDCA</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE KASEY BALDWIN:  DEFENDANT PRESENT, IN CUSTODY AND REPRESENTED BY ABBY GORE.  STATE REPRESENTED BY MITCHELL WELLS AND MAX MALONE.  COURT REPORTER: CHRISTY SMITH.  CASE CALLED FOR PRELIMINARY HEARING. CF-23-3776 PREVIOUSLY DISMISSED, STALKING COUNT ADDED AS CT2. COURT SETS BOND AT $4,000 FOR CT 2. DEMURRER OVERRULED.  COURT SIGNS ORDER TO REASSIGN FROM CF DOCKET E TO FDV DOCKET. DEFENDANT IS BOUND OVER TO DISTRICT COURT ON THE CHARGE(S)  BEFORE JUDGE MICHELLE KEELY ON 12-11-23 AT 9:00AM.  BOND TO REMAIN; DEFENDANT RECOGNIZED BACK, REMANDED TO CUSTODY.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>12-01-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>ORC</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ORDER FOR REASSIGNMENT OF CRIMINAL DISTRICT JUDGE</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>BO</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36871-10 ), IN THE AMOUNT OF $4,000.00, POSTED 12/04/2023</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 10.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>BOJ</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">BOND INITIAL FILING JAIL FUND FEE</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 25.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>CCADMIN25</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">COURT CLERK ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 2.50</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="green"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="green"><nobr>DCADMIN25</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="green">DISTRICT COURT ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 3.75</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>BO</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36870-10 ), IN THE AMOUNT OF $10,000.00, POSTED 12/04/2023</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 10.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>BOJ</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">BOND INITIAL FILING JAIL FUND FEE</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 25.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>CCADMIN25</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">COURT CLERK ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 2.50</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="green"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="green"><nobr>DCADMIN25</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="green">DISTRICT COURT ADMINISTRATIVE FEE ON $25 COLLECTIONS</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 3.75</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>12-04-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>RETCO</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">RETURN COMMITMENT</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="000000"><nobr>12-05-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="000000"><nobr>ELECTM</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="000000">ELECTRONIC MONITORING PROGRAM RULES & CONDITIONS</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>12-05-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>RETRL</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">RETURN RELEASE</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>12-11-2023&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE MICHELLE KEELY: DEFENDANT PRESENT, NOT IN CUSTODY, AND REPRESENTED BY KYLE KILLAM, PD. STATE REPRESENTED BY MITCHELL WELLS. THE DEFENDANT WAIVES THE FORMAL READING OF THE INFORMATION AND STANDS MUTE. ALLEN HEARING SET ON 3/8/2024 AT 9AM IN ROOM 601. BOND TO REMAIN, DEFENDANT RECOGNIZED BACK.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>02-07-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>MO</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">MOTION FOR JURY TO ASSESS PUNISHMENT</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>02-07-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>DIS</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">DISCOVERY COMPLIANCE AND NOTICE<BR /></font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="1"><nobr>02-07-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="1"><nobr>MFD</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="1">MOTION FOR DISCOVERY</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">Tulsa Police Department</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>02-29-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>LT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">LETTER</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>03-08-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTPASS</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE RICHARD HATHCOAT:  DEFENDANT PRESENT,  NOT IN CUSTODY,  AND REPRESENTED BY KYLE KILLAM PD.  STATE REPRESENTED BY ERIK GRAYLESS.  ALLEN IS COMPLETE, JURY TRIAL ISSUE SET TO 8-26-2024 @ 9;30 AM IN ROOM 601, DEFENDANTS MOTIONS DUE BY 7/12, STATES RESPONSE DUE BY 7/262024.  BOND TO REMAIN; DEFENDANT RECOGNIZED BACK .</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>06-24-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE MICHELLE KEELY: COURT SIGNS ORDER ENDORSING WITNESSES.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="1"><nobr>06-24-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="1"><nobr>MFD</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="1">MOTION FOR DISCOVERY</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>06-24-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>MO</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">STATE'S MOTION TO ENDORSE WITNESSES FOR TRIAL</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="blue"><nobr>07-29-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="blue"><nobr>CTFREE</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="blue">JUDGE RICHARD HATHCOAT: ORDER FOR TRANSCRIPT SIGNED BY THE COURT.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>07-29-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>O</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ORDER ENDORSING WITNESSES</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>07-29-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>O</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ORDER FOR TRANSCRIPT</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>07-31-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>CCERT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">COURT REPORTER'S CERTIFICATE</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>08-02-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>RTSUB$</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">RETURN SUBPOENA</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 50.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="GREEN"><nobr>08-02-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="GREEN"><nobr>OCISR</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="GREEN">OKLAHOMA COURT INFORMATION SYSTEM REVOLVING FUND</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 25.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>08-12-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>T&2</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ORIGINAL TRANSCRIPT & 2 COPIES OF PRELIMINARY HEARING ON NOVEMBER 30, 2023 WITH EXHIBITS #1-#4 ATTACHED IN BACK (ORIGINAL TRANSCRIPT TO FILE ONE COPY EACH TO DISTRICT ATTORNEYS OFFICE AND PUBLIC DEFENDERS OFFICE</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>08-20-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">ONE COPY OF PRELIMINARY HEARING TRANSCRIPT HAD ON THE 30TH DAY OF NOVEMBER, 2023 WITH STATE'S EXHIBITS 1-4 ATTACHED, RETURNED BY THE DISTRICT ATTORNEY'S OFFICE AND PLACED IN TRAY TO BE DELIVERED TO RECORDS WHERE IT WILL BE PLACED IN COURT FILE</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>08-23-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>PYREQ</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">PAYMENT REQUEST - TRANSCRIPTS</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right">
+                    <font color="green">$ 105.00</font>
+                </td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="8B0000C"><nobr>08-26-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="8B0000C"><nobr>DISMISSED</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="8B0000C">JUDGE RICHARD HATHCOAT:   DEFENDANT  PRESENT, NOT IN CUSTODY AND REPRESENTED BY KYLE KILLIAM PD.  STATE REPRESENTED BY KEVIN FINNEGAN.    CASE DISMISSED COST TO STATE FOR PROSECUTORIAL DISCRETION. BOND EXONERATED.</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"><span class="count_issue">1&nbsp;&nbsp;</span></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="BLACK"><nobr>08-26-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="BLACK"><nobr>BDXON</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="BLACK">THE STATUS OF THE BOND ENTRY DETAILED IN DOCKET SERIAL                                                             #123851829 ABOVE HAS CHANGED TO READ AS FOLLOWS: <BR />
+                                PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36871-10 ), IN THE AMOUNT OF $4,000.00, POSTED 12/04/2023, EXONERATED 08/26/2024</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="BLACK"><nobr>08-26-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="BLACK"><nobr>BDXON</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="BLACK">THE STATUS OF THE BOND ENTRY DETAILED IN DOCKET SERIAL                                                             #123851837 ABOVE HAS CHANGED TO READ AS FOLLOWS: <BR />
+                                PROFESSIONAL BOND FOR EDGAR, JAMES KEVIN POSTED BY BURTON, EDDIE (MULTICOUNTY AGENT:HOLDER, WAYNE ) (POWER NUMBER:36870-10 ), IN THE AMOUNT OF $10,000.00, POSTED 12/04/2023, EXONERATED 08/26/2024</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow evenRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>PCRSS</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">PROGRESS/CONDUCT REPORT- SUMMARY OF SUPERVISION</font>
+                        </p>
+                        <p><span style="text-decoration: italic;">Pursuant to 12 O.S. § 39, Document Available at Court Clerk's Office</span></p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            <tr class="docketRow oddRow primary-entry">
+                <td valign="top">
+                    <font color="black"><nobr>10-09-2024&nbsp;</nobr></font>
+                </td>
+                <td valign="top">
+                    <font class="docket_code" color="black"><nobr>TEXT</nobr></font>
+                </td>
+                <td valign="top">
+                    <div class="description-wrapper">
+                        <p>
+                            <font color="black">COPY OF TRANSCRIPT OF PROCEEDINGS 11-30-23 RETURNED BY PD</font>
+                        </p>
+                    </div>
+                </td>
+                <td align="center" valign="top"></td>
+                <td valign="top"><span class="partyname">EDGAR, JAMES KEVIN</span></td>
+                <td valign="top" align="right"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div></div>
+    <footer id="colophon" class="site-footer fullwidth" data-elastic-exclude>
+        <div class="site-info oksc-content">
+            <div class="center-brand">
+                <a class="oscn-brand" href="/">
+                    <div class="oscn-brand-container">
+                        <div class="oscn-logo"><img src="https://www.oscn.net/static/supreme-court-seal-updated-color.svg"></div>
+                        <div class="oscn-full-name"><span>OKLAHOMA <br>STATE <br>COURTS <br>NETWORK </span></div>
+                        <div class="oscn-abbreviation"><span>OSCN</span></div>
+                    </div>
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-xs"></div>
+                <div class="col-xs" style="text-align: center;">
+
+                    The Oklahoma Supreme Court<br />
+                    2100 N. Lincoln Blvd., Suite 1<br />
+                    Oklahoma City, OK 73105<br />
+                    <br />
+                    <br />
+                </div>
+                <div class="col-xs"></div>
+            </div>
+        </div><!-- .site-info -->
+    </footer><!-- #colophon -->
 </div>
-	</div>
-        <script src="/assets/js/jquery-1.11.1.min.js"></script>
-        <script src="/assets/js/bootstrap.min.js"></script>
-		<script src="/assets/js/adobe.aria.menu.min.js"></script>
-        <script src="/assets/js/navigation.js"></script>		
-        <script src="/assets/js/oscn.js"></script>	
-        <script src="/assets/js/table.sort.filter.js"></script>	
+<script src="/assets/js/jquery-1.11.1.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<script src="/assets/js/adobe.aria.menu.min.js"></script>
+<!--<script src="/assets/js/navigation.js"></script>-->
+<script src="/assets/js/oscn.js"></script>
+<script src="/assets/js/table.sort.filter.js"></script>
 <script>
-	if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = Array.prototype.forEach; }
-	
-	var d = new Date()
-	var cb = d.getFullYear().toString() + (d.getMonth()+1).toString() + ("0" + d.getDate()).slice(-2) + d.getHours()
-	
-	var anchors = document.querySelectorAll("a[href$='.pdf']")
-	anchors.forEach(function(a){
-		a.href = a.href.split('?')[0] + "?d=" + cb;		
-	});
-	
-</script>		
-<script src="/dockets/scripts/dockets.js"></script>
+    if (window.NodeList && !NodeList.prototype.forEach) { NodeList.prototype.forEach = Array.prototype.forEach; }
+
+    var d = new Date()
+    var cb = d.getFullYear().toString() + (d.getMonth()+1).toString() + ("0" + d.getDate()).slice(-2) + d.getHours()
+
+    var anchors = document.querySelectorAll("a[href$='.pdf']")
+    anchors.forEach(function(a){
+        a.href = a.href.split('?')[0] + "?d=" + cb;
+    });
+
+</script>
+<script src="/dockets/scripts/dockets.js?v=1.0.0"></script>
 <!--[if IE 7]>
-	<script>
-		var height = $(".home-banner").height();
-		$("#bg").height(height);
-	</script>
+<script>
+    var height = $(".home-banner").height();
+    $("#bg").height(height);
+</script>
 <![endif]-->
-    </body>
+</body>
 </html>

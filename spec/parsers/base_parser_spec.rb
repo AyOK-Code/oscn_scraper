@@ -12,7 +12,7 @@ RSpec.describe OscnScraper::Parsers::BaseParser do
         expect(data[:attorneys].count).to eq 1
         expect(data[:parties].count).to eq 3
         expect(data[:counts].count).to eq 2
-        expect(data[:docket_events].count).to eq 47
+        expect(data[:docket_events].count).to eq 51
       end
     end
 
