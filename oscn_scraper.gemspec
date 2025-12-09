@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'activesupport', '>= 5.0.0'
   spec.add_dependency 'byebug', '>= 11.1.3'
   spec.add_development_dependency 'awesome_print', '>= 1.9.2'
-  spec.add_dependency 'bundler', '>= 2.0'
+  spec.add_dependency 'bundler', '>= 2.6.9'
   spec.add_dependency 'httparty', '>= 0.17'
   spec.add_dependency 'nokogiri', '>= 1.11'
   spec.add_dependency 'rake', '>= 10.0'
