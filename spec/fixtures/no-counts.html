@@ -455,8 +455,17 @@
                 border-bottom: 1px #e1e1e1 solid;
                 font-size: 22px;
                 text-align: left;
+                position: relative;
             }
-
+            .section button.btn.btn-primary {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            #text-alert-message {
+                font-size: small;
+            }
             .partyCounts thead th {
                 text-decoration: underline;
             }
@@ -507,8 +516,16 @@
                 </strong><br><br>
                     Filed: 10/06/2003<br><br><br>Judge: Unassigned<br></td>
             </tr>
-        </table><script id="json_style" type="application/json">
+        </table><script>
+        let counties = new Map([
+            ["ADAIR","AD"],["ALFALFA","AL"],["APPELLATE","AP"],["ATOKA","AT"],["BEAVER","BV"],["BECKHAM","BK"],["BLAINE","BL"],["BRYAN","BR"],["CADDO","CA"],["CANADIAN","CD"],["CARTER","CR"],["CHEROKEE","CH"],["CHOCTAW","CT"],["CIMARRON","CI"],["CLEVELAND","CL"],["COAL","CO"],["COMANCHE","CM"],["COTTON","CN"],["CRAIG","CG"],["CREEK","CK"],["CUSTER","CU"],["DELAWARE","DW"],["DEWEY","DE"],["ELLIS","EL"],["GARFIELD","GA"],["GARVIN","GV"],["GRADY","GD"],["GRANT","GN"],["GREER","GR"],["HARMON","HM"],["HARPER","HP"],["HASKELL","HS"],["HUGHES","HU"],["JACKSON","JK"],["JEFFERSON","JF"],["JOHNSTON","JS"],["KAY","KA"],["KINGFISHER","KF"],["KIOWA","KI"],["LATIMER","LA"],["LEFLORE","LE"],["LINCOLN","LI"],["LOGAN","LO"],["LOVE","LV"],["MCCLAIN","ML"],["MCCURTAIN","MC"],["MCINTOSH","MT"],["MAJOR","MJ"],["MARSHALL","MS"],["MAYES","MY"],["MURRAY","MR"],["MUSKOGEE","MG"],["NOBLE","NB"],["NOWATA","NW"],["OKFUSKEE","OF"],["OKLAHOMA","OK"],["OKMULGEE","OM"],["OSAGE","OS"],["OTTAWA","OT"],["PAWNEE","PA"],["PAYNE","PY"],["PITTSBURG","PB"],["PONTOTOC","PT"],["POTTAWATOMIE","PW"],["PUSHMATAHA","PU"],["ROGER MILLS","RM"],["ROGERS","RG"],["SEMINOLE","SM"],["SEQUOYAH","SQ"],["STEPHENS","SP"],["TEXAS","TX"],["TILLMAN","TM"],["TULSA","TU"],["WAGONER","WG"],["WASHINGTON","WS"],["WASHITA","WH"],["WOODS","WD"],["WOODWARD","WW"]
+        ]);
+        var casenumber = "MI-2003-2788"
+        var court = "OKLAHOMA".toUpperCase();
+        var smscasenumber = counties.get(court)+casenumber.replaceAll('-','');
+    </script><script id="json_style" type="application/json">
         {
+            "casenumber": "MI-2003-2788",
             "style": "State of Oklahoma v. HANKS, DOUGLAS",
             "cmid": "1702112",
             "cms": "ocis",
@@ -523,7 +540,53 @@
         </p>
         <h2 class="section attorneys">Attorneys</h2>
         <p>&nbsp;&nbsp;None<br></p>
-        <h2 class="section events">Events</h2>
+        <h2 class="section events">Events
+            <div class="text-alerts-active" style="display: none;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#text-alert-message" style="">
+                Get Text Reminders
+            </button><script src="//cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script><div class="modal fade" id="text-alert-message" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Text Reminders</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button></div>
+                        <style>
+                            #text-qrcode img {
+                                margin: auto;
+                            }
+                        </style>
+                        <div class="modal-body">
+                            <p style="text-align: center;">Message and data rates may apply, depending on your mobile plan.</p>
+                            <p style="text-align: center;"><a href="https://www.oscn.net/misc/service-disclaimer">Instructions and Disclaimer</a></p><br><a class="text-casenumber" href=""><div id="text-qrcode"></div></a><br><script>
+                            var protocol = "sms"
+
+                            var url = "https://www.oscn.net/datafiles/text-messaging/redirect/";
+                            var ph_num = "18778490889";
+                            var text_message = `SUBSCRIBE ${smscasenumber}`;
+                            //var redirect_url = `${url}?to=%2B${ph_num}&body=${text_message}`;
+                            var redirect_url = `sms:+${ph_num}?body=${text_message}`;
+
+                            var qrcode = new QRCode("text-qrcode", {
+                                text: redirect_url,
+                                width: 160,
+                                height: 160,
+                                colorDark : "#000000",
+                                colorLight : "#ffffff",
+                                correctLevel : QRCode.CorrectLevel.H
+                            });
+                        </script><p style="text-align: center;"><script>
+                            var text = `Text <a class="text-casenumber" href=""><b>SUBSCRIBE ${smscasenumber}</b></a> to <b>1-877-849-0889</b>`;
+                            document.write(text);
+
+                            document.querySelectorAll('.text-casenumber').forEach(function(item){
+                                item.href = redirect_url;
+                            })
+                        </script></p>
+                        </div>
+                        <div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </h2>
         <p><span class="nbsps">&nbsp;&nbsp;</span>None<br></p>
         <h2 class="section counts">Counts</h2>
         <p>
