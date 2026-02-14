@@ -4,9 +4,10 @@ RSpec.describe OscnScraper::Parsers::Attorney do
       fixture_path = 'spec/fixtures/parsers/attorney/multiple.html'
       parsed_html = load_and_parse_fixture(fixture_path)
       data = described_class.parse(parsed_html)
+      full_address = 'ATKINS & MARKOFF LAW FIRM 9211 LAKE HEFNER PKWY, STE# 104 OKC, OK 73120  '
 
       expect(data[:attorneys].count).to eq 2
-      expect(data[:attorneys].first).to eq({ name: 'ADLER, S THOMAS II', address: '', bar_number: '19997',
+      expect(data[:attorneys].first).to eq({ name: 'ADLER, S THOMAS II', address: full_address, bar_number: '19997',
                                              represented_parties: ['PIT,   ANTHONY  LEE'] })
     end
 
