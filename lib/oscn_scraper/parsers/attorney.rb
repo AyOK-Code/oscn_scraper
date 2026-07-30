@@ -36,7 +36,7 @@ module OscnScraper
           column_one = a.css('td')[0].children[0].text
           name = parse_name(column_one)
           bar_number = parse_bar_number(column_one)
-          address = parse_address(a)
+          address = parse_address(a.css('td')[0].inner_html)
           all_parties = a.css('td')[1].children.select { |e| e.node_name == 'text' }
           attorneys[:attorneys] << {
             name: name,
@@ -59,8 +59,12 @@ module OscnScraper
         # TODO: Log unparsible bar number
       end
 
-      def parse_address(attorney)
-        attorney.css('td')[0].children[1..].inner_html
+      def parse_address(text)
+        lines = text.split('<br>')
+        lines.delete_at(0)
+        puts 'find me'
+        puts "'#{lines.join('<br>').strip}'"
+        lines.join('<br>').strip
       end
 
       def parse_parties(element)

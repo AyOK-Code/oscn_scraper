@@ -6,7 +6,7 @@ RSpec.describe OscnScraper::Parsers::Attorney do
       data = described_class.parse(parsed_html)
 
       expect(data[:attorneys].count).to eq 2
-      expect(data[:attorneys].first).to eq({ name: 'ADLER, S THOMAS II', address: '', bar_number: '19997',
+      expect(data[:attorneys].first).to eq({ name: 'ADLER, S THOMAS II', address: 'ATKINS &amp; MARKOFF LAW FIRM<br>9211 LAKE HEFNER PKWY,<br>STE# 104<br>OKC, OK 73120<br>', bar_number: '19997',
                                              represented_parties: ['PIT,   ANTHONY  LEE'] })
     end
 
