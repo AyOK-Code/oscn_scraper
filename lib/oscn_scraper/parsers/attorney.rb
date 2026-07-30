@@ -60,7 +60,7 @@ module OscnScraper
       end
 
       def parse_address(text)
-        lines = text.gsub(/[[:space:]]/, " ").strip.split('<br>')
+        lines = text.gsub(/[[:space:]]/, ' ').strip.split('<br>')
         lines.delete_at(0)
         lines.join('<br>')
       end
