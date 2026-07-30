@@ -9,7 +9,7 @@ RSpec.describe OscnScraper::Parsers::Attorney do
       expect(data[:attorneys].first)
         .to eq({
                  name: 'ADLER, S THOMAS II', bar_number: '19997', represented_parties: ['PIT,   ANTHONY  LEE'],
-                 address: 'ATKINS &amp; MARKOFF LAW FIRM<br>9211 LAKE HEFNER PKWY,<br>STE# 104<br>OKC, OK 73120<br>'
+                 address: 'ATKINS &amp; MARKOFF LAW FIRM<br>9211 LAKE HEFNER PKWY,<br>STE# 104<br>OKC, OK 73120'
                })
     end
 
