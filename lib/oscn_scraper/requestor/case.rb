@@ -29,7 +29,7 @@ module OscnScraper
       def fetch_case_by_number
         required_params?(kwargs.keys, required_params)
         params = {
-          db: kwargs[:county].downcase,
+          db: kwargs[:county].downcase.delete(' '),
           number: kwargs[:number]
         }
         request(concatenated_url(endpoint, params))
