@@ -1,3 +1,4 @@
+require 'byebug'
 module OscnScraper
   module Requestor
     # Searches for a specific party
@@ -31,7 +32,11 @@ module OscnScraper
           id: oscn_id,
           cn: case_number
         }
+        blanks = 0
         request(concatenated_url(endpoint, params))
+        
+       
+
       end
 
       private
